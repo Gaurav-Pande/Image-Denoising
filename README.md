@@ -1,6 +1,6 @@
 # Image-Denoising
 
-## Introduction
+## Background
 Image noise is a random change in a pixel hue or saturation value of a pixel in an image. There can be multiple sources of image noise. Noise can get introduced inherently at different stage of image capture pipeline from light variation, camera optics, image sensor to image storage.
 
 ### The Problem
