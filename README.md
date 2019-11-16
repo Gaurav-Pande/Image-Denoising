@@ -1,2 +1,15 @@
 # Image-Denoising
-CS7643 ML project
+
+## Introduction
+
+### Motivation
+
+### The Problem
+
+## Methodologies
+
+### Data collections
+
+## Approaches
+
+
