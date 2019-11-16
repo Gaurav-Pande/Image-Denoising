@@ -13,6 +13,18 @@ One of the fundamental challenge in the field of Image processing and Computer v
 
 The aim of this project is to extract a clean image Ix from the noisy image Iy, with noisy component as In, which is explained by Iy=Ix+In.
 
+### Metrics
+
+#### PSNR(Peak Signal-to-Noise Ratio)
+PSNR is most easily defined via the mean squared error (MSE). Given a noise-free m×n monochrome image I and its noisy approximation K, MSE is defined as:
+
+{\displaystyle {\mathit {MSE}}={\frac {1}{m\,n}}\sum _{i=0}^{m-1}\sum _{j=0}^{n-1}[I(i,j)-K(i,j)]^{2}}{\mathit  {MSE}}={\frac  {1}{m\,n}}\sum _{{i=0}}^{{m-1}}\sum _{{j=0}}^{{n-1}}[I(i,j)-K(i,j)]^{2}
+The PSNR (in dB) is defined as:
+
+{\displaystyle {\begin{aligned}{\mathit {PSNR}}&=10\cdot \log _{10}\left({\frac {{\mathit {MAX}}_{I}^{2}}{\mathit {MSE}}}\right)\\&=20\cdot \log _{10}\left({\frac {{\mathit {MAX}}_{I}}{\sqrt {\mathit {MSE}}}}\right)\\&=20\cdot \log _{10}\left({{\mathit {MAX}}_{I}}\right)-10\cdot \log _{10}\left({\mathit {MSE}}\right)\end{aligned}}}{\begin{aligned}{\mathit  {PSNR}}&=10\cdot \log _{{10}}\left({\frac  {{\mathit  {MAX}}_{I}^{2}}{{\mathit  {MSE}}}}\right)\\&=20\cdot \log _{{10}}\left({\frac  {{\mathit  {MAX}}_{I}}{{\sqrt  {{\mathit  {MSE}}}}}}\right)\\&=20\cdot \log _{{10}}\left({{\mathit  {MAX}}_{I}}\right)-10\cdot \log _{{10}}\left({{{\mathit  {MSE}}}}\right)\end{aligned}}
+
+#### SSIM
+
 ### Data 
 
 ### Approaches
