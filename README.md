@@ -9,7 +9,8 @@ One of the fundamental challenge in the field of Image processing and Computer v
 ![document with noise](https://i.stack.imgur.com/f4reA.jpg)
 ![document with noise](https://www.researchgate.net/profile/Zhixin_Shi/publication/240724564/figure/fig1/AS:298710270529538@1448229486352/Historical-handwritten-document-image-with-uneven-background.png)
 
-* satellite images, etc
+* satellite imagery, etc
+
 The aim of this project is to extract a clean image Ix from the noisy image Iy, with noisy component as In, which is explained by Iy=Ix+In.
 
 ## Methodologies
