@@ -13,10 +13,14 @@ One of the fundamental challenge in the field of Image processing and Computer v
 
 The aim of this project is to extract a clean image Ix from the noisy image Iy, with noisy component as In, which is explained by Iy=Ix+In.
 
-## Methodologies
+### Data 
 
-### Data collections
-
-## Approaches
+### Approaches
+#### Unsupervised
+##### Vanilla PCA
+##### locally adaptive PCA
+#### Supervised
+##### Sateesh
+##### Ramesh
 
 
