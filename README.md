@@ -6,9 +6,6 @@ Image noise is a random change in a pixel hue or saturation value of a pixel in 
 ### The Problem
 One of the fundamental challenge in the field of Image processing and Computer vision is Image denoising where the goal is to estimate the original image by suppressing noise from the contaminated region in an Image. This has numerous applications such as:
 * digitisation and restoration of old images/documents.
-![document with noise](https://i.stack.imgur.com/f4reA.jpg)
-![document with noise](https://www.researchgate.net/profile/Zhixin_Shi/publication/240724564/figure/fig1/AS:298710270529538@1448229486352/Historical-handwritten-document-image-with-uneven-background.png)
-
 * satellite imagery, etc
 
 The aim of this project is to extract a clean image Ix from the noisy image Iy, with noisy component as In, which is explained by Iy=Ix+In.
@@ -17,11 +14,11 @@ The aim of this project is to extract a clean image Ix from the noisy image Iy, 
 
 #### PSNR(Peak Signal-to-Noise Ratio)
 PSNR is most easily defined via the mean squared error (MSE). Given a noise-free m×n monochrome image I and its noisy approximation K, MSE is defined as:
+<img src="https://latex.codecogs.com/gif.latex?%24%24MSE%20%3D%20%5Cfrac%7B1%7D%7Bm*n%7D%5Csum%5Climits_m%20%5Csum%5Climits_n%28I_%7By%7D-I_%7Bx%7D%29%5E2%24%24" />
+<img src="https://latex.codecogs.com/gif.latex?PSNR%20%3D%2020%20*%20%5Clog%20%5Cmax%28f%29%20/%20%28MSE%5E%7B0.5%7D%29" />
 
-{\displaystyle {\mathit {MSE}}={\frac {1}{m\,n}}\sum _{i=0}^{m-1}\sum _{j=0}^{n-1}[I(i,j)-K(i,j)]^{2}}{\mathit  {MSE}}={\frac  {1}{m\,n}}\sum _{{i=0}}^{{m-1}}\sum _{{j=0}}^{{n-1}}[I(i,j)-K(i,j)]^{2}
-The PSNR (in dB) is defined as:
 
-{\displaystyle {\begin{aligned}{\mathit {PSNR}}&=10\cdot \log _{10}\left({\frac {{\mathit {MAX}}_{I}^{2}}{\mathit {MSE}}}\right)\\&=20\cdot \log _{10}\left({\frac {{\mathit {MAX}}_{I}}{\sqrt {\mathit {MSE}}}}\right)\\&=20\cdot \log _{10}\left({{\mathit {MAX}}_{I}}\right)-10\cdot \log _{10}\left({\mathit {MSE}}\right)\end{aligned}}}{\begin{aligned}{\mathit  {PSNR}}&=10\cdot \log _{{10}}\left({\frac  {{\mathit  {MAX}}_{I}^{2}}{{\mathit  {MSE}}}}\right)\\&=20\cdot \log _{{10}}\left({\frac  {{\mathit  {MAX}}_{I}}{{\sqrt  {{\mathit  {MSE}}}}}}\right)\\&=20\cdot \log _{{10}}\left({{\mathit  {MAX}}_{I}}\right)-10\cdot \log _{{10}}\left({{{\mathit  {MSE}}}}\right)\end{aligned}}
+
 
 #### SSIM
 
@@ -33,7 +30,7 @@ The PSNR (in dB) is defined as:
 
 [TODO]:  add link to the notebook, check if PCA can be done componentwise and add result here, and review.
 
-Principal component analysis is a orthogonal transformation which seeks the direction of maximum variance in the data and commonly used in dimensionality reduction of the data. Data with maximum variance is contains most of the data needed to present the whole dataset. In image denoising one has to take care of the compromise between noisy data and preserving the high variance image data detail. We can start by looking into the plain PCA analysis to see how PCA inherently tries to reduce the noise in an image.
+Principal component analysis is a orthogonal transformation which seeks the direction of maximum variance in the data and commonly used in dimensionality reduction of the data. Data with maximum variance contains most of the data needed to present the whole dataset. In image denoising one has to take care of the compromise between noisy data and preserving the high variance image data detail. We can start by looking into the plain PCA analysis to see how PCA inherently tries to reduce the noise in an image.
 
 The basic intuition behind denoising the image is that any components with variance much larger than the effect of the noise should be relatively unaffected by the noise. So if you reconstruct the data using just the largest subset of principal components, you should be preferentially keeping the signal and throwing out the noise. This is the very basic idea behind how a PCA simply can reduce noise from the image. Though this is not an efficient approach(we will look at better approach through modified PCA in next section), we can look how a plain vanilla PCA can improve the PSNR(peak signal to noise ration) over an image.
 We tried the plain vanilla PCA method in the mnist digit data set, an then in the RGB images.The approach is:
