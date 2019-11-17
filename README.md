@@ -32,6 +32,43 @@ The difference with respect to other techniques mentioned previously such as MSE
 ### Data 
 
 ### Approaches
+#### Supervised
+##### Sateesh
+
+
+## Approach 2
+
+In this approach, we have used supervised learning to learn the clean image given an noisy image. The function approximator chosen is a neural network comprising of convolutinal and residual blocks as shown []. 
+
+## Experiment 
+
+Two datasets were used in this experiment [PASCAL] and [CBSD]. The PASCAl training data contains approximately () images. This dataset is split into training, valid and test datasets with (),() and () respectively. As shown in (), the architecture takes an Input image, then it is passed through convolutional layers having 64 filters of 9x9 kernel size, 32 filters of 5x5 kernel size and 1 filter of 5x5 filter size respectively. Relu activations are used in all the layers. Stride used is of size 1, so the output size is reduced by 8 pixels in all directions. To accomodate this, we can either pad the image or give an larger input size. We chose to go with the latter as chosen in []. So the input image size used is  33x33 and output size is 17x17. So as input images have varied dimensions in PASCAL dataset(or other datasets), during preprocessing we have cropped the images. Note that crop can be at random part of the image. So, this acts as data augmentation technique as well. The 33x33 input image should have noise as well. The added noise is random from 10-50.
+
+##### architecture
+
+ <img src="https://drive.google.com/uc?export=view&id=1e1CNawerSWRO6VuyaDZwvvmqQ3-zFBZB" width="425" height = "700"/> <img src="https://drive.google.com/uc?export=view&id=1QXtY1UzQ3NPQJbD6wGcGBFkEELuc4uE6" width="425" height = "600"/> 
+
+##### Training network: 
+
+Pytorch is used to wirte the code and network is trained in google colab [] using GPU's. 
+Training is done batchwise using 128 batches of 33*33 noisy input images. MSE loss and Adam optimzer were used with learning rate of 0.001. Using the clean target image of 17x17, the MSE loss is calculated from the networks output image. Training is done for 100 epochs at this configuration. As loss got stagnated here we reduced learning rate to 0.0001 and trained another 50 epochs. After this, we added a residual block to the network and initialized its weights to random weights, with other layers weights unchanged. This network is trained for another 50 epochs with learning rate 0.01. We have stopped training at this point due to longer training periods (50 epochs approximately took 2 hours), even though it been shown in [], that adding more residual blocks will improve the PSNR scores further. At all stages of training, validation loss (as shown) is calculated and monitored as well to see if the network is generalizing to unseen data.
+
+## loss curves.
+
+ ![image](https://drive.google.com/uc?export=view&id=1tEq0Vf-vPjtD-smrQXUVQ9Vc0-qc2qJo) 
+ 
+## Results
+
+PASCAL total average PSNR on test set for both models. <done>
+  
+  <add two tables for two datasets>
+
+Generate graphs for CBSD dataset. <tbd, do we need it? as I have added in tabular format>
+
+Results on selected images. <done>
+
+  <to be added>
+
 #### Unsupervised
 ##### Vanilla PCA
 
@@ -93,43 +130,3 @@ noise or very less gaussian noise than it is hard for the PCA to denoise the dat
 
 
 ##### locally adaptive PCA
-#### Supervised
-##### Sateesh
-
-
-## Approach 2
-
-In this approach, we have used supervised learning to learn the clean image given an noisy image. The function approximator chosen is a neural network comprising of convolutinal and residual blocks as shown []. 
-
-## Experiment 
-
-Two datasets were used in this experiment [PASCAL] and [CBSD]. The PASCAl training data contains approximately () images. This dataset is split into training, valid and test datasets with (),() and () respectively. As shown in (), the architecture takes an Input image, then it is passed through convolutional layers having 64 filters of 9x9 kernel size, 32 filters of 5x5 kernel size and 1 filter of 5x5 filter size respectively. Relu activations are used in all the layers. Stride used is of size 1, so the output size is reduced by 8 pixels in all directions. To accomodate this, we can either pad the image or give an larger input size. We chose to go with the latter as chosen in []. So the input image size used is  33x33 and output size is 17x17. So as input images have varied dimensions in PASCAL dataset(or other datasets), during preprocessing we have cropped the images. Note that crop can be at random part of the image. So, this acts as data augmentation technique as well. The 33x33 input image should have noise as well. The added noise is random from 10-50.
-
-##### architecture
-
- <img src="https://drive.google.com/uc?export=view&id=1e1CNawerSWRO6VuyaDZwvvmqQ3-zFBZB" width="425" height = "700"/> <img src="https://drive.google.com/uc?export=view&id=1QXtY1UzQ3NPQJbD6wGcGBFkEELuc4uE6" width="425" height = "600"/> 
-
-##### Training network: 
-
-Pytorch is used to wirte the code and network is trained in google colab [] using GPU's. 
-Training is done batchwise using 128 batches of 33*33 noisy input images. MSE loss and Adam optimzer were used with learning rate of 0.001. Using the clean target image of 17x17, the MSE loss is calculated from the networks output image. Training is done for 100 epochs at this configuration. As loss got stagnated here we reduced learning rate to 0.0001 and trained another 50 epochs. After this, we added a residual block to the network and initialized its weights to random weights, with other layers weights unchanged. This network is trained for another 50 epochs with learning rate 0.01. We have stopped training at this point due to longer training periods (50 epochs approximately took 2 hours), even though it been shown in [], that adding more residual blocks will improve the PSNR scores further. At all stages of training, validation loss (as shown) is calculated and monitored as well to see if the network is generalizing to unseen data.
-
-## loss curves.
-
- ![image](https://drive.google.com/uc?export=view&id=1tEq0Vf-vPjtD-smrQXUVQ9Vc0-qc2qJo) 
-
-## Results
-
-PASCAL total average PSNR on test set for both models. <done>
-  
-  <add two tables for two datasets>
-
-Generate graphs for CBSD dataset. <tbd, do we need it? as I have added in tabular format>
-
-Results on selected images. <done>
-
-  <to be added>
-
-
-##### Ramesh
-
