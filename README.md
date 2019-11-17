@@ -100,8 +100,6 @@ Results on selected images. <done>
 #### Unsupervised
 ##### Vanilla PCA
 
-[TODO]:  add link to the notebook, check if PCA can be done componentwise and add result here, and review.
-
 Principal component analysis is an orthogonal transformation that seeks the direction of maximum variance in the data and commonly used in dimensionality reduction of the data. Data with maximum variance contains most of the data needed to present the whole dataset. In image denoising, one has to take care of the compromise between noisy data and preserving the high variance image data detail. We can start by looking into the PCA analysis to see how PCA inherently tries to reduce the noise in an image.
 
 The basic intuition behind denoising the image is that any components with variance much larger than the effect of the noise should be relatively unaffected by the noise. So if you reconstruct the data using just the most significant subset of principal components, you should be preferentially keeping the signal and throwing out the noise. Though this is not an efficient approach(we will look at better approach through modified PCA in the next section), we can examine how a plain vanilla PCA can improve the PSNR(peak signal to noise ration) over an image.
@@ -157,6 +155,7 @@ You can observe from above that the results are not that good but there is an im
 | <img src="assets/vanilla_pca/noise_50_smim.png " width="300" height = "150"/> | <img src="assets/vanilla_pca/noise_25_smim.png " width="300" height = "150"/>|
 | *SMIM comparison accross images*  | *SMIM comparison accross images* |
 
+To rerun the experiment, please clone this repository and run PCA.ipynb notebook under notebooks directory.
 
 <!--
 **Gaussian Noise level-5**
