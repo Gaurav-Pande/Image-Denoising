@@ -104,19 +104,6 @@ The same model is tested on the CBSD dataset, Average PSNR and SSIM score are as
 
 The above results indicate the **model is generalising well** to other datasets having similar noise as AWGN. Also, the net PSNR achieved is a bit a lower than from the paper's [1] best, as we are only using 3 layers for training.
 
-Results on selected images. <done>
-
-| **Original** | **Nosiy Input with sigma=50** |
-|:--:| :--:|
-|<img src="assets/original_png/0064.png" width="300" height = "150"/> | <img src="assets/noisy50/0064.png" width="300" height = "150"/> |
-| *NA* | *PSNR=14.91, SSIM=0.31*|
-| **DN Resnet Denoised output** | **Ramesh output** |
-|<img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>|
-| *PSNR = 24.25, SSIM = 0.73*  | *PSNR=??, SSIM=??* |
-| **Vanilla PCA Denoised output** | **Varun output** |
-|<img src="assets/vanilla_pca/noise50/64_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> |
-| *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
-
 
 
 #### Unsupervised
@@ -193,6 +180,45 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 
 
 ##### locally adaptive PCA
+
+
+
+## Qualitative Results (from all approaches/experiments):
+
+| **Original** | **Nosiy Input with sigma=50** |
+|:--:| :--:|
+|<img src="assets/original_png/0064.png" width="300" height = "150"/> | <img src="assets/noisy50/0064.png" width="300" height = "150"/> |
+| *NA* | *PSNR=14.91, SSIM=0.31*|
+| **Experiment 1 denoised output** | **Ramesh output** |
+|<img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>|
+| *PSNR = 24.25, SSIM = 0.73*  | *PSNR=??, SSIM=??* |
+| **Vanilla PCA Denoised output** | **Varun output** |
+|<img src="assets/vanilla_pca/noise50/64_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> |
+| *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
+
+
+| **Original** | **Nosiy Input with sigma=25** |
+|:--:| :--:|
+|<img src="assets/original_png/0047.png" width="150" height = "300"/> | <img src="assets/noisy50/0047.png" width="150" height = "300"/> |
+| *NA* | *PSNR=20.19, SSIM=0.21*|
+| **Experiment 1 denoised output** | **Ramesh output** |
+|<img src="assets/dn_resnet_150/50/5.jpg" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/5.jpg" width="300" height = "150"/>|
+| *PSNR = 32.78, SSIM = 0.84*  | *PSNR=??, SSIM=??* |
+| **Vanilla PCA Denoised output** | **Varun output** |
+|<img src="assets/vanilla_pca/noise50/64_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/5.jpg" width="300" height = "150"/> |
+| *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
+
+
+| **Original** | **Nosiy Input with sigma=10** |
+|:--:| :--:|
+|<img src="assets/original_png/0011.png" width="300" height = "150"/> | <img src="assets/noisy50/0011.png" width="300" height = "150"/> |
+| *NA* | *PSNR=28.12, SSIM=0.61*|
+| **DN Resnet Denoised output** | **Ramesh output** |
+|<img src="assets/dn_resnet_150/50/8.jpg" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/8.jpg" width="300" height = "150"/>|
+| *PSNR = 35.41, SSIM = 0.94*  | *PSNR=??, SSIM=??* |
+| **Vanilla PCA Denoised output** | **Varun output** |
+|<img src="assets/vanilla_pca/noise50/64_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/8.jpg" width="300" height = "150"/> |
+| *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
 
 
 
