@@ -91,7 +91,7 @@ Results on selected images. <done>
 | **DN Resnet Denoised output** | **Ramesh output** |
 |<img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>|
 | *PSNR = 24.25, SSIM = 0.73*  | *PSNR=??, SSIM=??* |
-| **Vanilla PCA** | **Varun output** |
+| **Vanilla PCA Denoised output** | **Varun output** |
 |<img src="assets/vanilla_pca/noise50/64_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> |
 | *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
 
@@ -146,10 +146,12 @@ Here below, you can see the original image and then denoise image.
 We plotted the psnr graphs for all the noisy datasets and from the figure below you can observe that when there is no
 noise or very less gaussian noise than it is hard for the PCA to denoise the data, but when you started increasing the noise in the image(upto 50 gaussian noise), you can observe that psnr value improves for all images.
 
-| | 
-|:-------------------------:|
-**Gaussian Noise level-50**
-![Gaussian noise 50](assets/vanilla_pca/noise_50_psnr.png "Gaussian Noise level-50") 
+
+| **Original** | **Nosiy Input with sigma=50** |
+|:--:| :--:|
+| **Gaussian Noise level-50** | **Gaussian Noise level-25**|
+| <img src="assets/vanilla_pca/noise_50_psnr.png " width="300" height = "150"/> | <img src="assets/vanilla_pca/noise_25_psnr.png " width="300" height = "150"/>|
+
 <!--
 **Gaussian Noise level-5**
 ![Gaussian noise 5](assets/vanilla_pca/noise_5_psnr.png "Gaussian Noise level-5")
