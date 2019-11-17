@@ -84,7 +84,7 @@ The above results indicate the **model is generalising well** to other datasets 
 
 Results on selected images. <done>
 
-<img src="assets/original_png/0064.png" width="425" height = "700"/> <img src="assets/noisy50/0064.png" width="425" height = "600"/> 
+<img src="assets/original_png/0064.png" width="100" height = "50"/> <img src="assets/noisy50/0064.png" width="100" height = "50"/> 
 
 
 
