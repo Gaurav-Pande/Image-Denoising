@@ -14,8 +14,9 @@ The aim of this project is to extract a clean image Ix from the noisy image Iy, 
 
 #### PSNR(Peak Signal-to-Noise Ratio)
 PSNR is most easily defined via the mean squared error (MSE). Given a noise-free m×n monochrome image I and its noisy approximation K, MSE is defined as:
-<img src="https://latex.codecogs.com/gif.latex?%24%24MSE%20%3D%20%5Cfrac%7B1%7D%7Bm*n%7D%5Csum%5Climits_m%20%5Csum%5Climits_n%28I_%7By%7D-I_%7Bx%7D%29%5E2%24%24" />
-<img src="https://latex.codecogs.com/gif.latex?PSNR%20%3D%2020%20*%20%5Clog%20%5Cmax%28f%29%20/%20%28MSE%5E%7B0.5%7D%29" />
+<img src="https://latex.codecogs.com/svg.latex?%24%24MSE%20%3D%20%5Cfrac%7B1%7D%7Bm*n%7D%5Csum%5Climits_m%20%5Csum%5Climits_n%28I_%7By%7D-I_%7Bx%7D%29%5E2%24%24" />
+
+<img src="https://latex.codecogs.com/svg.latex?PSNR%20%3D%2020%20*%20%5Clog%20%5Cmax%28f%29%20/%20%28MSE%5E%7B0.5%7D%29" />
 
 
 
