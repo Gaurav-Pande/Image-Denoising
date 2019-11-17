@@ -146,6 +146,7 @@ Here below, you can see the original image and then denoise image.
 We plotted the psnr graphs for all the noisy datasets and from the figure below you can observe that when there is no
 noise or very less gaussian noise than it is hard for the PCA to denoise the data, but when you started increasing the noise in the image(upto 50 gaussian noise), you can observe that psnr value improves for all images.
 
+| | |
 |:--:| :--:|
 | **Gaussian Noise level-50** | **Gaussian Noise level-25**|
 | <img src="assets/vanilla_pca/noise_50_psnr.png " width="300" height = "150"/> | <img src="assets/vanilla_pca/noise_25_psnr.png " width="300" height = "150"/>|
