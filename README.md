@@ -181,5 +181,5 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 3. Clausmichele. (n.d.). clausmichele/CBSD68-dataset. Retrieved from https://github.com/clausmichele/CBSD68-dataset.
 4.  pytorch/pytorch. Retrieved from https://github.com/pytorch/pytorch.
 5.  lutzroeder/netron. Retrieved from https://github.com/lutzroeder/netron
-6.
+6.  Vanderplas, Jacob T. Python Data Science Handbook: Tools and Techniques for Developers. OReilly, 2016.
 
