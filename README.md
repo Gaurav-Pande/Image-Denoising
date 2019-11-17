@@ -44,19 +44,19 @@ We tried the plain vanilla PCA method in the mnist digit data set, an then in th
 * Visualize the dataset again to see difference.
 
 Before PCA transformation the digit dataset looks like this:
-![Mnist data before denoising](assets/mnist_digit_before.png)
+![Mnist data before denoising](assets/vanilla_pca/mnist_digit_before.png)
 
 After this we add some random gaussian noise to it, to make pixels more blurr and add some noise to it.
 After adding random gaussian noise the digit dataset looks like this:
-![Adding Random Gaussian noise to the data](assets/mnist_noisy.png)
+![Adding Random Gaussian noise to the data](assets/vanilla_pca/mnist_noisy.png)
 
 Now we try to see the number of components which can capture most of the variance in the data. From the below
 figure we can see that first 10 component can capture 80 percent of the variance in the data.
-![Plotting Component vs variance graph](assets/mnist_var_comp.png)
+![Plotting Component vs variance graph](assets/vanilla_pca/mnist_var_comp.png)
 
 Next we try to plot the digit data for our noisy image using the first 10 component, and we can clearly see that 
 it PCA preserves the signals and loses the noise from the data:
-![Denoised data](assets/mnist_denoised.png)
+![Denoised data](assets/vanilla_pca/mnist_denoised.png)
 
 
 Let's run the same experiment in a RGB image to see if there an improvement in PSNR after PCA analysis.
@@ -77,15 +77,15 @@ noise or very less gaussian noise than it is hard for the PCA to denoise the dat
 | | 
 |:-------------------------:|
 **Gaussian Noise level-5**
-![Gaussian noise 5](assets/noise_5_psnr.png "Gaussian Noise level-5")
+![Gaussian noise 5](assets/vanilla_pca/noise_5_psnr.png "Gaussian Noise level-5")
 **Gaussian Noise level-15**
-![Gaussian noise 15](assets/noise_15_psnr.png "Gaussian Noise level-15") 
+![Gaussian noise 15](assets/vanilla_pca/noise_15_psnr.png "Gaussian Noise level-15") 
 **Gaussian Noise level-25**
-![Gaussian noise 25](assets/noise_25_psnr.png "Gaussian Noise level-25") 
+![Gaussian noise 25](assets/vanilla_pca/noise_25_psnr.png "Gaussian Noise level-25") 
 **Gaussian Noise level-35**
-![Gaussian noise 35](assets/noise_35_psnr.png "Gaussian Noise level-35") 
+![Gaussian noise 35](assets/vanilla_pca/noise_35_psnr.png "Gaussian Noise level-35") 
 **Gaussian Noise level-50**
-![Gaussian noise 50](assets/noise_50_psnr.png "Gaussian Noise level-50") 
+![Gaussian noise 50](assets/vanilla_pca/noise_50_psnr.png "Gaussian Noise level-50") 
 
 
 ##### locally adaptive PCA
