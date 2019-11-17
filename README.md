@@ -14,7 +14,9 @@ Also Image denoising is useful as a preprocessing step for several computer visi
 * object detection
 * image classification
 
-This project aims to extract a clean image Ix from the noisy image Iy, with noisy component as In, which is explained by Iy=Ix+In.
+This project aims to extract a clean image <img src="https://latex.codecogs.com/gif.latex?%24I_%7Bx%7D%24" /> from the noisy image <img src="https://latex.codecogs.com/gif.latex?%24I_%7By%7D%24" />, with noisy component as <img src="https://latex.codecogs.com/gif.latex?%24I_%7Bn%7D%24" />, which is explained by 
+
+<img src="https://latex.codecogs.com/gif.latex?%24I_%7By%7D%3DI_%7Bx%7D&plus;I_%7Bn%7D%24" />.
 
 ### Problem Scope
 We are limiting the problem scope to tackle additive guassian white noise(AGWN) only and will demonstrate how supervised and unsupervised techniques could be used to denoise images with AGWN.
@@ -42,7 +44,7 @@ The difference with respect to other techniques mentioned previously such as MSE
 
 As we have multiple approaches and experiments, we have chosen a common dataset CBSD68 [3] to analyze results. The CBSD68 dataset is a dataset commonly used for benchmarking in Image denoising domain. It contains 68 images and corresponding noisy images at different sigma levels.  
 
-Note that as this dataset has quite less no. of samples, for supervised learning approach we have also used other datasets for training. They will be outlined in later sections.
+Note that as this dataset has quite less no. of samples, for supervised learning approach we have also used other datasets for training. They will be outlined in later sections. 
 
 ### Approaches
 #### Supervised
