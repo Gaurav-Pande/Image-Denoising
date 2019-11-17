@@ -140,20 +140,23 @@ The method remains the same:
 * Calculate the PSNR value for original, noisy image and original, denoised image and see if there is an improvement.
 
 We ran the above process for the CBSD68-dataset provided by Berkeley. It contains both noisy and original image with different gaussian noise level.In the below figures there is comparison which is been made to see how the psnr value and how smim values improves after doing PCA decomposition in a noisy image, but the **limitation** of vanilla PCA is that it is not necessary that it will reduce the noise always, but it always captures the data with higher variance. To make the point consider the result on a original and noisy and its denoised part below:
-| | |
+
+| | | |
 |:--:| :--:| :--:|
 | **Original Image** | **Noisy Image-50**| **Denoised Image-50**|
-| <img src="assets/vanilla_pca/noise_50_psnr.png " width="300" height = "150"/> | <img src="assets/vanilla_pca/noise_25_psnr.png " width="300" height = "150"/>|<img src="assets/vanilla_pca/noise_25_psnr.png " width="300" height = "150"/>|
+| <img src="assets/vanilla_pca/noise50/0064_original.png" width="300" height = "150"/>|<img src="assets/vanilla_pca/noise50/0064_noisy.png" width="300" height = "150"/> | <img src="assets/vanilla_pca/noise50/0064_denoised.png" width="300" height = "150"/>|
+
 
 You can observe from above that the results are not that good but there is an improvement in the psnr and smim values, because the denoised part tries to capture the pixels with higher variance. That is why most part of the image in denoised is a bit brown as that is the prominent color in our original image as well.
 
 | | |
 |:--:| :--:|
 | **Gaussian Noise level-50** | **Gaussian Noise level-25**|
-| <img src="assets/vanilla_pca/noise_50_psnr.png " width="300" height = "150"/> | <img src="assets/vanilla_pca/noise50/64_original.png" width="300" height = "150"/>|
-| *PSNR comparision accross all images* | *PSNR comparision accross all images* |
-| <img src="assets/vanilla_pca/noise50/64_noisy.png" width="300" height = "150"/> | <img src="assets/vanilla_pca/noise50/64_denoised.png" width="300" height = "150"/>|
-| *SMIM comparision accross all images* | *SMIM comparision accross all images* |
+| <img src="assets/vanilla_pca/noise_50_psnr.png " width="300" height = "150"/> | <img src="assets/vanilla_pca/noise_25_psnr.png " width="300" height = "150"/>|
+| *PSNR comparison accross images* | *PSNR comparison accross images* 
+| <img src="assets/vanilla_pca/noise_50_smim.png " width="300" height = "150"/> | <img src="assets/vanilla_pca/noise_25_smim.png " width="300" height = "150"/>|
+| *SMIM comparison accross images*  | *SMIM comparison accross images* |
+
 
 <!--
 **Gaussian Noise level-5**
