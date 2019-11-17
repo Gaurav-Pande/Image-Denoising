@@ -7,6 +7,11 @@ Image noise is a random change in a pixel hue or saturation value of a pixel in 
 One of the fundamental challenges in the field of Image processing and Computer vision is Image denoising, where the goal is to estimate the original image by suppressing noise from the contaminated region in an Image. Image Denoising has numerous applications, such as:
 * digitization and restoration of old photos/documents.
 * satellite imagery, etc
+Also Image denoising is useful as a preprocessing step for several computer vision tasks where obtaining the original image content is crucial for strong performance:
+* visual tracking
+* image segementation
+* object detection
+* image classification
 
 This project aims to extract a clean image Ix from the noisy image Iy, with noisy component as In, which is explained by Iy=Ix+In.
 
