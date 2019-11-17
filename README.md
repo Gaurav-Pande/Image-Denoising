@@ -77,7 +77,6 @@ noise or very less gaussian noise than it is hard for the PCA to denoise the dat
 #### Supervised
 ##### Sateesh
 
- <img src="https://drive.google.com/uc?export=view&id=1e1CNawerSWRO6VuyaDZwvvmqQ3-zFBZB" width="425" height = "700"/> <img src="https://drive.google.com/uc?export=view&id=1QXtY1UzQ3NPQJbD6wGcGBFkEELuc4uE6" width="425" height = "600"/> 
 
 ##### Ramesh
 
