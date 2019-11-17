@@ -193,7 +193,7 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 |<img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>|
 | *PSNR = 24.25, SSIM = 0.73*  | *PSNR=??, SSIM=??* |
 | **Vanilla PCA Denoised output** | **Varun output** |
-|<img src="assets/vanilla_pca/noise50/64_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> |
+|<img src="assets/vanilla_pca/noise50/0064.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> |
 | *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
 
 
@@ -205,7 +205,7 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 |<img src="assets/dn_resnet_150/25/5.jpg" width="150" height = "300"/>| <img src="assets/dn_resnet_150/25/5.jpg" width="150" height = "300"/>|
 | *PSNR = 32.78, SSIM = 0.84*  | *PSNR=??, SSIM=??* |
 | **Vanilla PCA Denoised output** | **Varun output** |
-|<img src="assets/vanilla_pca/noise50/64_denoised.png" width="150" height = "300"/>| <img src="assets/dn_resnet_150/25/5.jpg" width="150" height = "300"/> |
+|<img src="assets/vanilla_pca/noise25/0047.png" width="150" height = "300"/>| <img src="assets/dn_resnet_150/25/5.jpg" width="150" height = "300"/> |
 | *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
 
 
@@ -217,7 +217,7 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 |<img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/>| <img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/>|
 | *PSNR = 35.41, SSIM = 0.94*  | *PSNR=??, SSIM=??* |
 | **Vanilla PCA Denoised output** | **Varun output** |
-|<img src="assets/vanilla_pca/noise50/64_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/> |
+|<img src="assets/vanilla_pca/noise10/0011_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/> |
 | *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
 
 
