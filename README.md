@@ -44,7 +44,14 @@ The difference with respect to other techniques mentioned previously such as MSE
 
 As we have multiple approaches and experiments, we have chosen a common dataset CBSD68 [3] to analyze results. The CBSD68 dataset is a dataset commonly used for benchmarking in Image denoising domain. It contains 68 images and corresponding noisy images at different sigma levels.  
 
-Note that as this dataset has quite less no. of samples, for supervised learning approach we have also used other datasets for training. They will be outlined in later sections. 
+Note that as this dataset has quite less no. of samples, for supervised learning approach we have also used other datasets for training. They will be outlined in later sections. Data for each methods are as below:
+
+#### Unsupervised:
+* Digits dataset from scikit learn.
+* RGB images from CBSD68 dataset for PCA decomposition.
+
+#### Supervised:
+
 
 ### Approaches
 #### Supervised
