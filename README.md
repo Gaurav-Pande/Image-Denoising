@@ -42,19 +42,19 @@ We tried the plain vanilla PCA method in the mnist digit data set, an then in th
 * Visualize the dataset again to see difference.
 
 Before PCA transformation the digit dataset looks like this:
-[image]
+![Mnist data before denoising](assets/mnist_digit_before.png)
 
 After this we add some random gaussian noise to it, to make pixels more blurr and add some noise to it.
 After adding random gaussian noise the digit dataset looks like this:
-[image]
+![Adding Random Gaussian noise to the data](assets/mnist_noisy.png)
 
 Now we try to see the number of components which can capture most of the variance in the data. From the below
 figure we can see that first 10 component can capture 80 percent of the variance in the data.
-[Image]
+![Plotting Component vs variance graph](assets/mnist_var_comp.png)
 
 Next we try to plot the digit data for our noisy image using the first 10 component, and we can clearly see that 
 it PCA preserves the signals and loses the noise from the data:
-[Image]
+![Denoised data](assets/mnist_denoised.png)
 
 
 Let's run the same experiment in a RGB image to see if there an improvement in PSNR after PCA analysis.
@@ -71,7 +71,7 @@ Here below you can see the original image and then denoise image.
 
 We plotted the psnr graphs for all the noisy datasets and from the figure below you can observe that when there is no
 noise or very less gaussian noise than it is hard for the PCA to denoise the data, but when you started increasing the noise in the image(upto 50 gaussian noise), you can observe that psnr value improves for all images.
-[Images]
+![Gaussian noise 5](assets/noise_5_psnr.png)
 
 ##### locally adaptive PCA
 #### Supervised
