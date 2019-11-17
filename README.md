@@ -172,3 +172,14 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 
 ##### locally adaptive PCA
 
+
+
+## References:
+
+1. Ren, H., El-Khamy, M., & Lee, J. (2019). DN-ResNet: Efficient Deep Residual Network for Image Denoising. Computer Vision – ACCV 2018 Lecture Notes in Computer Science, 215–230. doi: 10.1007/978-3-030-20873-8_14
+2. pascal-voc-2010. (n.d.). The {PASCAL} {V}Isual {O}Bject {C}Lasses {C}Hallenge 2010 {(VOC2010)} {R}Esults. Retrieved from http://www.pascal-network.org/challenges/VOC/voc2010/workshop/index.html
+3. Clausmichele. (n.d.). clausmichele/CBSD68-dataset. Retrieved from https://github.com/clausmichele/CBSD68-dataset.
+4.  pytorch/pytorch. Retrieved from https://github.com/pytorch/pytorch.
+5.  lutzroeder/netron. Retrieved from https://github.com/lutzroeder/netron
+6.
+
