@@ -10,6 +10,9 @@ One of the fundamental challenges in the field of Image processing and Computer 
 
 This project aims to extract a clean image Ix from the noisy image Iy, with noisy component as In, which is explained by Iy=Ix+In.
 
+### Problem Scope
+We are limiting the problem scope to tackle additive guassian white noise(AGWN) only and will demonstrate how supervised and unsupervised techniques could be used to denoise images with AGWN.
+
 ### Metrics
 
 #### PSNR(Peak Signal-to-Noise Ratio)
