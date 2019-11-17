@@ -44,15 +44,15 @@ The difference with respect to other techniques mentioned previously such as MSE
 
 As we have multiple approaches and experiments, we have chosen a common dataset CBSD68 [3] to analyze results. The CBSD68 dataset is a dataset commonly used for benchmarking in Image denoising domain. It contains 68 images and corresponding noisy images at different sigma levels.  
 
-Note that as this dataset has quite less no. of samples, for supervised learning approach we have also used other datasets for training. They will be outlined in later sections. Data for each methods are as below:
+Note that as this dataset has quite less no. of samples, for supervised learning approach we have also used other datasets for training. We have explored other datasets for unsupervised approach as well as mentioned below.
 
+#### Supervised:
+* PASCAL dataset [2]
+* <to be added by Ramesh>
+ 
 #### Unsupervised:
 * Digits dataset from scikit learn.
 * RGB images from CBSD68 dataset for PCA decomposition.
-
-#### Supervised:
-
-
 
 ## Approach 1 (Supervised):
 
@@ -188,7 +188,15 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 
 ##### locally adaptive PCA
 
+## Results comparison across approaches:
+<other approach values to be addded here>
 
+**Sigma** | **PSNR **| **SSIM**
+---|---|---
+10 | 28.26->**33.33** | 0.75->**0.93** 
+20| 20.48->**29.45**| 0.45->**0.85**
+50| 14.97->**25.67** | 0.25->**0.71**
+50(crop 33)|15.04->**26.68**|0.23->**0.69**
 
 ## Qualitative Results (from all approaches/experiments):
 
@@ -226,8 +234,6 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 | **Vanilla PCA Denoised output** | **Varun output** |
 |<img src="assets/vanilla_pca/noise10/0011_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/> |
 | *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
-
-## Conclusion:
 
 
 
