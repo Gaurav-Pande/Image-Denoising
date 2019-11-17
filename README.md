@@ -116,14 +116,14 @@ Principal component analysis is an orthogonal transformation that seeks the dire
 The basic intuition behind denoising the image is that any components with variance much larger than the effect of the noise should be relatively unaffected by the noise. So if you reconstruct the data using just the most significant subset of principal components, you should be preferentially keeping the signal and throwing out the noise. Though this is not an efficient approach(we will look at better approach through modified PCA in the next section), we can examine how a plain vanilla PCA can improve the PSNR(peak signal to noise ration) over an image.
 
 We tried the plain vanilla PCA method in the mnist digit data set, and then in the RGB images. The approach is:
-* Take the Mnist dataset
+* Take the Digits dataset
 * Add some random Gaussian noise to the image
 * Plot the variance vs Component curve to determine the component storing the highest variation.
 * Apply inverse PCA to get the image back using the components derived in the above step.
 * Visualize the dataset again to see the difference.
 
 Before PCA transformation the digit dataset looks like this:
-![Mnist data before denoising](assets/vanilla_pca/mnist_digit_before.png)
+![Digits data before denoising](assets/vanilla_pca/mnist_digit_before.png)
 
 After this we add some random Gaussian noise to it, to make pixels more blurr and add some noise to it.
 After adding random gaussian noise, the digit dataset looks like this:
