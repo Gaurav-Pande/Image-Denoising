@@ -65,6 +65,8 @@ As shown in the figure below, the architecture takes an Input image, and then it
 
  <img src="https://drive.google.com/uc?export=view&id=1e1CNawerSWRO6VuyaDZwvvmqQ3-zFBZB" width="425" height = "700"/> <img src="assets/architecture/Screen Shot 2019-11-17 at 4.46.55 PM.png" width="425" height = "700"/> 
  
+ <center>Figure 1. Network architectures used in (left) Experiment 1 and (right) Experiment 2.  </center>
+ 
  
 ##### Data Augmentation/Pre-processing
 
