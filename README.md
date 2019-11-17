@@ -53,16 +53,14 @@ Note that as this dataset has quite less no. of samples, for supervised learning
 #### Supervised:
 
 
-### Approaches
-#### Supervised
-##### Sateesh
 
-
-## Approach 2
+## Approach 1 (Supervised):
 
 In this approach, we have used supervised learning to learn the clean image given a noisy image. The function approximator chosen is a neural network comprising of convolutional and residual blocks, as shown in figure below. Two experiments were conducted, one with pure convolutional layers and the other with mix of convolutional and residual block as detailed below.
 
 ## Experiment 1
+
+The code is available [here](https://colab.research.google.com/drive/1ViNx_b5FlwXjzjIqRuYkdNsgF6ZExqRk) and [here](https://colab.research.google.com/drive/1-LJ12r-DJXY3HI0hzVIom2r9RpCdL8Gd).
 
 ##### Datasets
 
