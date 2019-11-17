@@ -84,11 +84,17 @@ The above results indicate the **model is generalising well** to other datasets 
 
 Results on selected images. <done>
 
-|<img src="assets/original_png/0064.png" width="300" height = "150" title="Original image"/> | <img src="assets/noisy50/0064.png" width="300" height = "150" title="Noisy Input sigma=50"/> |
+| **Original** | **Nosiy Input with sigma=50** |
 |:--:| :--:|
-| *Space* | *Space* |
+|<img src="assets/original_png/0064.png" title= "alpha" width="300" height = "150"/> | <img src="assets/noisy50/0064.png" width="300" height = "150"/> |
+| *NA* | *PSNR=10* |
 
-<img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> 
+| *DN Resnet* | *Ramesh* |
+|<img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>|
+| *PSNR = 10* | *PSNR=10* |
+| *Gaurav* | *Varun* |
+|<img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> |
+| *Space* | *Space* |
 
 
 
