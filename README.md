@@ -84,7 +84,7 @@ The above results indicate the **model is generalising well** to other datasets 
 
 Results on selected images. <done>
 
-<img src="assets/original_png/0064.png" width="300" height = "150"/> <img src="assets/noisy50/0064.png" width="300" height = "150"/> 
+<img src="assets/original_png/0064.png" width="300" height = "150" title="Original image"/><em>image_caption</em> <img src="assets/noisy50/0064.png" width="300" height = "150" title="Noisy Input sigma=50"/> <em>image_caption</em>
 
 <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> 
 
