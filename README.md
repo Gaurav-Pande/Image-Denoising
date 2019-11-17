@@ -65,16 +65,18 @@ As shown in the figure below, the architecture takes an Input image, and then it
 
  <img src="https://drive.google.com/uc?export=view&id=1e1CNawerSWRO6VuyaDZwvvmqQ3-zFBZB" width="425" height = "700"/> <img src="assets/architecture/Screen Shot 2019-11-17 at 4.46.55 PM.png" width="425" height = "700"/> 
  
- <center>Figure 1. Network architectures used in (left) Experiment 1 and (right) Experiment 2.  </center>
+ <center> Figure 1. Network architectures used in (left) Experiment 1 and (right) Experiment 2. The graph is generated using the Netron app [5] </center>
  
  
 ##### Data Augmentation/Pre-processing
 
-The input image size used is of size 33x33 and output size is 17x17. As input images have varied dimensions in PASCAL dataset(or other datasets), during preprocessing, we have cropped the images. Note that crop can be at random part of the image. So, this acts as data augmentation technique as well. The 33x33 input image should have noise as well. The added noise is random from 10-50. 
+The input image size used is of size 33x33 and output size is 17x17. As input images have varied dimensions in PASCAL dataset(or other datasets), during preprocessing, we have cropped the images. Note that crop can be at random part of the image. So, this acts as data augmentation technique as well. The 33x33 input image should have noise as well. The added noise is random from 10-50 sigmas. The corresponding clean mid-portion of this image is target.
 
 ##### Training: 
 
-Pytorch [4] is used to write the code, and network is trained in google colab using GPU's. Training is done batchwise using 128 batches of 33x33 noisy input images and 17x17 corresponding clean target images. MSE loss and Adam optimzer were used with learning rate of 0.001. Using the clean target image of 17x17, the MSE loss is calculated from the networks output image. Training is done for 100 epochs at this configuration. As loss got stagnated here we reduced learning rate to 0.0001 and trained another 50 epochs. After this, we added a residual block to the network and initialized its weights to random weights, with other layers weights unchanged. This network is trained for another 50 epochs with learning rate 0.01. We have stopped training at this point due to longer training periods (50 epochs approximately took 2 hours), even though it been shown in [1], that adding more residual blocks will improve the PSNR scores further. At all stages of training, validation loss (as shown) is calculated and monitored as well to see if the network is generalizing to unseen data.
+Pytorch [4] is used to write the code, and network is trained in google colab using GPU's. Training is done batchwise using 128 batches of 33x33 noisy input images and 17x17 corresponding clean target images. MSE loss and Adam optimzer were used with learning rate of 0.001. Using the clean target image of 17x17, the MSE loss is calculated from the networks output image. Training is done for 100 epochs at this configuration. As loss got stagnated here we reduced learning rate to 0.0001 and trained another 50 epochs. After this, we added a residual block to the network and initialized its weights to random weights, with other layers weights unchanged. This network is trained for another 50 epochs with learning rate 0.01. We have stopped training at this point due to longer training periods (50 epochs approximately took 2 hours), even though it been shown in [1], that adding more residual blocks will improve the PSNR scores further. At all stages of training, validation loss is calculated and monitored as well to see if the network is generalizing to unseen data.
+
+Note, to experiment further with residual blocks, experiment 2 is performed, which will be detailed below.
 
 ##### Traning and validation loss graph:
 
