@@ -227,6 +227,8 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 |<img src="assets/vanilla_pca/noise10/0011_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/> |
 | *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
 
+## Conclusion:
+
 
 
 ## References:
