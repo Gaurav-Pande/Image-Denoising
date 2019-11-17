@@ -150,6 +150,7 @@ noise or very less gaussian noise than it is hard for the PCA to denoise the dat
 |:--:| :--:|
 | **Gaussian Noise level-50** | **Gaussian Noise level-25**|
 | <img src="assets/vanilla_pca/noise_50_psnr.png " width="300" height = "150"/> | <img src="assets/vanilla_pca/noise_25_psnr.png " width="300" height = "150"/>|
+| <img src="assets/vanilla_pca/noise_50_smim.png " width="300" height = "150"/> | <img src="assets/vanilla_pca/noise_25_smim.png " width="300" height = "150"/>|
 
 <!--
 **Gaussian Noise level-5**
