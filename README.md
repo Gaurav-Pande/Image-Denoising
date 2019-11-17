@@ -122,10 +122,12 @@ After adding random gaussian noise, the digit dataset looks like this:
 
 Now we try to see the number of components which can capture most of the variance in the data. From the below
 figure, we can see that first 10 components can capture 80 percent of the variance in the data.
+
 ![Plotting Component vs variance graph](assets/vanilla_pca/mnist_var_comp.png)
 
 Next, we try to plot the digit data for our noisy image using the first 10 components, and we can see that 
 it PCA preserves the signals and loses the noise from the data:
+
 ![Denoised data](assets/vanilla_pca/mnist_denoised.png)
 
 
