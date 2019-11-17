@@ -60,17 +60,34 @@ Training is done batchwise using 128 batches of 33*33 noisy input images. MSE lo
 
  ![image](https://drive.google.com/uc?export=view&id=1tEq0Vf-vPjtD-smrQXUVQ9Vc0-qc2qJo) 
  
-## Results
+## Results and Observations
 
-PASCAL total average PSNR on test set for both models. <done>
-  
-  <add two tables for two datasets>
+The average PSNR scores and SSIM scores on the test set of PASCAL, for the best model was given below. Note that best model is 3 layered, as 5 layered one couldn't be trained completely due to computing constraints. Input crop size of 200 was used to show the results instead of 33. Also, left value in the column indicates average PSNR compared with noisy input, while the right bolded one indicates the average PSNR with the denoised output. Similar case with SSIM.
 
-Generate graphs for CBSD dataset. <tbd, do we need it? as I have added in tabular format>
+**Sigma** | **PSNR **| **SSIM**
+---|---|---
+10 | 28.33->**31.92** | 0.73->**0.90** 
+20| 20.63->**28.94**| 0.44->**0.83**
+50| 15.13->**25.66** | 0.24->**0.70**
+50(crop 33)|15.16->**26.77**|0.22->**0.69**
+
+The same model is tested on the CBSD dataset [], Average PSNR and SSIM score are as follows, 
+
+**Sigma** | **PSNR **| **SSIM**
+---|---|---
+10 | 28.26->**33.33** | 0.75->**0.93** 
+20| 20.48->**29.45**| 0.45->**0.85**
+50| 14.97->**25.67** | 0.25->**0.71**
+50(crop 33)|15.04->**26.68**|0.23->**0.69**
+
+The above results indicate the **model is generalising well** to other datasets having similar noise as AWGN. Also, the net PSNR achieved is a bit a lower than from the paper's [] best, as we are only using 3 layers for training.
 
 Results on selected images. <done>
 
-  <to be added>
+<img src="https://drive.google.com/uc?export=view&id=1e1CNawerSWRO6VuyaDZwvvmqQ3-zFBZB" width="425" height = "700"/> <img src="https://drive.google.com/uc?export=view&id=1QXtY1UzQ3NPQJbD6wGcGBFkEELuc4uE6" width="425" height = "600"/> 
+
+
+
 
 #### Unsupervised
 ##### Vanilla PCA
