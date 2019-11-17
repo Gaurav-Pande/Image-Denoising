@@ -87,13 +87,13 @@ Results on selected images. <done>
 | **Original** | **Nosiy Input with sigma=50** |
 |:--:| :--:|
 |<img src="assets/original_png/0064.png" width="300" height = "150"/> | <img src="assets/noisy50/0064.png" width="300" height = "150"/> |
-| *NA* | *PSNR=10* |
-| *DN Resnet* | *Ramesh* |
+| *NA* | *PSNR=??, SSIM=??*|
+| **DN Resnet** | **Ramesh** |
 |<img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>|
-| *PSNR = 10* | *PSNR=10* |
-| *Gaurav* | *Varun* |
+| *PSNR = 24.25, SSIM = 0.73*  | *PSNR=??, SSIM=??* |
+| **Gaurav** | **Varun** |
 |<img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> |
-| *Space* | *Space* |
+| *PSNR=??, SSIM=??* | *PSNR=??, SSIM=??* |
 
 
 
