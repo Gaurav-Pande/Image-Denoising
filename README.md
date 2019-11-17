@@ -137,6 +137,7 @@ noise or very less gaussian noise than it is hard for the PCA to denoise the dat
 
 | | 
 |:-------------------------:|
+<!--
 **Gaussian Noise level-5**
 ![Gaussian noise 5](assets/vanilla_pca/noise_5_psnr.png "Gaussian Noise level-5")
 **Gaussian Noise level-15**
@@ -145,6 +146,7 @@ noise or very less gaussian noise than it is hard for the PCA to denoise the dat
 ![Gaussian noise 25](assets/vanilla_pca/noise_25_psnr.png "Gaussian Noise level-25") 
 **Gaussian Noise level-35**
 ![Gaussian noise 35](assets/vanilla_pca/noise_35_psnr.png "Gaussian Noise level-35") 
+-->
 **Gaussian Noise level-50**
 ![Gaussian noise 50](assets/vanilla_pca/noise_50_psnr.png "Gaussian Noise level-50") 
 
