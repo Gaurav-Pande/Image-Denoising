@@ -199,25 +199,25 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 
 | **Original** | **Nosiy Input with sigma=25** |
 |:--:| :--:|
-|<img src="assets/original_png/0047.png" width="150" height = "300"/> | <img src="assets/noisy50/0047.png" width="150" height = "300"/> |
+|<img src="assets/original_png/0047.png" width="150" height = "300"/> | <img src="assets/noisy25/0047.png" width="150" height = "300"/> |
 | *NA* | *PSNR=20.19, SSIM=0.21*|
 | **Experiment 1 denoised output** | **Ramesh output** |
-|<img src="assets/dn_resnet_150/50/5.jpg" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/5.jpg" width="300" height = "150"/>|
+|<img src="assets/dn_resnet_150/25/5.jpg" width="150" height = "300"/>| <img src="assets/dn_resnet_150/25/5.jpg" width="150" height = "300"/>|
 | *PSNR = 32.78, SSIM = 0.84*  | *PSNR=??, SSIM=??* |
 | **Vanilla PCA Denoised output** | **Varun output** |
-|<img src="assets/vanilla_pca/noise50/64_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/5.jpg" width="300" height = "150"/> |
+|<img src="assets/vanilla_pca/noise50/64_denoised.png" width="150" height = "300"/>| <img src="assets/dn_resnet_150/25/5.jpg" width="150" height = "300"/> |
 | *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
 
 
 | **Original** | **Nosiy Input with sigma=10** |
 |:--:| :--:|
-|<img src="assets/original_png/0011.png" width="300" height = "150"/> | <img src="assets/noisy50/0011.png" width="300" height = "150"/> |
+|<img src="assets/original_png/0011.png" width="300" height = "150"/> | <img src="assets/noisy10/0011.png" width="300" height = "150"/> |
 | *NA* | *PSNR=28.12, SSIM=0.61*|
 | **DN Resnet Denoised output** | **Ramesh output** |
-|<img src="assets/dn_resnet_150/50/8.jpg" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/8.jpg" width="300" height = "150"/>|
+|<img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/>| <img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/>|
 | *PSNR = 35.41, SSIM = 0.94*  | *PSNR=??, SSIM=??* |
 | **Vanilla PCA Denoised output** | **Varun output** |
-|<img src="assets/vanilla_pca/noise50/64_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/8.jpg" width="300" height = "150"/> |
+|<img src="assets/vanilla_pca/noise50/64_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/> |
 | *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
 
 
