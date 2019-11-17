@@ -87,11 +87,11 @@ Results on selected images. <done>
 | **Original** | **Nosiy Input with sigma=50** |
 |:--:| :--:|
 |<img src="assets/original_png/0064.png" width="300" height = "150"/> | <img src="assets/noisy50/0064.png" width="300" height = "150"/> |
-| *NA* | *PSNR=??, SSIM=??*|
-| **DN Resnet** | **Ramesh** |
+| *NA* | *PSNR=14.91, SSIM=0.31*|
+| **DN Resnet Denoised output** | **Ramesh output** |
 |<img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>|
 | *PSNR = 24.25, SSIM = 0.73*  | *PSNR=??, SSIM=??* |
-| **Gaurav** | **Varun** |
+| **Gaurav output** | **Varun output** |
 |<img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> |
 | *PSNR=??, SSIM=??* | *PSNR=??, SSIM=??* |
 
