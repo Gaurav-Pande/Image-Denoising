@@ -79,4 +79,4 @@ noise or very less gaussian noise than it is hard for the PCA to denoise the dat
 ##### Ramesh
 
 
-![image](https://drive.google.com/uc?export=view&id=1e1CNawerSWRO6VuyaDZwvvmqQ3-zFBZB)|![image](https://drive.google.com/uc?export=view&id=1e1CNawerSWRO6VuyaDZwvvmqQ3-zFBZB)
+![image](https://drive.google.com/uc?export=view&id=1e1CNawerSWRO6VuyaDZwvvmqQ3-zFBZB) =10x20|![image](https://drive.google.com/uc?export=view&id=1e1CNawerSWRO6VuyaDZwvvmqQ3-zFBZB)
