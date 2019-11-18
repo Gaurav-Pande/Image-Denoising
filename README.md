@@ -113,7 +113,7 @@ The above results indicate the **model is generalising well** to other datasets 
 
 ## Approach 3
 
-In this experiment we implement the residual network connections in the convolutional denoising network. Since residual networks are memory intensive, we train the network on a different dataset [DIV2K] which is smaller and test the network on our validation set : [CBSD]. The DIV2K[7] dataset consists of 800 very high resolution images.
+In this experiment we implement the residual network connections in the convolutional denoising network. Since residual networks are memory intensive, we train the network on a different dataset [DIV2K] which is smaller and test the network on our validation set : [CBSD]. The DIV2K[8] dataset consists of 800 very high resolution images.
 
 ## Residual networks
 
@@ -226,7 +226,21 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 
 
 
-##### locally adaptive PCA
+### Local Pixel Grouping - Principle Component Analysis
+#### Approach
+This approach uses principal component analysis (PCA) with local pixel grouping (LPG) to do image denoising. It ensures that the image local features are well preserved after PCA transfromation but the noise components is removed. Each pixels and its nearest neighbours are modeled as vector variables and training samples are selected from local window using block matching based local pixel grouping.
+It is evident with experiments that this approach can be iteratively applied with appropriate adaptive noise parameter tuning to improve the denoising performance.
+
+#### Intuition
+In this approach a pixel and pixels spaitially local to it make a single feature vector. If two pixels which are next to each other are to be considered, then it is almost right to assume that pixels will have almost same values in ideal scenario and the only variation that can be there is because of noise. So, it is right to approximate the value of the these pixels with single value which can be approximated by projecting these points into the principle components of the feature space. As we now, there are two perspective to look of PCA,
+- One is to reduce the distance between the point and projected point
+- Second is to increase the variance in the principle component direction
+
+<img src="assets/lgp_pca/doc/LPG_PCA_pipeline.png" width="400" height = "200"/>
+This picture illustrates the pixel to be denoised, freature vector and training block.
+
+<img src="assets/lgp_pca/doc/LPG_PCA_pipeline.png" width="450" height = "150"/>
+![image](assets/lgp_pca/doc/LPG_PCA_pipeline.png)
 
 ## Results comparison across approaches:
 <other approach values to be addded here>
@@ -291,7 +305,9 @@ Average SSIM on CBSD68 dataset for all experiments:
 1. Ren, H., El-Khamy, M., & Lee, J. (2019). DN-ResNet: Efficient Deep Residual Network for Image Denoising. Computer Vision – ACCV 2018 Lecture Notes in Computer Science, 215–230. doi: 10.1007/978-3-030-20873-8_14
 2. pascal-voc-2010. (n.d.). The {PASCAL} {V}Isual {O}Bject {C}Lasses {C}Hallenge 2010 {(VOC2010)} {R}Esults. Retrieved from http://www.pascal-network.org/challenges/VOC/voc2010/workshop/index.html
 3. Clausmichele. (n.d.). clausmichele/CBSD68-dataset. Retrieved from https://github.com/clausmichele/CBSD68-dataset.
-4.  pytorch/pytorch. Retrieved from https://github.com/pytorch/pytorch.
-5.  lutzroeder/netron. Retrieved from https://github.com/lutzroeder/netron
-6.  Vanderplas, Jacob T. Python Data Science Handbook: Tools and Techniques for Developers. OReilly, 2016.
-7.  DIV2K dataset: DIVerse 2K resolution high quality images as used for the challenges
+4. pytorch/pytorch. Retrieved from https://github.com/pytorch/pytorch.
+5. lutzroeder/netron. Retrieved from https://github.com/lutzroeder/netron
+6. Vanderplas, Jacob T. Python Data Science Handbook: Tools and Techniques for Developers. OReilly, 2016.
+7. Zhang, L., Dong, W., Zhang, D., & Shi, G. (2010). Two-stage image denoising by principal component analysis with local pixel grouping. Pattern Recognition, 43(4), 1531–1549. doi: 10.1016/j.patcog.2009.09.023
+8. DIV2K dataset: DIVerse 2K resolution high quality images as used for the challenges
+
