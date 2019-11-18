@@ -387,6 +387,8 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 
 ## Experiment4 (Local Pixel Grouping - Principle Component Analysis)
 
+The code is available [here](https://github.com/Gaurav-Pande/Image-Denoising/blob/master/notebooks/Image_denoising_LPGPCA.ipynb).
+
 ##### Approach
 
 This approach uses principal component analysis (PCA) with local pixel grouping (LPG) to do image denoising. This approach is based on the general observation that energy of a signal will concentrate on a small subset of PCA transformed dataset, while the energy of noise will evenly spread over the whole dataset. Each pixel is vectorised such that local structure information is preserved in it. Local pixel grouping, implemented by block matching method, is done over nearby pixels to select samples that are similar. PCA applied on these samples, will eliminate noise.
