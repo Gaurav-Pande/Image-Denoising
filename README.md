@@ -113,7 +113,7 @@ Note, to experiment further with residual blocks, experiment 2 is performed, whi
 
 <center>
 
-![image](https://drive.google.com/uc?export=view&id=1tEq0Vf-vPjtD-smrQXUVQ9Vc0-qc2qJo)
+<p><img src="https://drive.google.com/uc?export=view&amp;id=1tEq0Vf-vPjtD-smrQXUVQ9Vc0-qc2qJo" alt="image" /></p>
 
 </center>
 
@@ -538,6 +538,7 @@ Average SSIM on CBSD68 dataset for all experiments:
 </tr>
 </tbody>
 </table>
+
 </center>
 
 <center>
