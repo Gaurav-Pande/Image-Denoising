@@ -555,7 +555,7 @@ Following are limitations for this approach:
 
 <center>
 
-<table style="text-align:center;">
+<table>
 <thead>
 <tr>
 <th style="text-align: center;"><strong>Original</strong></th>
