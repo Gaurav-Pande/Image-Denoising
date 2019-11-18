@@ -30,7 +30,7 @@ We are limiting the problem scope to tackle additive guassian white noise(AGWN) 
 
 #### PSNR(Peak Signal-to-Noise Ratio)
 
-PSNR is most easily defined via the mean squared error (MSE). Given a noise-free m×n monochrome image I and its noisy approximation K, MSE is defined as:
+PSNR, is an engineering term for the ratio between the maximum possible power of a signal and the power of corrupting noise that affects the fidelity of its representation. PSNR is most easily defined via the mean squared error (MSE). Given a noise-free m×n monochrome image I and its noisy approximation K, MSE is defined as:
 
 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3a34719b4f391dba26b3e8e4460b7595d62eece4" />
 The PSNR (in dB) is defined as:
