@@ -493,6 +493,9 @@ Following are limitations for this approach:
 
 ## Qualitative Results (from all approaches/experiments):
 
+
+## Results with sigma = 50
+
 <center>
 
 <table>
@@ -512,8 +515,8 @@ Following are limitations for this approach:
 <td style="text-align: center;"><em>PSNR=14.91, SSIM=0.31</em></td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>Experiment 1 denoised output</strong></td>
-<td style="text-align: center;"><strong>Ramesh output</strong></td>
+<td style="text-align: center;"><strong>Deep CNN denoised output</strong></td>
+<td style="text-align: center;"><strong>Deep Resnet Denoised output</strong></td>
 </tr>
 <tr>
 <td style="text-align: center;"><img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/></td>
@@ -540,6 +543,8 @@ Following are limitations for this approach:
 
 </center>
 
+## Results with sigma = 25
+
 <center>
 
 <table style="text-align:center;">
@@ -559,8 +564,8 @@ Following are limitations for this approach:
 <td style="text-align: center;"><em>PSNR=20.19, SSIM=0.21</em></td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>Experiment 1 denoised output</strong></td>
-<td style="text-align: center;"><strong>Ramesh output</strong></td>
+<td style="text-align: center;"><strong>Deep CNN denoised output</strong></td>
+<td style="text-align: center;"><strong>Deep Resnet Denoised output</strong></td>
 </tr>
 <tr>
 <td style="text-align: center;"><img src="assets/dn_resnet_150/25/5.jpg" width="150" height = "300"/></td>
@@ -587,6 +592,8 @@ Following are limitations for this approach:
 
 </center>
 
+## Results with sigma = 10
+
 <center>
 
 <table>
@@ -606,8 +613,8 @@ Following are limitations for this approach:
 <td style="text-align: center;"><em>PSNR=28.12, SSIM=0.61</em></td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>DN Resnet Denoised output</strong></td>
-<td style="text-align: center;"><strong>Ramesh output</strong></td>
+<td style="text-align: center;"><strong>Deep CNN Denoised output</strong></td>
+<td style="text-align: center;"><strong>Deep Resnet Denoised output</strong></td>
 </tr>
 <tr>
 <td style="text-align: center;"><img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/></td>
