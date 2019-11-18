@@ -264,7 +264,7 @@ Average SSIM on CBSD68 dataset for all experiments:
 ## Qualitative Results (from all approaches/experiments):
 
 | **Original** | **Nosiy Input with sigma=50** |
-|:--:| :--:|
+|---| --- |
 |<img src="assets/original_png/0064.png" width="300" height = "150"/> | <img src="assets/noisy50/0064.png" width="300" height = "150"/> |
 | *NA* | *PSNR=14.91, SSIM=0.31*|
 | **Experiment 1 denoised output** | **Ramesh output** |
@@ -276,7 +276,7 @@ Average SSIM on CBSD68 dataset for all experiments:
 
 
 | **Original** | **Nosiy Input with sigma=25** |
-|:--:| :--:|
+|---|---|
 |<img src="assets/original_png/0047.png" width="150" height = "300"/> | <img src="assets/noisy25/0047.png" width="150" height = "300"/> |
 | *NA* | *PSNR=20.19, SSIM=0.21*|
 | **Experiment 1 denoised output** | **Ramesh output** |
@@ -288,7 +288,7 @@ Average SSIM on CBSD68 dataset for all experiments:
 
 
 | **Original** | **Nosiy Input with sigma=10** |
-|:--:| :--:|
+|---| ---|
 |<img src="assets/original_png/0011.png" width="300" height = "150"/> | <img src="assets/noisy10/0011.png" width="300" height = "150"/> |
 | *NA* | *PSNR=28.12, SSIM=0.61*|
 | **DN Resnet Denoised output** | **Ramesh output** |
