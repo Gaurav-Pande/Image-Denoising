@@ -226,7 +226,7 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 
 
 
-### locally adaptive PCA
+### Local Pixel Grouping - Principle Component Analysis
 #### Approach
 This approach uses principal component analysis (PCA) with local pixel grouping (LPG) to do image denoising. It ensures that the image local features are well preserved after PCA transfromation but the noise components is removed. Each pixels and its nearest neighbours are modeled as vector variables and training samples are selected from local window using block matching based local pixel grouping.
 It is evident with experiments that this approach can be iteratively applied with appropriate adaptive noise parameter tuning to improve the denoising performance.
@@ -236,8 +236,10 @@ In this approach a pixel and pixels spaitially local to it make a single feature
 - One is to reduce the distance between the point and projected point
 - Second is to increase the variance in the principle component direction
 
-![image](assets/lgp_pca/LPG_PCA_feature.png)
+![image](assets/lgp_pca/doc/LPG_PCA_feature.png)
 This picture illustrates the pixel to be denoised, freature vector and training block.
+
+![image](assets/lgp_pca/doc/LPG_PCA_pipeline.png)
 
 ## Results comparison across approaches:
 <other approach values to be addded here>
