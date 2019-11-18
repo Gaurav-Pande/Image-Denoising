@@ -480,7 +480,7 @@ Average SSIM on CBSD68 dataset for all experiments:
 <td style="text-align: center;"><em>PSNR=29.07, SSIM=0.86</em></td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>Vanilla PCA Denoised output</strong></td>
+<td style="text-align: center;"><strong>Vanilla PCA output</strong></td>
 <td style="text-align: center;"><strong>LPG_PCA</strong></td>
 </tr>
 <tr>
