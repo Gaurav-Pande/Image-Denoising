@@ -238,6 +238,13 @@ We obtain the results as documented in the tables below. We obtain reasonable im
 
 Another novelty that we applied is passing the denoised image back into the model for further refinement, we observe that the PSNR values get a slight reduction but the SSIM score improves by about 0.1 (especially with larger noise ranges). This approach is similar to our PCA approach with iterative application.
 
+### Limitations
+
+Following are limitations for supervised approaches:
+
+- High training computational requirements.
+- For low sigma values, aritifacts are introduced at bright spot regions of image.
+
 ## Approach2 (Unsupervised)
 In this approach we used unsupervised learning techniques to solve the problem of image denoising.There are 2 experiments here as follows:
 
