@@ -314,8 +314,8 @@ In this project we conducted different experiments for superevised and unsupervi
 #### Contributions
 
 All members of the project have contributed equally in discussions, project formulation, Report generation. For individual learning, each member focused on the following:
-* Sai Sateesh Gudapati : Deep CNNs, Report
-* Ramesh Arvind Ravi: Deep ResNets, Report
-* Varun Dagar: LPG_PCA, Report
-* Gaurav Pande: Vanilla PCA, Report
-* Sri Vivek Vanga: Vanilla PCA, LPG_PCA, Report
+* Sai Sateesh Gudapati : Literature Survey, Deep CNNs, Report
+* Ramesh Arvind Ravi: Literature Survey, Deep ResNets, Report
+* Varun Dagar: Literature Survey, LPG_PCA, Report
+* Gaurav Pande: Literature Survey, Vanilla PCA, Report
+* Sri Vivek Vanga: Literature Survey, Vanilla PCA, LPG_PCA, Report
