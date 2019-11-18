@@ -262,19 +262,80 @@ Following are limitations for this approach:
 
 Average PSNR on CBSD68 dataset for all experiments:
 
-| **Sigma** | **Deep CNNs**      | **Deep ResNets**   | **Vanilla PCA**    | **LPG_PCA**        |
-| --------- | ------------------ | ------------------ | ------------------ | ------------------ |
-| 10        | 28.26 to **33.33** | 28.26 to **30.29** | 28.26 to **26.46** | 28.26 to **32.93** |
-| 25        | 20.48 to **29.45** | 20.48 to **25.9**  | 20.48 to **22.93** | 20.48 to **27.72** |
-| 50        | 14.97 to **25.67** | 14.97 to **22.8**  | 14.97 to **18.60** | 14.97 to **17.93** |
+
+
+<table>
+<thead>
+<tr>
+<th><strong>Sigma</strong></th>
+<th><strong>Deep CNNs</strong></th>
+<th><strong>Deep ResNets</strong></th>
+<th><strong>Vanilla PCA</strong></th>
+<th><strong>LPG_PCA</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>28.26 to <strong>33.33</strong></td>
+<td>28.26 to <strong>30.29</strong></td>
+<td>28.26 to <strong>26.46</strong></td>
+<td>28.26 to <strong>32.93</strong></td>
+</tr>
+<tr>
+<td>25</td>
+<td>20.48 to <strong>29.45</strong></td>
+<td>20.48 to <strong>25.9</strong></td>
+<td>20.48 to <strong>22.93</strong></td>
+<td>20.48 to <strong>27.72</strong></td>
+</tr>
+<tr>
+<td>50</td>
+<td>14.97 to <strong>25.67</strong></td>
+<td>14.97 to <strong>22.8</strong></td>
+<td>14.97 to <strong>18.60</strong></td>
+<td>14.97 to <strong>17.93</strong></td>
+</tr>
+</tbody>
+</table>
 
 Average SSIM on CBSD68 dataset for all experiments:
 
-| **Sigma** | **Deep CNNs**     | **Deep ResNets**  | **Vanilla PCA**  | **LPG_PCA**      |
-| --------- | ----------------- | ----------------- | ---------------- | ---------------- |
-| 10        | 0.75 to **0.93**  | 0.75 to **0.937** | 0.75 to **0.9**  | 0.75 to **0.95** |
-| 25        | 0.45 to **0.85**. | 0.45 to **0.85**  | 0.45 to **0.72** | 0.45 to **0.85** |
-| 50        | 0.25 to **0.71**  | 0.25 to **0.78**  | 0.25 to **0.46** | 0.25 to **0.38** |
+
+<table>
+<thead>
+<tr>
+<th><strong>Sigma</strong></th>
+<th><strong>Deep CNNs</strong></th>
+<th><strong>Deep ResNets</strong></th>
+<th><strong>Vanilla PCA</strong></th>
+<th><strong>LPG_PCA</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>0.75 to <strong>0.93</strong></td>
+<td>0.75 to <strong>0.937</strong></td>
+<td>0.75 to <strong>0.9</strong></td>
+<td>0.75 to <strong>0.95</strong></td>
+</tr>
+<tr>
+<td>25</td>
+<td>0.45 to <strong>0.85</strong>.</td>
+<td>0.45 to <strong>0.85</strong></td>
+<td>0.45 to <strong>0.72</strong></td>
+<td>0.45 to <strong>0.85</strong></td>
+</tr>
+<tr>
+<td>50</td>
+<td>0.25 to <strong>0.71</strong></td>
+<td>0.25 to <strong>0.78</strong></td>
+<td>0.25 to <strong>0.46</strong></td>
+<td>0.25 to <strong>0.38</strong></td>
+</tr>
+</tbody>
+</table>
 
 ## Qualitative Results (from all approaches/experiments):
 
