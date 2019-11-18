@@ -54,7 +54,11 @@ The PSNR (in dB) is defined as:
 
 The difference with respect to other techniques mentioned previously such as MSE or PSNR is that these approaches estimate absolute errors; on the other hand, SSIM is a perception-based model that considers image degradation as perceived change in structural information, while also incorporating important perceptual phenomena, including both luminance masking and contrast masking terms. Structural information is the idea that the pixels have strong inter-dependencies, especially when they are spatially close. These dependencies carry essential information about the structure of the objects in the visual scene. Luminance masking is a phenomenon whereby image distortions (in this context) tend to be less visible in bright regions, while contrast masking is a phenomenon whereby distortions become less visible where there is a significant activity or "texture" in the image.
 
+<center>
+
 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/63349f3ee17e396915f6c25221ae488c3bb54b66" />
+
+</center>
 
 ### Data
 
@@ -119,12 +123,37 @@ The average PSNR scores and SSIM scores on the test set of PASCAL, for the best 
 
 <center>
 
-| **Sigma**   | **PSNR**           | **SSIM**         |
-| ----------- | ------------------ | ---------------- |
-| 10          | 28.33 to **31.92** | 0.73 to **0.90** |
-| 25          | 20.63 to **28.94** | 0.44 to **0.83** |
-| 50          | 15.13 to **25.66** | 0.24 to **0.70** |
-| 50(crop 33) | 15.16 to **26.77** | 0.22 to **0.69** |
+<table>
+<thead>
+<tr>
+<th><strong>Sigma</strong></th>
+<th><strong>PSNR</strong></th>
+<th><strong>SSIM</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>28.33 to <strong>31.92</strong></td>
+<td>0.73 to <strong>0.90</strong></td>
+</tr>
+<tr>
+<td>25</td>
+<td>20.63 to <strong>28.94</strong></td>
+<td>0.44 to <strong>0.83</strong></td>
+</tr>
+<tr>
+<td>50</td>
+<td>15.13 to <strong>25.66</strong></td>
+<td>0.24 to <strong>0.70</strong></td>
+</tr>
+<tr>
+<td>50(crop 33)</td>
+<td>15.16 to <strong>26.77</strong></td>
+<td>0.22 to <strong>0.69</strong></td>
+</tr>
+</tbody>
+</table>
 
 </center>
 
@@ -132,12 +161,37 @@ The same model is tested on the CBSD dataset, Average PSNR and SSIM score are as
 
 <center>
 
-| **Sigma**   | **PSNR**           | **SSIM**         |
-| ----------- | ------------------ | ---------------- |
-| 10          | 28.26 to **33.33** | 0.75 to **0.93** |
-| 25          | 20.48 to **29.45** | 0.45 to **0.85** |
-| 50          | 14.97 to **25.67** | 0.25 to **0.71** |
-| 50(crop 33) | 15.04 to **26.68** | 0.23 to **0.69** |
+<table>
+<thead>
+<tr>
+<th><strong>Sigma</strong></th>
+<th><strong>PSNR</strong></th>
+<th><strong>SSIM</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>28.26 to <strong>33.33</strong></td>
+<td>0.75 to <strong>0.93</strong></td>
+</tr>
+<tr>
+<td>25</td>
+<td>20.48 to <strong>29.45</strong></td>
+<td>0.45 to <strong>0.85</strong></td>
+</tr>
+<tr>
+<td>50</td>
+<td>14.97 to <strong>25.67</strong></td>
+<td>0.25 to <strong>0.71</strong></td>
+</tr>
+<tr>
+<td>50(crop 33)</td>
+<td>15.04 to <strong>26.68</strong></td>
+<td>0.23 to <strong>0.69</strong></td>
+</tr>
+</tbody>
+</table>
 
 </center>
 
@@ -204,7 +258,7 @@ Before PCA transformation the digit dataset looks like this:
 
 <center>
 
-![Digits data before denoising](assets/vanilla_pca/mnist_digit_before.png)
+<p><img src="assets/vanilla_pca/mnist_digit_before.png" alt="Digits data before denoising" /></p>
 
 </center>
 
@@ -213,7 +267,7 @@ After adding random gaussian noise, the digit dataset looks like this:
 
 <center>
 
-![Adding Random Gaussian noise to the data](assets/vanilla_pca/mnist_noisy.png)
+<p><img src="assets/vanilla_pca/mnist_noisy.png" alt="Adding Random Gaussian noise to the data" /></p>
 
 </center>
 
@@ -222,7 +276,7 @@ figure, we can see that first 10 components can capture 80 percent of the varian
 
 <center>
 
-![Plotting Component vs variance graph](assets/vanilla_pca/mnist_var_comp.png)
+<p><img src="assets/vanilla_pca/mnist_var_comp.png" alt="Plotting Component vs variance graph" /></p>
 
 </center>
 
@@ -231,7 +285,7 @@ it PCA preserves the signals and loses the noise from the data:
 
 <center>
 
-![Denoised data](assets/vanilla_pca/mnist_denoised.png)
+<p><img src="assets/vanilla_pca/mnist_denoised.png" alt="Denoised data" /></p>
 
 </center>
 
