@@ -20,7 +20,11 @@ Also Image denoising is useful as a preprocessing step for several computer visi
 
 This project aims to extract a clean image <img src="https://latex.codecogs.com/gif.latex?%24I_%7Bx%7D%24" /> from the noisy image <img src="https://latex.codecogs.com/gif.latex?%24I_%7By%7D%24" />, with noisy component as <img src="https://latex.codecogs.com/gif.latex?%24I_%7Bn%7D%24" />, which is explained by
 
+<center>
+
 <img src="https://latex.codecogs.com/gif.latex?%24I_%7By%7D%3DI_%7Bx%7D&plus;I_%7Bn%7D%24" />.
+
+</center>
 
 ### Problem Scope
 
@@ -32,9 +36,19 @@ We are limiting the problem scope to tackle additive guassian white noise(AGWN) 
 
 PSNR, is an engineering term for the ratio between the maximum possible power of a signal and the power of corrupting noise that affects the fidelity of its representation. PSNR is most easily defined via the mean squared error (MSE). Given a noise-free m×n monochrome image I and its noisy approximation K, MSE is defined as:
 
+<center>
+
 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3a34719b4f391dba26b3e8e4460b7595d62eece4" />
+
+</center>
+
 The PSNR (in dB) is defined as:
+
+<center>
+
 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fc22801ed1232ff1231c4156b589de5c32063a8a" />
+
+</center>
 
 #### SSIM
 
@@ -75,8 +89,8 @@ Two datasets were used in this experiment PASCAL VOC 2010 [2] and CBSD68. The PA
 As shown in the figure below, the architecture takes an Input image, and then it is passed through convolutional layers having 64 filters of 9x9 kernel size, 32 filters of 5x5 kernel size, and 1 filter of 5x5 filter size respectively. Relu activations are used in all the layers. Stride used is of size 1, so the output size is reduced by 8 pixels in all directions. To accommodate this, we can either pad the image or give a larger input size. we chose to go with the latter as chosen in [1].
 
 <p align="middle">
-<img src="https://drive.google.com/uc?export=view&id=1e1CNawerSWRO6VuyaDZwvvmqQ3-zFBZB" width="300" height = "500"/> 
-<img src="assets/architecture/Screen Shot 2019-11-17 at 4.46.55 PM.png" width="300" height = "500"/>
+<img src="https://drive.google.com/uc?export=view&id=1e1CNawerSWRO6VuyaDZwvvmqQ3-zFBZB" width="400" height = "700"/> 
+<img src="assets/architecture/Screen Shot 2019-11-17 at 4.46.55 PM.png" width="400" height = "700"/>
 </p>
  <center> Figure 1. Network architectures used in (left) Experiment 1 and (right) Experiment 2. The graph is generated using the Netron app [5] </center>
  
@@ -93,11 +107,17 @@ Note, to experiment further with residual blocks, experiment 2 is performed, whi
 
 ##### Traning and validation loss graph:
 
+<center>
+
 ![image](https://drive.google.com/uc?export=view&id=1tEq0Vf-vPjtD-smrQXUVQ9Vc0-qc2qJo)
+
+</center>
 
 ##### Results and observations:
 
 The average PSNR scores and SSIM scores on the test set of PASCAL, for the best model was given below. Note that best model is 3 layered, as 5 layered one couldn't be trained completely due to computing constraints. Input crop size of 200 was used to show the results instead of 33. Also, left value in the column indicates average PSNR compared with noisy input, while the right bolded one indicates the average PSNR with the denoised output. Similar case with SSIM.
+
+<center>
 
 | **Sigma**   | **PSNR**           | **SSIM**         |
 | ----------- | ------------------ | ---------------- |
@@ -106,7 +126,11 @@ The average PSNR scores and SSIM scores on the test set of PASCAL, for the best 
 | 50          | 15.13 to **25.66** | 0.24 to **0.70** |
 | 50(crop 33) | 15.16 to **26.77** | 0.22 to **0.69** |
 
+</center>
+
 The same model is tested on the CBSD dataset, Average PSNR and SSIM score are as follows,
+
+<center>
 
 | **Sigma**   | **PSNR**           | **SSIM**         |
 | ----------- | ------------------ | ---------------- |
@@ -114,6 +138,8 @@ The same model is tested on the CBSD dataset, Average PSNR and SSIM score are as
 | 25          | 20.48 to **29.45** | 0.45 to **0.85** |
 | 50          | 14.97 to **25.67** | 0.25 to **0.71** |
 | 50(crop 33) | 15.04 to **26.68** | 0.23 to **0.69** |
+
+</center>
 
 The above results indicate the **model is generalising well** to other datasets having similar noise as AWGN. Also, the net PSNR achieved is a bit a lower than from the paper's [1] best, as we are only using 3 layers for training.
 
@@ -147,9 +173,9 @@ In order to improve convergence, we also use learning rate scheduler to reduce l
 ### Results and Observations
 
 <p align="middle">
-  <img src="assets\deep_resnet\loss_vs_iterations_sigma_25.jpg" width="200" />
-  <img src="assets\deep_resnet\psnr_vs_iterations_sigma_25.jpg" width="200" /> 
-  <img src="assets\deep_resnet\ssim_vs_iterations_sigma_25.jpg" width="200" />
+  <img src="assets\deep_resnet\loss_vs_iterations_sigma_25.jpg" width="400" />
+  <img src="assets\deep_resnet\psnr_vs_iterations_sigma_25.jpg" width="400" /> 
+  <img src="assets\deep_resnet\ssim_vs_iterations_sigma_25.jpg" width="400" />
 </p>
 
 During evaluation, we apply the network on the whole image as the convolutional operations can be applied on any image size.
@@ -175,21 +201,40 @@ We tried the plain vanilla PCA method in the mnist digit data set, and then in t
 - Visualize the dataset again to see the difference.
 
 Before PCA transformation the digit dataset looks like this:
+
+<center>
+
 ![Digits data before denoising](assets/vanilla_pca/mnist_digit_before.png)
+
+</center>
 
 After this we add some random Gaussian noise to it, to make pixels more blurr and add some noise to it.
 After adding random gaussian noise, the digit dataset looks like this:
+
+<center>
+
 ![Adding Random Gaussian noise to the data](assets/vanilla_pca/mnist_noisy.png)
+
+</center>
 
 Now we try to see the number of components which can capture most of the variance in the data. From the below
 figure, we can see that first 10 components can capture 80 percent of the variance in the data.
 
+<center>
+
 ![Plotting Component vs variance graph](assets/vanilla_pca/mnist_var_comp.png)
+
+</center>
+
 
 Next, we try to plot the digit data for our noisy image using the first 10 components, and we can see that
 it PCA preserves the signals and loses the noise from the data:
 
+<center>
+
 ![Denoised data](assets/vanilla_pca/mnist_denoised.png)
+</center>
+
 
 Let's run the same experiment in a RGB image to see if there is an improvement in PSNR after PCA analysis.
 The method remains the same:
@@ -202,12 +247,19 @@ The method remains the same:
 
 We ran the above process for the CBSD68-dataset provided by Berkeley. It contains both noisy and original image with different gaussian noise level.In the below figures there is comparison which is been made to see how the psnr value and how smim values improves after doing PCA decomposition in a noisy image, but the **limitation** of vanilla PCA is that it is not necessary that it will reduce the noise always, but it always captures the data with higher variance. To make the point consider the result on a original and noisy and its denoised part below:
 
+<center>
+
+
 |                                                                                      |                                                                                   |                                                                                      |
 | :----------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------: |
 |                                  **Original Image**                                  |                                **Noisy Image-50**                                 |                                **Denoised Image-50**                                 |
 | <img src="assets/vanilla_pca/noise50/0064_original.png" width="300" height = "150"/> | <img src="assets/vanilla_pca/noise50/0064_noisy.png" width="300" height = "150"/> | <img src="assets/vanilla_pca/noise50/0064_denoised.png" width="300" height = "150"/> |
 
+</center>
+
 You can observe from above that the results are not that good but there is an improvement in the psnr and smim values, because the denoised part tries to capture the pixels with higher variance. That is why most part of the image in denoised is a bit brown as that is the prominent color in our original image as well.
+
+<center>
 
 |                                                                               |                                                                               |
 | :---------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
@@ -216,6 +268,8 @@ You can observe from above that the results are not that good but there is an im
 |                       _PSNR comparison accross images_                        |                       _PSNR comparison accross images_                        |
 | <img src="assets/vanilla_pca/noise_50_smim.png " width="300" height = "150"/> | <img src="assets/vanilla_pca/noise_25_smim.png " width="300" height = "150"/> |
 |                       _SMIM comparison accross images_                        |                       _SMIM comparison accross images_                        |
+
+</center>
 
 To rerun the experiment, please clone this repository and run PCA.ipynb notebook under notebooks directory.
 
@@ -246,11 +300,17 @@ In this approach a pixel and pixels spaitially local to it make a single feature
 
 
 Following picture illustrates the pixel to be denoised, freature vector and training block.
+
+
+<center>
 <img src="assets/lgp_pca/doc/LPG_PCA_feature.png" width="400" height = "200"/>
+</center>
 
+Following is the 2-stage pipeline using LPG-PCA:
 
-Followig is the 2-stage pipeline using LPG-PCA:
+<center>
 <img src="assets/lgp_pca/doc/LPG_PCA_pipeline.png" width="600" height = "200"/>
+</center>
 
 #### Limitations
 Following are limitations for this approach:
@@ -265,7 +325,7 @@ Following are limitations for this approach:
 Average PSNR on CBSD68 dataset for all experiments:
 
 
-
+<center>
 <table>
 <thead>
 <tr>
@@ -300,10 +360,12 @@ Average PSNR on CBSD68 dataset for all experiments:
 </tr>
 </tbody>
 </table>
+</center>
+
 
 Average SSIM on CBSD68 dataset for all experiments:
 
-
+<center>
 <table>
 <thead>
 <tr>
@@ -338,10 +400,12 @@ Average SSIM on CBSD68 dataset for all experiments:
 </tr>
 </tbody>
 </table>
+</center>
 
 ## Qualitative Results (from all approaches/experiments):
 
-<div style="text-align:center;">
+
+<center>
 <table>
 <thead>
 <tr>
@@ -384,9 +448,9 @@ Average SSIM on CBSD68 dataset for all experiments:
 </tr>
 </tbody>
 </table>
-</div>
+</center>
 
-
+<center>
 <table style="text-align:center;">
 <thead>
 <tr>
@@ -429,7 +493,9 @@ Average SSIM on CBSD68 dataset for all experiments:
 </tr>
 </tbody>
 </table>
+</center>
 
+<center>
 <table>
 <thead>
 <tr>
@@ -472,7 +538,7 @@ Average SSIM on CBSD68 dataset for all experiments:
 </tr>
 </tbody>
 </table>
-
+</center>
 
 
 <h2 id="conclusion">Conclusion</h2>
