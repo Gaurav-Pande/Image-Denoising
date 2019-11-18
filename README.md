@@ -31,8 +31,6 @@ PSNR is most easily defined via the mean squared error (MSE). Given a noise-free
 <img src="https://latex.codecogs.com/svg.latex?PSNR%20%3D%2020%20*%20%5Clog%20%5Cmax%28f%29%20/%20%28MSE%5E%7B0.5%7D%29" />
 
 
-
-
 #### SSIM
 
 The difference with respect to other techniques mentioned previously such as MSE or PSNR is that these approaches estimate absolute errors; on the other hand, SSIM is a perception-based model that considers image degradation as perceived change in structural information, while also incorporating important perceptual phenomena, including both luminance masking and contrast masking terms. Structural information is the idea that the pixels have strong inter-dependencies, especially when they are spatially close. These dependencies carry essential information about the structure of the objects in the visual scene. Luminance masking is a phenomenon whereby image distortions (in this context) tend to be less visible in bright regions, while contrast masking is a phenomenon whereby distortions become less visible where there is a significant activity or "texture" in the image.
@@ -48,7 +46,7 @@ Note that as this dataset has quite less no. of samples, for supervised learning
 
 #### Supervised:
 * PASCAL dataset [2]
-* <to be added by Ramesh>
+* DIV2K dataset [8]
  
 #### Unsupervised:
 * Digits dataset from scikit learn.
@@ -237,9 +235,11 @@ In this approach a pixel and pixels spaitially local to it make a single feature
 - Second is to increase the variance in the principle component direction
 
 <img src="assets/lgp_pca/doc/LPG_PCA_feature.png" width="400" height = "200"/>
+
 This picture illustrates the pixel to be denoised, freature vector and training block.
 
 <img src="assets/lgp_pca/doc/LPG_PCA_pipeline.png" width="450" height = "150"/>
+
 ![image](assets/lgp_pca/doc/LPG_PCA_pipeline.png)
 
 ## Results comparison across approaches:
@@ -247,11 +247,11 @@ This picture illustrates the pixel to be denoised, freature vector and training 
 
 Average PSNR on CBSD68 dataset for all experiments:
 
-**Sigma** | **Experiment 1**| **Experiment 2**| **Experiment 3(Vanilla PCA)**|**Experiment 4**
----|---|---|---|---
-10 | 28.26->**33.33**| 28.26 -> **30.29**| 28.26->**26.46**  | |
-25| 20.48->**29.45** | 20.48 -> **25.9**| 20.48->**22.93** | |
-50| 14.97->**25.67** | 14.97 -> **22.8**| 14.97->**18.60** | |
+| **Sigma** | **Experiment 1** | **Experiment 2**   | **Experiment 3(Vanilla PCA)** | **Experiment 4** |
+|-----------|------------------|--------------------|-------------------------------|------------------|
+| 10        | 28.26->**33.33** | 28.26 -> **30.29** | 28.26->**26.46**              |                  |
+| 25        | 20.48->**29.45** | 20.48 -> **25.9**  | 20.48->**22.93**              |                  |
+| 50        | 14.97->**25.67** | 14.97 -> **22.8**  | 14.97->**18.60**              |                  |
 
 Average SSIM on CBSD68 dataset for all experiments:
 
@@ -263,41 +263,41 @@ Average SSIM on CBSD68 dataset for all experiments:
 
 ## Qualitative Results (from all approaches/experiments):
 
-| **Original** | **Nosiy Input with sigma=50** |
-|---| --- |
-|<img src="assets/original_png/0064.png" width="300" height = "150"/> | <img src="assets/noisy50/0064.png" width="300" height = "150"/> |
-| *NA* | *PSNR=14.91, SSIM=0.31*|
-| **Experiment 1 denoised output** | **Ramesh output** |
-|<img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>| <img src="assets/deep_resnet/50/0.jpg" width="300" height = "150"/>|
-| *PSNR = 24.25, SSIM = 0.73*  | *PSNR=??, SSIM=??* |
-| **Vanilla PCA Denoised output** | **Varun output** |
-|<img src="assets/vanilla_pca/noise50/0064_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> |
-| *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
+| **Original**                                                                         | **Nosiy Input with sigma=50**                                         |
+|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| <img src="assets/original_png/0064.png" width="300" height = "150"/>                 | <img src="assets/noisy50/0064.png" width="300" height = "150"/>       |
+| *NA*                                                                                 | *PSNR=14.91, SSIM=0.31*                                               |
+| **Experiment 1 denoised output**                                                     | **Ramesh output**                                                     |
+| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>                | <img src="assets/deep_resnet/50/0.jpg" width="300" height = "150"/>   |
+| *PSNR = 24.25, SSIM = 0.73*                                                          | *PSNR=??, SSIM=??*                                                    |
+| **Vanilla PCA Denoised output**                                                      | **Varun output**                                                      |
+| <img src="assets/vanilla_pca/noise50/0064_denoised.png" width="300" height = "150"/> | <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> |
+| *PSNR=19.15, SSIM=0.58*                                                              | *PSNR=??, SSIM=??*                                                    |
 
 
-| **Original** | **Nosiy Input with sigma=25** |
-|---|---|
-|<img src="assets/original_png/0047.png" width="150" height = "300"/> | <img src="assets/noisy25/0047.png" width="150" height = "300"/> |
-| *NA* | *PSNR=20.19, SSIM=0.21*|
-| **Experiment 1 denoised output** | **Ramesh output** |
-|<img src="assets/dn_resnet_150/25/5.jpg" width="150" height = "300"/>| <img src="assets/deep_resnet/25/5.jpg" width="150" height = "300"/>|
-| *PSNR = 32.78, SSIM = 0.84*  | *PSNR=??, SSIM=??* |
-| **Vanilla PCA Denoised output** | **Varun output** |
-|<img src="assets/vanilla_pca/noise25/0047_denoised.png" width="150" height = "300"/>| <img src="assets/dn_resnet_150/25/5.jpg" width="150" height = "300"/> |
-| *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
+
+| **Original**                                                                         | **Nosiy Input with sigma=25**                                         |
+|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| <img src="assets/original_png/0047.png" width="150" height = "300"/>                 | <img src="assets/noisy25/0047.png" width="150" height = "300"/>       |
+| *NA*                                                                                 | *PSNR=20.19, SSIM=0.21*                                               |
+| **Experiment 1 denoised output**                                                     | **Ramesh output**                                                     |
+| <img src="assets/dn_resnet_150/25/5.jpg" width="150" height = "300"/>                | <img src="assets/deep_resnet/25/5.jpg" width="150" height = "300"/>   |
+| *PSNR = 32.78, SSIM = 0.84*                                                          | *PSNR=??, SSIM=??*                                                    |
+| **Vanilla PCA Denoised output**                                                      | **Varun output**                                                      |
+| <img src="assets/vanilla_pca/noise25/0047_denoised.png" width="150" height = "300"/> | <img src="assets/dn_resnet_150/25/5.jpg" width="150" height = "300"/> |
+| *PSNR=19.15, SSIM=0.58*                                                              | *PSNR=??, SSIM=??*                                                    |
 
 
-| **Original** | **Nosiy Input with sigma=10** |
-|---| ---|
-|<img src="assets/original_png/0011.png" width="300" height = "150"/> | <img src="assets/noisy10/0011.png" width="300" height = "150"/> |
-| *NA* | *PSNR=28.12, SSIM=0.61*|
-| **DN Resnet Denoised output** | **Ramesh output** |
-|<img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/>| <img src="assets/deep_resnet/10/8.jpg" width="300" height = "150"/>|
-| *PSNR = 35.41, SSIM = 0.94*  | *PSNR=??, SSIM=??* |
-| **Vanilla PCA Denoised output** | **Varun output** |
-|<img src="assets/vanilla_pca/noise10/0011_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/> |
-| *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
-
+| **Original**                                                                         | **Nosiy Input with sigma=10**                                         |
+|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| <img src="assets/original_png/0011.png" width="300" height = "150"/>                 | <img src="assets/noisy10/0011.png" width="300" height = "150"/>       |
+| *NA*                                                                                 | *PSNR=28.12, SSIM=0.61*                                               |
+| **DN Resnet Denoised output**                                                        | **Ramesh output**                                                     |
+| <img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/>                | <img src="assets/deep_resnet/10/8.jpg" width="300" height = "150"/>   |
+| *PSNR = 35.41, SSIM = 0.94*                                                          | *PSNR=??, SSIM=??*                                                    |
+| **Vanilla PCA Denoised output**                                                      | **Varun output**                                                      |
+| <img src="assets/vanilla_pca/noise10/0011_denoised.png" width="300" height = "150"/> | <img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/> |
+| *PSNR=19.15, SSIM=0.58*                                                              | *PSNR=??, SSIM=??*                                                    |
 
 
 ## References:
