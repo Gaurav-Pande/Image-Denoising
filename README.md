@@ -195,17 +195,17 @@ Average PSNR on CBSD68 dataset for all experiments:
 
 **Sigma** | **Experiment 1**| **Experiment 2**| **Experiment 3**|**Experiment 4**
 ---|---|---|---|---
-10 | 28.26->**33.33**| | | |
-20| 20.48->**29.45** | | | |
-50| 14.97->**25.67** | | | |
+10 | 28.26->**33.33**| |28.26->**26.46**  | |
+25| 20.48->**29.45** | |20.48->**22.93** | |
+50| 14.97->**25.67** | |14.97->**18.60** | |
 
 Average SSIM on CBSD68 dataset for all experiments:
 
 **Sigma** | **Experiment 1**| **Experiment 2**| **Experiment 3**|**Experiment 4**
 ---|---|---|---|---
-10 | 0.75->**0.93** | | | |
-20| 0.45->**0.85**. | | | |
-50|  0.25->**0.71** | | | |
+10 | 0.75->**0.93** | |0.75->**0.9** | |
+25| 0.45->**0.85**. | |0.45->**0.72** | |
+50|  0.25->**0.71** | |0.25->**0.46** | |
 
 ## Qualitative Results (from all approaches/experiments):
 
