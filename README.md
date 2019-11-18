@@ -425,7 +425,7 @@ Average SSIM on CBSD68 dataset for all experiments:
 </tr>
 <tr>
 <td style="text-align: center;"><em>PSNR=19.15, SSIM=0.58</em></td>
-<td style="text-align: center;"><em>PSNR=27.8, SSIM=0.75</em></td>
+<td style="text-align: center;"><em>PSNR=29.0, SSIM=0.81</em></td>
 </tr>
 </tbody>
 </table>
@@ -468,7 +468,7 @@ Average SSIM on CBSD68 dataset for all experiments:
 </tr>
 <tr>
 <td style="text-align: center;"><em>PSNR=19.15, SSIM=0.58</em></td>
-<td style="text-align: center;"><em>PSNR=34.89, SSIM=0.96</em></td>
+<td style="text-align: center;"><em>PSNR=33.97, SSIM=0.95</em></td>
 </tr>
 </tbody>
 </table>
