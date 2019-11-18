@@ -52,7 +52,7 @@ The PSNR (in dB) is defined as:
 
 ### SSIM
 
-The difference with respect to other techniques mentioned previously such as MSE or PSNR is that these approaches estimate absolute errors; on the other hand, SSIM is a perception-based model that considers image degradation as perceived change in structural information, while also incorporating important perceptual phenomena, including both luminance masking and contrast masking terms. Structural information is the idea that the pixels have strong inter-dependencies, especially when they are spatially close. These dependencies carry essential information about the structure of the objects in the visual scene. Luminance masking is a phenomenon whereby image distortions (in this context) tend to be less visible in bright regions, while contrast masking is a phenomenon whereby distortions become less visible where there is a significant activity or "texture" in the image.
+The difference with respect to other techniques mentioned previously such as MSE or PSNR is that these approaches estimate absolute errors; on the other hand, SSIM[9] is a perception-based model that considers image degradation as perceived change in structural information, while also incorporating important perceptual phenomena, including both luminance masking and contrast masking terms. Structural information is the idea that the pixels have strong inter-dependencies, especially when they are spatially close. These dependencies carry essential information about the structure of the objects in the visual scene. Luminance masking is a phenomenon whereby image distortions (in this context) tend to be less visible in bright regions, while contrast masking is a phenomenon whereby distortions become less visible where there is a significant activity or "texture" in the image.
 
 <center>
 
@@ -668,6 +668,7 @@ Following are limitations for this approach:
 <li>Zhang, L., Dong, W., Zhang, D., &amp; Shi, G. (2010). Two-stage image denoising by principal component analysis with local pixel grouping. Pattern Recognition, 43(4), 1531–1549. doi: 10.1016/j.patcog.2009.09.023</li>
 
 <li>DIV2K dataset: DIVerse 2K resolution high quality images as used for the challenges</li>
+<li> https://en.wikipedia.org/wiki/Structural_similarity </li>
 </ol>
 
 <h4 id="contributions">Contributions</h4>
