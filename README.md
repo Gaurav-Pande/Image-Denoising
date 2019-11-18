@@ -413,9 +413,7 @@ Following are limitations for this approach:
 
 ## Results comparison across approaches:
 
-<other approach values to be addded here>
-
-Average PSNR on CBSD68 dataset for all experiments:
+### Average PSNR on CBSD68 dataset for all experiments:
 
 <center>
 <table>
@@ -454,7 +452,7 @@ Average PSNR on CBSD68 dataset for all experiments:
 </table>
 </center>
 
-Average SSIM on CBSD68 dataset for all experiments:
+### Average SSIM on CBSD68 dataset for all experiments:
 
 <center>
 <table>
@@ -496,6 +494,7 @@ Average SSIM on CBSD68 dataset for all experiments:
 ## Qualitative Results (from all approaches/experiments):
 
 <center>
+
 <table>
 <thead>
 <tr>
