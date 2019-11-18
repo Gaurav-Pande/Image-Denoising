@@ -32,7 +32,7 @@ We are limiting the problem scope to tackle additive guassian white noise(AGWN) 
 
 PSNR is most easily defined via the mean squared error (MSE). Given a noise-free m×n monochrome image I and its noisy approximation K, MSE is defined as:
 
-<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3a34719b4f391dba26b3e8e4460b7595d62eece" />
+<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3a34719b4f391dba26b3e8e4460b7595d62eece4" />
 The PSNR (in dB) is defined as:
 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fc22801ed1232ff1231c4156b589de5c32063a8a" />
 
