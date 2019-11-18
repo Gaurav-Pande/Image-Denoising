@@ -239,8 +239,7 @@ In this approach a pixel and pixels spaitially local to it make a single feature
 <img src="assets/lgp_pca/doc/LPG_PCA_feature.png" width="400" height = "200"/>
 This picture illustrates the pixel to be denoised, freature vector and training block.
 
-<img src="assets/lgp_pca/doc/LPG_PCA_pipeline.png" width="450" height = "150"/>
-![image](assets/lgp_pca/doc/LPG_PCA_pipeline.png)
+<img src="assets/lgp_pca/doc/LPG_PCA_pipeline.png" width="600" height = "200"/>
 
 ## Results comparison across approaches:
 <other approach values to be addded here>
@@ -257,9 +256,9 @@ Average SSIM on CBSD68 dataset for all experiments:
 
 **Sigma** | **Experiment 1**| **Experiment 2**| **Experiment 3(Vanilla PCA)**|**Experiment 4**
 ---|---|---|---|---
-10 | 0.75->**0.93** | 0.75 -> **0.937**| 0.75->**0.9** |0.75->**0.95** |
-25| 0.45->**0.85**. | 0.45 -> **0.85**| 0.45->**0.72** | 0.45->**0.85**|
-50|  0.25->**0.71** | 0.25 -> **0.78**| 0.25->**0.46** | 0.25->**0.38**|
+10 | 0.75->**0.93** | 0.75 -> **0.937**| 0.75->**0.9** | |
+25| 0.45->**0.85**. | 0.45 -> **0.85**| 0.45->**0.72** | |
+50|  0.25->**0.71** | 0.25 -> **0.78**| 0.25->**0.46** | |
 
 ## Qualitative Results (from all approaches/experiments):
 
