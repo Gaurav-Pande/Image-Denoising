@@ -56,7 +56,7 @@ Note that as this dataset has quite less no. of samples, for supervised learning
 
 In this approach, we have used supervised learning to learn the clean image given a noisy image. The function approximator chosen is a neural network comprising of convolutional and residual blocks, as shown in figure below. Two experiments were conducted, one with pure convolutional layers and the other with mix of convolutional and residual block as detailed below.
 
-### Experiment 1: DnResNet
+### Experiment1(Deep CNNs)
 
 The code is available [here](https://colab.research.google.com/drive/1ViNx_b5FlwXjzjIqRuYkdNsgF6ZExqRk) and [here](https://colab.research.google.com/drive/1-LJ12r-DJXY3HI0hzVIom2r9RpCdL8Gd).
 
@@ -109,7 +109,7 @@ The same model is tested on the CBSD dataset, Average PSNR and SSIM score are as
 
 The above results indicate the **model is generalising well** to other datasets having similar noise as AWGN. Also, the net PSNR achieved is a bit a lower than from the paper's [1] best, as we are only using 3 layers for training.
 
-## Approach 3
+## Experiment2(Deep ResNets)
 
 In this experiment we implement the residual network connections in the convolutional denoising network. Since residual networks are memory intensive, we train the network on a different dataset [DIV2K] which is smaller and test the network on our validation set : [CBSD]. The DIV2K[8] dataset consists of 800 very high resolution images.
 
@@ -152,7 +152,7 @@ Another novelty that we applied is passing the denoised image back into the mode
 
 ## Unsupervised
 
-### Experiment 3: Vanilla PCA
+### Experiment 3(Vanilla PCA)
 
 Principal component analysis is an orthogonal transformation that seeks the direction of maximum variance in the data and commonly used in dimensionality reduction of the data. Data with maximum variance contains most of the data needed to present the whole dataset. In image denoising, one has to take care of the compromise between noisy data and preserving the high variance image data detail. We can start by looking into the PCA analysis to see how PCA inherently tries to reduce the noise in an image.
 
@@ -224,7 +224,7 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 
 
 
-### Local Pixel Grouping - Principle Component Analysis
+### Experiment4(Local Pixel Grouping - Principle Component Analysis)
 #### Approach
 This approach uses principal component analysis (PCA) with local pixel grouping (LPG) to do image denoising. It ensures that the image local features are well preserved after PCA transfromation but the noise components is removed. Each pixels and its nearest neighbours are modeled as vector variables and training samples are selected from local window using block matching based local pixel grouping.
 It is evident with experiments that this approach can be iteratively applied with appropriate adaptive noise parameter tuning to improve the denoising performance.
@@ -245,7 +245,7 @@ This picture illustrates the pixel to be denoised, freature vector and training 
 
 Average PSNR on CBSD68 dataset for all experiments:
 
-**Sigma** | **Experiment 1**| **Experiment 2**| **Experiment 3(Vanilla PCA)**|**Experiment 4**
+**Sigma** | **Deep CNNs**| **Deep ResNets**| **Vanilla PCA**|**LPG_PCA**
 ---|---|---|---|---
 10 | 28.26->**33.33**| 28.26 -> **30.29**| 28.26->**26.46**  | 28.26 -> **32.93**|
 25| 20.48->**29.45** | 20.48 -> **25.9**| 20.48->**22.93** | 20.48 -> **27.72** |
@@ -253,7 +253,7 @@ Average PSNR on CBSD68 dataset for all experiments:
 
 Average SSIM on CBSD68 dataset for all experiments:
 
-**Sigma** | **Experiment 1**| **Experiment 2**| **Experiment 3(Vanilla PCA)**|**Experiment 4**
+**Sigma** | **Deep CNNs**| **Deep ResNets**| **Vanilla PCA**|**LPG_PCA**
 ---|---|---|---|---
 10 | 0.75->**0.93** | 0.75 -> **0.937**| 0.75->**0.9** | 0.75->**0.95**|
 25| 0.45->**0.85**. | 0.45 -> **0.85**| 0.45->**0.72** |0.45->**0.85** |
@@ -270,7 +270,7 @@ Average SSIM on CBSD68 dataset for all experiments:
 | *PSNR = 24.25, SSIM = 0.73*  | *PSNR=21.6, SSIM=0.70* |
 | **Vanilla PCA Denoised output** | **Varun output** |
 |<img src="assets/vanilla_pca/noise50/0064_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> |
-| *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
+| *PSNR=19.15, SSIM=0.58* | *PSNR=22.79, SSIM=0.72* |
 
 
 | **Original** | **Nosiy Input with sigma=25** |
@@ -296,7 +296,9 @@ Average SSIM on CBSD68 dataset for all experiments:
 |<img src="assets/vanilla_pca/noise10/0011_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/> |
 | *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
 
+## Conclusion
 
+In this project we conducted different experiments for superevised and unsupervised machine learning algorithms for image denoising. We began with vanilla PCA to understand how high variance pixels are retained in the image giving us the intuition for removal of noised pixels components. We saw how various techniques like DnResNet, Localised PCA gives better results with good psnr values.
 
 ## References:
 
