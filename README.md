@@ -475,26 +475,42 @@ Average SSIM on CBSD68 dataset for all experiments:
 
 
 
-## Conclusion
+<h2 id="conclusion">Conclusion</h2>
 
-In this project we conducted different experiments for superevised and unsupervised machine learning algorithms for image denoising. We began with vanilla PCA to understand how high variance pixels are retained in the image giving us the intuition for removal of noised pixels components. We saw how various techniques like DnResNet, Localised PCA gives better results with good psnr values.
+<p>In this project we conducted different experiments for superevised and unsupervised machine learning algorithms for image denoising. We began with vanilla PCA to understand how high variance pixels are retained in the image giving us the intuition for removal of noised pixels components. We saw how various techniques like DnResNet, Localised PCA gives better results with good psnr values.</p>
 
-## References:
+<h2 id="references">References:</h2>
 
-1. Ren, H., El-Khamy, M., & Lee, J. (2019). DN-ResNet: Efficient Deep Residual Network for Image Denoising. Computer Vision – ACCV 2018 Lecture Notes in Computer Science, 215–230. doi: 10.1007/978-3-030-20873-8_14
-2. pascal-voc-2010. (n.d.). The {PASCAL} {V}Isual {O}Bject {C}Lasses {C}Hallenge 2010 {(VOC2010)} {R}Esults. Retrieved from [here](http://www.pascal-network.org/challenges/VOC/voc2010/workshop/index.html)
-3. Clausmichele. (n.d.). clausmichele/CBSD68-dataset. Retrieved from [here](https://github.com/clausmichele/CBSD68-dataset).
-4. pytorch/pytorch. Retrieved from [here](https://github.com/pytorch/pytorch).
-5. lutzroeder/netron. Retrieved from [here](https://github.com/lutzroeder/netron)
-6. Vanderplas, Jacob T. Python Data Science Handbook: Tools and Techniques for Developers. OReilly, 2016.
-7. Zhang, L., Dong, W., Zhang, D., & Shi, G. (2010). Two-stage image denoising by principal component analysis with local pixel grouping. Pattern Recognition, 43(4), 1531–1549. doi: 10.1016/j.patcog.2009.09.023
-8. DIV2K dataset: DIVerse 2K resolution high quality images as used for the challenges
+<ol>
+<li>Ren, H., El-Khamy, M., &amp; Lee, J. (2019). DN-ResNet: Efficient Deep Residual Network for Image Denoising. Computer Vision – ACCV 2018 Lecture Notes in Computer Science, 215–230. doi: 10.1007/978-3-030-20873-8_14</li>
 
-#### Contributions
+<li>pascal-voc-2010. (n.d.). The {PASCAL} {V}Isual {O}Bject {C}Lasses {C}Hallenge 2010 {(VOC2010)} {R}Esults. Retrieved from <a href="http://www.pascal-network.org/challenges/VOC/voc2010/workshop/index.html">here</a></li>
 
-All members of the project have contributed equally in discussions, project formulation, Report generation. For individual learning, each member focused on the following:
-* Sai Sateesh Gudapati : Literature Survey, Deep CNNs, Report
-* Ramesh Arvind Ravi: Literature Survey, Deep ResNets, Report
-* Varun Dagar: Literature Survey, LPG_PCA, Report
-* Gaurav Pande: Literature Survey, Vanilla PCA, Report
-* Sri Vivek Vanga: Literature Survey, Vanilla PCA, LPG_PCA, Report
+<li>Clausmichele. (n.d.). clausmichele/CBSD68-dataset. Retrieved from <a href="https://github.com/clausmichele/CBSD68-dataset">here</a>.</li>
+
+<li>pytorch/pytorch. Retrieved from <a href="https://github.com/pytorch/pytorch">here</a>.</li>
+
+<li>lutzroeder/netron. Retrieved from <a href="https://github.com/lutzroeder/netron">here</a></li>
+
+<li>Vanderplas, Jacob T. Python Data Science Handbook: Tools and Techniques for Developers. OReilly, 2016.</li>
+
+<li>Zhang, L., Dong, W., Zhang, D., &amp; Shi, G. (2010). Two-stage image denoising by principal component analysis with local pixel grouping. Pattern Recognition, 43(4), 1531–1549. doi: 10.1016/j.patcog.2009.09.023</li>
+
+<li>DIV2K dataset: DIVerse 2K resolution high quality images as used for the challenges</li>
+</ol>
+
+<h4 id="contributions">Contributions</h4>
+
+<p>All members of the project have contributed equally in discussions, project formulation, Report generation. For individual learning, each member focused on the following:</p>
+
+<ul>
+<li>Sai Sateesh Gudapati : Literature Survey, Deep CNNs, Report</li>
+
+<li>Ramesh Arvind Ravi: Literature Survey, Deep ResNets, Report</li>
+
+<li>Varun Dagar: Literature Survey, LPG_PCA, Report</li>
+
+<li>Gaurav Pande: Literature Survey, Vanilla PCA, Report</li>
+
+<li>Sri Vivek Vanga: Literature Survey, Vanilla PCA, LPG_PCA, Report</li>
+</ul>
