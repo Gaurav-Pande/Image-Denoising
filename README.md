@@ -1,10 +1,10 @@
 # Image-Denoising
 
-### Background
+## Background
 
 Image noise is random variation of brightness or color information in images. There can be multiple sources of image noise. Noise can get introduced inherently at a different stage of image capture pipeline from light variation, camera optics, image sensor to image storage.
 
-### The Problem
+## The Problem/Motivation
 
 One of the fundamental challenges in the field of Image processing and Computer vision is Image denoising, where the goal is to estimate the original image by suppressing noise from the contaminated region in an Image. Image Denoising has numerous applications, such as:
 
@@ -26,13 +26,13 @@ This project aims to extract a clean image <img src="https://latex.codecogs.com/
 
 </center>
 
-### Problem Scope
+## Problem Scope
 
 We are limiting the problem scope to tackle additive guassian white noise(AGWN) only and will demonstrate how supervised and unsupervised techniques could be used to denoise images with AGWN.
 
-### Metrics
+## Metrics
 
-#### PSNR(Peak Signal-to-Noise Ratio)
+##### PSNR(Peak Signal-to-Noise Ratio)
 
 PSNR, is an engineering term for the ratio between the maximum possible power of a signal and the power of corrupting noise that affects the fidelity of its representation. PSNR is most easily defined via the mean squared error (MSE). Given a noise-free m×n monochrome image I and its noisy approximation K, MSE is defined as:
 
@@ -50,7 +50,7 @@ The PSNR (in dB) is defined as:
 
 </center>
 
-#### SSIM
+##### SSIM
 
 The difference with respect to other techniques mentioned previously such as MSE or PSNR is that these approaches estimate absolute errors; on the other hand, SSIM is a perception-based model that considers image degradation as perceived change in structural information, while also incorporating important perceptual phenomena, including both luminance masking and contrast masking terms. Structural information is the idea that the pixels have strong inter-dependencies, especially when they are spatially close. These dependencies carry essential information about the structure of the objects in the visual scene. Luminance masking is a phenomenon whereby image distortions (in this context) tend to be less visible in bright regions, while contrast masking is a phenomenon whereby distortions become less visible where there is a significant activity or "texture" in the image.
 
@@ -60,27 +60,27 @@ The difference with respect to other techniques mentioned previously such as MSE
 
 </center>
 
-### Data
+## Data
 
 As we have multiple approaches and experiments, we have chosen a common dataset CBSD68 [3] to analyze results. The CBSD68 dataset is a dataset commonly used for benchmarking in Image denoising domain. It contains 68 images and corresponding noisy images at different sigma levels.
 
 Note that as this dataset has quite less no. of samples, for supervised learning approach we have also used other datasets for training. We have explored other datasets for unsupervised approach as well as mentioned below.
 
-#### Supervised:
+##### Supervised:
 
 - PASCAL dataset [2]
 - DIV2K dataset [8]
 
-#### Unsupervised:
+##### Unsupervised
 
 - Digits dataset from scikit learn.
 - RGB images from CBSD68 dataset for PCA decomposition.
 
-## Supervised:
+## Approach1(Supervised)
 
 In this approach, we have used supervised learning to learn the clean image given a noisy image. The function approximator chosen is a neural network comprising of convolutional and residual blocks, as shown in figure below. Two experiments were conducted, one with pure convolutional layers and the other with mix of convolutional and residual block as detailed below.
 
-### Experiment1(Deep CNNs)
+## Experiment1(Deep CNNs)
 
 The code is available [here](https://colab.research.google.com/drive/1ViNx_b5FlwXjzjIqRuYkdNsgF6ZExqRk) and [here](https://colab.research.google.com/drive/1-LJ12r-DJXY3HI0hzVIom2r9RpCdL8Gd).
 
@@ -197,15 +197,15 @@ The same model is tested on the CBSD dataset, Average PSNR and SSIM score are as
 
 The above results indicate the **model is generalising well** to other datasets having similar noise as AWGN. Also, the net PSNR achieved is a bit a lower than from the paper's [1] best, as we are only using 3 layers for training.
 
-## Experiment2(Deep ResNets)
+## Experiment2 (Deep ResNets)
 
 In this experiment we implement the residual network connections in the convolutional denoising network. Since residual networks are memory intensive, we train the network on a different dataset [DIV2K] which is smaller and test the network on our validation set : [CBSD]. The DIV2K[8] dataset consists of 800 very high resolution images.
 
-## Residual networks
+##### Residual networks
 
 It is known that very deep neural networks have very high representational power, but comes very difficult to train compared to shallow networks. This can be attributed the vanishing gradients during backpropagation i.e very little information / learning is happening in the first few layers of the network. This is fixed by creating residual connections between layers. These residual connections allow gradients to flow directly to the earlier layers thus enabling more efficient learning. Essentially the network formed by these residual connections is comparable to a shallow network present within the deeper network. Thus we retain the generalizing power of shallow network.
 
-## Dataset
+##### Dataset
 
 We use a pytorch dataloader for setting up the data pipeline, we extract random 128x128 crops of the images as the input image.
 We randomly flip it horizontally and vertically as our data augmentation steps.
@@ -213,18 +213,18 @@ Then we add gaussian noise to the this image and consider that as our noisy imag
 We return this pair of original and noisy image as the training input to our network.
 We set the batch size to 8 as it is the maximum allowable size by the constraints of our GPU.
 
-### Architecture
+##### Architecture
 
 We use 8 convolutional layers with a skip connection between every convolutional layer and the output of the layer following it. These skip connections allow us to train a much deeper network. The network learns to output the noise component of the image i.e it learns to separate the noise from the ground truth image. So to obtain the denoised image, we subtract the output of our model from the noisy image.
 
-### Implementation and Hyperparameters
+##### Implementation and Hyperparameters
 
 Each convolutional layer consists of 64 filters, kernel size of 3, stride of 1 and padding of 1. This combination allows the layer to preserve the size of the input image after the forward pass, allowing us to arbitrarily stack these layers (as needed for resnet architectures). We use RELU activation function after each convolutional layer.
 We also disable the bias components of the layers, this reduced the amount of artifacts present in the output image after denoising.
 For optimization we use the ADAM optimizer with learning rate of 0.001 and train the network for 5 epochs.
 In order to improve convergence, we also use learning rate scheduler to reduce learning rate by factor of 10 if there is no improvement for 3 epochs.
 
-### Results and Observations
+##### Results and Observations
 
 <p align="middle">
   <img src="assets\deep_resnet\loss_vs_iterations_sigma_25.jpg" width="400" />
@@ -238,9 +238,10 @@ We obtain the results as documented in the tables below. We obtain reasonable im
 
 Another novelty that we applied is passing the denoised image back into the model for further refinement, we observe that the PSNR values get a slight reduction but the SSIM score improves by about 0.1 (especially with larger noise ranges). This approach is similar to our PCA approach with iterative application.
 
-## Unsupervised
+## Approach2 (Unsupervised)
+In this approach we used unsupervised learning techniques to solve the problem of image denoising.There are 2 experiments here as follows:
 
-### Experiment 3(Vanilla PCA)
+## Experiment3 (Vanilla PCA)
 
 Principal component analysis is an orthogonal transformation that seeks the direction of maximum variance in the data and commonly used in dimensionality reduction of the data. Data with maximum variance contains most of the data needed to present the whole dataset. In image denoising, one has to take care of the compromise between noisy data and preserving the high variance image data detail. We can start by looking into the PCA analysis to see how PCA inherently tries to reduce the noise in an image.
 
@@ -376,14 +377,14 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 ![Gaussian noise 35](assets/vanilla_pca/noise_35_psnr.png "Gaussian Noise level-35")
 -->
 
-### Experiment4(Local Pixel Grouping - Principle Component Analysis)
+## Experiment4 (Local Pixel Grouping - Principle Component Analysis)
 
-#### Approach
+##### Approach
 
 This approach uses principal component analysis (PCA) with local pixel grouping (LPG) to do image denoising. It ensures that the image local features are well preserved after PCA transfromation but the noise components is removed. Each pixels and its nearest neighbours are modeled as vector variables and training samples are selected from local window using block matching based local pixel grouping.
 It is evident with experiments that this approach can be iteratively applied with appropriate adaptive noise parameter tuning to improve the denoising performance.
 
-#### Intuition
+##### Intuition
 
 In this approach a pixel and pixels spaitially local to it make a single feature vector. If two pixels which are next to each other are to be considered, then it is almost right to assume that pixels will have almost same values in ideal scenario and the only variation that can be there is because of noise. So, it is right to approximate the value of the these pixels with single value which can be approximated by projecting these points into the principle components of the feature space. As we now, there are two perspective to look of PCA,
 
@@ -402,7 +403,7 @@ Following is the 2-stage pipeline using LPG-PCA:
 <img src="assets/lgp_pca/doc/LPG_PCA_pipeline.png" width="600" height = "200"/>
 </center>
 
-#### Limitations
+##### Limitations
 
 Following are limitations for this approach:
 
