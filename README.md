@@ -299,6 +299,7 @@ The method remains the same:
 - Do inverse PCA transform to retrieve the same image using the component derived in the above step.
 - Calculate the PSNR value for original, noisy image and original, denoised image and see if there is an improvement.
 
+##### Limitation
 We ran the above process for the CBSD68-dataset provided by Berkeley. It contains both noisy and original image with different gaussian noise level.In the below figures there is comparison which is been made to see how the psnr value and how smim values improves after doing PCA decomposition in a noisy image, but the **limitation** of vanilla PCA is that it is not necessary that it will reduce the noise always, but it always captures the data with higher variance. To make the point consider the result on a original and noisy and its denoised part below:
 
 <center>
