@@ -74,7 +74,7 @@ Two datasets were used in this experiment PASCAL VOC 2010 [2] and CBSD68. The PA
 
 As shown in the figure below, the architecture takes an Input image, and then it is passed through convolutional layers having 64 filters of 9x9 kernel size, 32 filters of 5x5 kernel size, and 1 filter of 5x5 filter size respectively. Relu activations are used in all the layers. Stride used is of size 1, so the output size is reduced by 8 pixels in all directions. To accommodate this, we can either pad the image or give a larger input size. we chose to go with the latter as chosen in [1].
 
-<img src="https://drive.google.com/uc?export=view&id=1e1CNawerSWRO6VuyaDZwvvmqQ3-zFBZB" width="425" height = "700"/> <img src="assets/architecture/Screen Shot 2019-11-17 at 4.46.55 PM.png" width="425" height = "700"/>
+<img src="https://drive.google.com/uc?export=view&id=1e1CNawerSWRO6VuyaDZwvvmqQ3-zFBZB" width="300" height = "700"/> <img src="assets/architecture/Screen Shot 2019-11-17 at 4.46.55 PM.png" width="300" height = "700"/>
 
  <center> Figure 1. Network architectures used in (left) Experiment 1 and (right) Experiment 2. The graph is generated using the Netron app [5] </center>
  
