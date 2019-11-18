@@ -372,11 +372,11 @@ Average SSIM on CBSD68 dataset for all experiments:
 </tr>
 <tr>
 <td style="text-align: center;"><strong>Vanilla PCA Denoised output</strong></td>
-<td style="text-align: center;"><strong>Varun output</strong></td>
+<td style="text-align: center;"><strong>LPG_PCA</strong></td>
 </tr>
 <tr>
 <td style="text-align: center;"><img src="assets/vanilla_pca/noise50/0064_denoised.png" width="300" height = "150"/></td>
-<td style="text-align: center;"><img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/></td>
+<td style="text-align: center;"><img src="assets/lgp_pca/img64_noisy50_denoised2_img.png" width="300" height = "150"/></td>
 </tr>
 <tr>
 <td style="text-align: center;"><em>PSNR=19.15, SSIM=0.58</em></td>
@@ -417,15 +417,15 @@ Average SSIM on CBSD68 dataset for all experiments:
 </tr>
 <tr>
 <td style="text-align: center;"><strong>Vanilla PCA Denoised output</strong></td>
-<td style="text-align: center;"><strong>Varun output</strong></td>
+<td style="text-align: center;"><strong>LPG_PCA</strong></td>
 </tr>
 <tr>
 <td style="text-align: center;"><img src="assets/vanilla_pca/noise25/0047_denoised.png" width="150" height = "300"/></td>
-<td style="text-align: center;"><img src="assets/dn_resnet_150/25/5.jpg" width="150" height = "300"/></td>
+<td style="text-align: center;"><img src="assets/lgp_pca/img47_noisy25_denoised2_img.png" width="150" height = "300"/></td>
 </tr>
 <tr>
 <td style="text-align: center;"><em>PSNR=19.15, SSIM=0.58</em></td>
-<td style="text-align: center;"><em>PSNR=27.8, SSIM=0.75</em></td>
+<td style="text-align: center;"><em>PSNR=29.0, SSIM=0.81</em></td>
 </tr>
 </tbody>
 </table>
@@ -460,15 +460,15 @@ Average SSIM on CBSD68 dataset for all experiments:
 </tr>
 <tr>
 <td style="text-align: center;"><strong>Vanilla PCA Denoised output</strong></td>
-<td style="text-align: center;"><strong>Varun output</strong></td>
+<td style="text-align: center;"><strong>LPG_PCA</strong></td>
 </tr>
 <tr>
 <td style="text-align: center;"><img src="assets/vanilla_pca/noise10/0011_denoised.png" width="300" height = "150"/></td>
-<td style="text-align: center;"><img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/></td>
+<td style="text-align: center;"><img src="assets/lgp_pca/img11_noisy10_denoised2_img.png" width="300" height = "150"/></td>
 </tr>
 <tr>
 <td style="text-align: center;"><em>PSNR=19.15, SSIM=0.58</em></td>
-<td style="text-align: center;"><em>PSNR=34.89, SSIM=0.96</em></td>
+<td style="text-align: center;"><em>PSNR=33.97, SSIM=0.95</em></td>
 </tr>
 </tbody>
 </table>
