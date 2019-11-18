@@ -651,7 +651,7 @@ Following are limitations for this approach:
 
 <h2 id="conclusion">Conclusion</h2>
 
-<p>In this project we conducted different experiments for superevised and unsupervised machine learning algorithms for image denoising. We began with vanilla PCA to understand how high variance pixels are retained in the image giving us the intuition for removal of noised pixels components. We saw how various techniques like DnResNet, LPG PCA gives better results with good psnr values. we also observed that high PSNR values need not necssarily mean image looks good aessthetically. </p>
+<p>In this project we conducted different experiments for superevised and unsupervised machine learning algorithms for image denoising. We began with vanilla PCA to understand how high variance pixels are retained in the image giving us the intuition for removal of noised pixels components. We saw how various techniques like DnResNet, LPG PCA gives better results with good psnr values. we also observed that high PSNR or SSIM values need not necssarily mean image looks good aessthetically. </p>
 
 <h2 id="references">References:</h2>
 
