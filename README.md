@@ -191,7 +191,7 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 ## Results comparison across approaches:
 <other approach values to be addded here>
 
-**Approach**|
+**Approach**| ||
 **Sigma** | **PSNR**| **SSIM**
 ---|---|---
 10 | 28.26->**33.33** | 0.75->**0.93** 
