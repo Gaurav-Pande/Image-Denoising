@@ -294,7 +294,7 @@ Average SSIM on CBSD68 dataset for all experiments:
 | *PSNR = 35.41, SSIM = 0.94*  | *PSNR=32.5, SSIM=0.943* |
 | **Vanilla PCA Denoised output** | **Varun output** |
 |<img src="assets/vanilla_pca/noise10/0011_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/> |
-| *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
+| *PSNR=19.15, SSIM=0.58* | *PSNR=34.89, SSIM=0.96* |
 
 ## Conclusion
 
