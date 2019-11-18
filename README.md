@@ -191,14 +191,21 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 ## Results comparison across approaches:
 <other approach values to be addded here>
 
-Average PSNR on CBSD dataset for all experiments:
+Average PSNR on CBSD68 dataset for all experiments:
 
 **Sigma** | **Experiment 1**| **Experiment 2**| **Experiment 3**|**Experiment 4**
 ---|---|---|---|---
-10 | 28.26->**33.33** | 0.75->**0.93** | | |
-20| 20.48->**29.45**| 0.45->**0.85**| | |
-50| 14.97->**25.67** | 0.25->**0.71**| | |
-50(crop 33)|15.04->**26.68**|0.23->**0.69**| | |
+10 | 28.26->**33.33**| | | |
+20| 20.48->**29.45** | | | |
+50| 14.97->**25.67** | | | |
+
+Average SSIM on CBSD68 dataset for all experiments:
+
+**Sigma** | **Experiment 1**| **Experiment 2**| **Experiment 3**|**Experiment 4**
+---|---|---|---|---
+10 | 0.75->**0.93** | | | |
+20| 0.45->**0.85**. | | | |
+50|  0.25->**0.71** | | | |
 
 ## Qualitative Results (from all approaches/experiments):
 
