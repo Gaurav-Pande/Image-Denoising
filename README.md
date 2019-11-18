@@ -113,7 +113,7 @@ The above results indicate the **model is generalising well** to other datasets 
 
 ## Approach 3
 
-In this experiment we implement the residual network connections in the convolutional denoising network. Since residual networks are memory intensive, we train the network on a different dataset [DIV2K] which is smaller and test the network on our validation set :[CBSD]. The DIV2K dataset consists of 800 very high resolution images.
+In this experiment we implement the residual network connections in the convolutional denoising network. Since residual networks are memory intensive, we train the network on a different dataset [DIV2K] which is smaller and test the network on our validation set : [CBSD]. The DIV2K[7] dataset consists of 800 very high resolution images.
 
 ## Residual networks
 
@@ -235,17 +235,17 @@ Average PSNR on CBSD68 dataset for all experiments:
 
 **Sigma** | **Experiment 1**| **Experiment 2**| **Experiment 3(Vanilla PCA)**|**Experiment 4**
 ---|---|---|---|---
-10 | 28.26->**33.33**| |28.26->**26.46**  | |
-25| 20.48->**29.45** | |20.48->**22.93** | |
-50| 14.97->**25.67** | |14.97->**18.60** | |
+10 | 28.26->**33.33**| 28.26 -> **30.29**| 28.26->**26.46**  | |
+25| 20.48->**29.45** | 20.48 -> **25.9**| 20.48->**22.93** | |
+50| 14.97->**25.67** | 14.97 -> **22.8**| 14.97->**18.60** | |
 
 Average SSIM on CBSD68 dataset for all experiments:
 
 **Sigma** | **Experiment 1**| **Experiment 2**| **Experiment 3(Vanilla PCA)**|**Experiment 4**
 ---|---|---|---|---
-10 | 0.75->**0.93** | |0.75->**0.9** | |
-25| 0.45->**0.85**. | |0.45->**0.72** | |
-50|  0.25->**0.71** | |0.25->**0.46** | |
+10 | 0.75->**0.93** | 0.75 -> **0.937**| 0.75->**0.9** | |
+25| 0.45->**0.85**. | 0.45 -> **0.85**| 0.45->**0.72** | |
+50|  0.25->**0.71** | 0.25 -> **0.78**| 0.25->**0.46** | |
 
 ## Qualitative Results (from all approaches/experiments):
 
@@ -254,7 +254,7 @@ Average SSIM on CBSD68 dataset for all experiments:
 |<img src="assets/original_png/0064.png" width="300" height = "150"/> | <img src="assets/noisy50/0064.png" width="300" height = "150"/> |
 | *NA* | *PSNR=14.91, SSIM=0.31*|
 | **Experiment 1 denoised output** | **Ramesh output** |
-|<img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>|
+|<img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>| <img src="assets/deep_resnet/50/0.jpg" width="300" height = "150"/>|
 | *PSNR = 24.25, SSIM = 0.73*  | *PSNR=??, SSIM=??* |
 | **Vanilla PCA Denoised output** | **Varun output** |
 |<img src="assets/vanilla_pca/noise50/0064_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> |
@@ -266,7 +266,7 @@ Average SSIM on CBSD68 dataset for all experiments:
 |<img src="assets/original_png/0047.png" width="150" height = "300"/> | <img src="assets/noisy25/0047.png" width="150" height = "300"/> |
 | *NA* | *PSNR=20.19, SSIM=0.21*|
 | **Experiment 1 denoised output** | **Ramesh output** |
-|<img src="assets/dn_resnet_150/25/5.jpg" width="150" height = "300"/>| <img src="assets/dn_resnet_150/25/5.jpg" width="150" height = "300"/>|
+|<img src="assets/dn_resnet_150/25/5.jpg" width="150" height = "300"/>| <img src="assets/deep_resnet/25/5.jpg" width="150" height = "300"/>|
 | *PSNR = 32.78, SSIM = 0.84*  | *PSNR=??, SSIM=??* |
 | **Vanilla PCA Denoised output** | **Varun output** |
 |<img src="assets/vanilla_pca/noise25/0047_denoised.png" width="150" height = "300"/>| <img src="assets/dn_resnet_150/25/5.jpg" width="150" height = "300"/> |
@@ -278,7 +278,7 @@ Average SSIM on CBSD68 dataset for all experiments:
 |<img src="assets/original_png/0011.png" width="300" height = "150"/> | <img src="assets/noisy10/0011.png" width="300" height = "150"/> |
 | *NA* | *PSNR=28.12, SSIM=0.61*|
 | **DN Resnet Denoised output** | **Ramesh output** |
-|<img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/>| <img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/>|
+|<img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/>| <img src="assets/deep_resnet/10/8.jpg" width="300" height = "150"/>|
 | *PSNR = 35.41, SSIM = 0.94*  | *PSNR=??, SSIM=??* |
 | **Vanilla PCA Denoised output** | **Varun output** |
 |<img src="assets/vanilla_pca/noise10/0011_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/> |
@@ -294,4 +294,4 @@ Average SSIM on CBSD68 dataset for all experiments:
 4.  pytorch/pytorch. Retrieved from https://github.com/pytorch/pytorch.
 5.  lutzroeder/netron. Retrieved from https://github.com/lutzroeder/netron
 6.  Vanderplas, Jacob T. Python Data Science Handbook: Tools and Techniques for Developers. OReilly, 2016.
-
+7.  DIV2K dataset: DIVerse 2K resolution high quality images as used for the challenges
