@@ -236,7 +236,7 @@ In this approach a pixel and pixels spaitially local to it make a single feature
 - One is to reduce the distance between the point and projected point
 - Second is to increase the variance in the principle component direction
 
-<img src="assets/lgp_pca/doc/LPG_PCA_pipeline.png" width="400" height = "200"/>
+<img src="assets/lgp_pca/doc/LPG_PCA_feature.png" width="400" height = "200"/>
 This picture illustrates the pixel to be denoised, freature vector and training block.
 
 <img src="assets/lgp_pca/doc/LPG_PCA_pipeline.png" width="450" height = "150"/>
