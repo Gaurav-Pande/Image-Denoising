@@ -477,7 +477,7 @@ Average SSIM on CBSD68 dataset for all experiments:
 
 <h2 id="conclusion">Conclusion</h2>
 
-<p>In this project we conducted different experiments for superevised and unsupervised machine learning algorithms for image denoising. We began with vanilla PCA to understand how high variance pixels are retained in the image giving us the intuition for removal of noised pixels components. We saw how various techniques like DnResNet, Localised PCA gives better results with good psnr values.</p>
+<p>In this project we conducted different experiments for superevised and unsupervised machine learning algorithms for image denoising. We began with vanilla PCA to understand how high variance pixels are retained in the image giving us the intuition for removal of noised pixels components. We saw how various techniques like DnResNet, LPG PCA gives better results with good psnr values.</p>
 
 <h2 id="references">References:</h2>
 
