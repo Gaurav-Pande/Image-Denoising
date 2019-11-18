@@ -1,14 +1,22 @@
 # Image-Denoising
 
 ### Background
-Image noise is a random change in a pixel hue or saturation value of a pixel in an image. There can be multiple sources of image noise. Noise can get introduced inherently at a different stage of image capture pipeline from light variation, camera optics, image sensor to image storage.
+Image noise is random variation of brightness or color information in images. There can be multiple sources of image noise. Noise can get introduced inherently at a different stage of image capture pipeline from light variation, camera optics, image sensor to image storage.
 
 ### The Problem
 One of the fundamental challenges in the field of Image processing and Computer vision is Image denoising, where the goal is to estimate the original image by suppressing noise from the contaminated region in an Image. Image Denoising has numerous applications, such as:
 * digitization and restoration of old photos/documents.
 * satellite imagery, etc
 
-This project aims to extract a clean image Ix from the noisy image Iy, with noisy component as In, which is explained by Iy=Ix+In.
+Also Image denoising is useful as a preprocessing step for several computer vision tasks where obtaining the original image content is crucial for strong performance:
+* visual tracking
+* image segementation
+* object detection
+* image classification
+
+This project aims to extract a clean image <img src="https://latex.codecogs.com/gif.latex?%24I_%7Bx%7D%24" /> from the noisy image <img src="https://latex.codecogs.com/gif.latex?%24I_%7By%7D%24" />, with noisy component as <img src="https://latex.codecogs.com/gif.latex?%24I_%7Bn%7D%24" />, which is explained by 
+
+<img src="https://latex.codecogs.com/gif.latex?%24I_%7By%7D%3DI_%7Bx%7D&plus;I_%7Bn%7D%24" />.
 
 ### Problem Scope
 We are limiting the problem scope to tackle additive guassian white noise(AGWN) only and will demonstrate how supervised and unsupervised techniques could be used to denoise images with AGWN.
@@ -32,68 +40,76 @@ The difference with respect to other techniques mentioned previously such as MSE
 
 <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/63349f3ee17e396915f6c25221ae488c3bb54b66" />
 
-### Data 
+### Data
 
-### Approaches
-#### Supervised
-##### Sateesh
+As we have multiple approaches and experiments, we have chosen a common dataset CBSD68 [3] to analyze results. The CBSD68 dataset is a dataset commonly used for benchmarking in Image denoising domain. It contains 68 images and corresponding noisy images at different sigma levels.  
 
+Note that as this dataset has quite less no. of samples, for supervised learning approach we have also used other datasets for training. We have explored other datasets for unsupervised approach as well as mentioned below.
 
-## Approach 2
+#### Supervised:
+* PASCAL dataset [2]
+* <to be added by Ramesh>
+ 
+#### Unsupervised:
+* Digits dataset from scikit learn.
+* RGB images from CBSD68 dataset for PCA decomposition.
 
-In this approach, we have used supervised learning to learn the clean image given a noisy image. The function approximator chosen is a neural network comprising of convolutional and residual blocks, as shown []. 
+## Supervised:
 
-## Experiment 
+In this approach, we have used supervised learning to learn the clean image given a noisy image. The function approximator chosen is a neural network comprising of convolutional and residual blocks, as shown in figure below. Two experiments were conducted, one with pure convolutional layers and the other with mix of convolutional and residual block as detailed below.
 
-Two datasets were used in this experiment [PASCAL] and [CBSD]. The PASCAl training data contains approximately () images. This dataset is split into training, valid and test datasets with (),() and () respectively. As shown in (), the architecture takes an Input image, and then it is passed through convolutional layers having 64 filters of 9x9 kernel size, 32 filters of 5x5 kernel size, and 1 filter of 5x5 filter size respectively. Relu activations are used in all the layers. Stride used is of size 1, so the output size is reduced by 8 pixels in all directions. To accommodate this, we can either pad the image or give a larger input size. We chose to go with the latter as chosen in []. So the input image size used is  33x33 and output size is 17x17. So as input images have varied dimensions in PASCAL dataset(or other datasets), during preprocessing, we have cropped the images. Note that crop can be at random part of the image. So, this acts as data augmentation technique as well. The 33x33 input image should have noise as well. The added noise is random from 10-50.
+### Experiment 1: DnResNet
 
-##### architecture
+The code is available [here](https://colab.research.google.com/drive/1ViNx_b5FlwXjzjIqRuYkdNsgF6ZExqRk) and [here](https://colab.research.google.com/drive/1-LJ12r-DJXY3HI0hzVIom2r9RpCdL8Gd).
 
- <img src="https://drive.google.com/uc?export=view&id=1e1CNawerSWRO6VuyaDZwvvmqQ3-zFBZB" width="425" height = "700"/> <img src="https://drive.google.com/uc?export=view&id=1QXtY1UzQ3NPQJbD6wGcGBFkEELuc4uE6" width="425" height = "600"/> 
+##### Datasets
 
-##### Training network: 
+Two datasets were used in this experiment PASCAL VOC 2010 [2] and CBSD68. The PASCAl training data contains approximately 10k images. This dataset is split into training, valid and test datasets with ratios 80, 10 and 10 respectively. The CBSD68 is used for testing purpose only, in this experiment.
 
-Pytorch is used to write the code, and network is trained in google colab [] using GPU's. 
-Training is done batchwise using 128 batches of 33*33 noisy input images. MSE loss and Adam optimzer were used with learning rate of 0.001. Using the clean target image of 17x17, the MSE loss is calculated from the networks output image. Training is done for 100 epochs at this configuration. As loss got stagnated here we reduced learning rate to 0.0001 and trained another 50 epochs. After this, we added a residual block to the network and initialized its weights to random weights, with other layers weights unchanged. This network is trained for another 50 epochs with learning rate 0.01. We have stopped training at this point due to longer training periods (50 epochs approximately took 2 hours), even though it been shown in [], that adding more residual blocks will improve the PSNR scores further. At all stages of training, validation loss (as shown) is calculated and monitored as well to see if the network is generalizing to unseen data.
+##### Architecture
 
-## loss curves.
+As shown in the figure below, the architecture takes an Input image, and then it is passed through convolutional layers having 64 filters of 9x9 kernel size, 32 filters of 5x5 kernel size, and 1 filter of 5x5 filter size respectively. Relu activations are used in all the layers. Stride used is of size 1, so the output size is reduced by 8 pixels in all directions. To accommodate this, we can either pad the image or give a larger input size. we chose to go with the latter as chosen in [1]. 
+
+ <img src="https://drive.google.com/uc?export=view&id=1e1CNawerSWRO6VuyaDZwvvmqQ3-zFBZB" width="425" height = "700"/> <img src="assets/architecture/Screen Shot 2019-11-17 at 4.46.55 PM.png" width="425" height = "700"/> 
+ 
+ <center> Figure 1. Network architectures used in (left) Experiment 1 and (right) Experiment 2. The graph is generated using the Netron app [5] </center>
+ 
+ 
+##### Data Augmentation/Pre-processing
+
+The input image size used is of size 33x33 and output size is 17x17. As input images have varied dimensions in PASCAL dataset(or other datasets), during preprocessing, we have cropped the images. Note that crop can be at random part of the image. So, this acts as data augmentation technique as well. The 33x33 input image should have noise as well. The added noise is random from 10-50 sigmas. The corresponding clean mid-portion of this image is target.
+
+##### Training: 
+
+Pytorch [4] is used to write the code, and network is trained in google colab using GPU's. Training is done batchwise using 128 batches of 33x33 noisy input images and 17x17 corresponding clean target images. MSE loss and Adam optimzer were used with learning rate of 0.001. Using the clean target image of 17x17, the MSE loss is calculated from the networks output image. Training is done for 100 epochs at this configuration. As loss got stagnated here we reduced learning rate to 0.0001 and trained another 50 epochs. After this, we added a residual block to the network and initialized its weights to random weights, with other layers weights unchanged. This network is trained for another 50 epochs with learning rate 0.01. We have stopped training at this point due to longer training periods (50 epochs approximately took 2 hours), even though it been shown in [1], that adding more residual blocks will improve the PSNR scores further. At all stages of training, validation loss is calculated and monitored as well to see if the network is generalizing to unseen data.
+
+Note, to experiment further with residual blocks, experiment 2 is performed, which will be detailed below.
+
+##### Traning and validation loss graph:
 
  ![image](https://drive.google.com/uc?export=view&id=1tEq0Vf-vPjtD-smrQXUVQ9Vc0-qc2qJo) 
  
-## Results and Observations
+##### Results and observations:
 
 The average PSNR scores and SSIM scores on the test set of PASCAL, for the best model was given below. Note that best model is 3 layered, as 5 layered one couldn't be trained completely due to computing constraints. Input crop size of 200 was used to show the results instead of 33. Also, left value in the column indicates average PSNR compared with noisy input, while the right bolded one indicates the average PSNR with the denoised output. Similar case with SSIM.
 
 **Sigma** | **PSNR **| **SSIM**
 ---|---|---
 10 | 28.33->**31.92** | 0.73->**0.90** 
-20| 20.63->**28.94**| 0.44->**0.83**
+25| 20.63->**28.94**| 0.44->**0.83**
 50| 15.13->**25.66** | 0.24->**0.70**
 50(crop 33)|15.16->**26.77**|0.22->**0.69**
 
-The same model is tested on the CBSD dataset [], Average PSNR and SSIM score are as follows, 
+The same model is tested on the CBSD dataset, Average PSNR and SSIM score are as follows, 
 
 **Sigma** | **PSNR **| **SSIM**
 ---|---|---
 10 | 28.26->**33.33** | 0.75->**0.93** 
-20| 20.48->**29.45**| 0.45->**0.85**
+25| 20.48->**29.45**| 0.45->**0.85**
 50| 14.97->**25.67** | 0.25->**0.71**
 50(crop 33)|15.04->**26.68**|0.23->**0.69**
 
-The above results indicate the **model is generalising well** to other datasets having similar noise as AWGN. Also, the net PSNR achieved is a bit a lower than from the paper's [] best, as we are only using 3 layers for training.
-
-Results on selected images. <done>
-
-| **Original** | **Nosiy Input with sigma=50** |
-|:--:| :--:|
-|<img src="assets/original_png/0064.png" width="300" height = "150"/> | <img src="assets/noisy50/0064.png" width="300" height = "150"/> |
-| *NA* | *PSNR=14.91, SSIM=0.31*|
-| **DN Resnet Denoised output** | **Ramesh output** |
-|<img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>|
-| *PSNR = 24.25, SSIM = 0.73*  | *PSNR=??, SSIM=??* |
-| **Vanilla PCA Denoised output** | **Varun output** |
-|<img src="assets/vanilla_pca/noise50/64_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> |
-| *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
+The above results indicate the **model is generalising well** to other datasets having similar noise as AWGN. Also, the net PSNR achieved is a bit a lower than from the paper's [1] best, as we are only using 3 layers for training.
 
 ## Approach 3
 
@@ -136,25 +152,23 @@ We obtain the results as documented in the tables below. We obtain reasonable im
 
 Another novelty that we applied is passing the denoised image back into the model for further refinement, we observe that the PSNR values get a slight reduction but the SSIM score improves by about 0.1 (especially with larger noise ranges). This approach is similar to our PCA approach with iterative application.
 
-#### Unsupervised
+## Unsupervised
 
-##### Vanilla PCA
-
-[TODO]:  add link to the notebook, check if PCA can be done componentwise and add result here, and review.
+### Experiment 3: Vanilla PCA
 
 Principal component analysis is an orthogonal transformation that seeks the direction of maximum variance in the data and commonly used in dimensionality reduction of the data. Data with maximum variance contains most of the data needed to present the whole dataset. In image denoising, one has to take care of the compromise between noisy data and preserving the high variance image data detail. We can start by looking into the PCA analysis to see how PCA inherently tries to reduce the noise in an image.
 
 The basic intuition behind denoising the image is that any components with variance much larger than the effect of the noise should be relatively unaffected by the noise. So if you reconstruct the data using just the most significant subset of principal components, you should be preferentially keeping the signal and throwing out the noise. Though this is not an efficient approach(we will look at better approach through modified PCA in the next section), we can examine how a plain vanilla PCA can improve the PSNR(peak signal to noise ration) over an image.
 
 We tried the plain vanilla PCA method in the mnist digit data set, and then in the RGB images. The approach is:
-* Take the Mnist dataset
+* Take the Digits dataset
 * Add some random Gaussian noise to the image
 * Plot the variance vs Component curve to determine the component storing the highest variation.
 * Apply inverse PCA to get the image back using the components derived in the above step.
 * Visualize the dataset again to see the difference.
 
 Before PCA transformation the digit dataset looks like this:
-![Mnist data before denoising](assets/vanilla_pca/mnist_digit_before.png)
+![Digits data before denoising](assets/vanilla_pca/mnist_digit_before.png)
 
 After this we add some random Gaussian noise to it, to make pixels more blurr and add some noise to it.
 After adding random gaussian noise, the digit dataset looks like this:
@@ -179,17 +193,25 @@ The method remains the same:
 * Do inverse PCA transform to retrieve the same image using the component derived in the above step.
 * Calculate the PSNR value for original, noisy image and original, denoised image and see if there is an improvement.
 
-We ran the above process for the CBSD68-dataset provided by Berkeley. It contains both noisy and original image with different gaussian noise level.
-Here below, you can see the original image and then denoise image. 
-[Image]
+We ran the above process for the CBSD68-dataset provided by Berkeley. It contains both noisy and original image with different gaussian noise level.In the below figures there is comparison which is been made to see how the psnr value and how smim values improves after doing PCA decomposition in a noisy image, but the **limitation** of vanilla PCA is that it is not necessary that it will reduce the noise always, but it always captures the data with higher variance. To make the point consider the result on a original and noisy and its denoised part below:
 
-We plotted the psnr graphs for all the noisy datasets and from the figure below you can observe that when there is no
-noise or very less gaussian noise than it is hard for the PCA to denoise the data, but when you started increasing the noise in the image(upto 50 gaussian noise), you can observe that psnr value improves for all images.
+| | | |
+|:--:| :--:| :--:|
+| **Original Image** | **Noisy Image-50**| **Denoised Image-50**|
+| <img src="assets/vanilla_pca/noise50/0064_original.png" width="300" height = "150"/>|<img src="assets/vanilla_pca/noise50/0064_noisy.png" width="300" height = "150"/> | <img src="assets/vanilla_pca/noise50/0064_denoised.png" width="300" height = "150"/>|
+
+
+You can observe from above that the results are not that good but there is an improvement in the psnr and smim values, because the denoised part tries to capture the pixels with higher variance. That is why most part of the image in denoised is a bit brown as that is the prominent color in our original image as well.
 
 | | |
 |:--:| :--:|
 | **Gaussian Noise level-50** | **Gaussian Noise level-25**|
 | <img src="assets/vanilla_pca/noise_50_psnr.png " width="300" height = "150"/> | <img src="assets/vanilla_pca/noise_25_psnr.png " width="300" height = "150"/>|
+| *PSNR comparison accross images* | *PSNR comparison accross images* 
+| <img src="assets/vanilla_pca/noise_50_smim.png " width="300" height = "150"/> | <img src="assets/vanilla_pca/noise_25_smim.png " width="300" height = "150"/>|
+| *SMIM comparison accross images*  | *SMIM comparison accross images* |
+
+To rerun the experiment, please clone this repository and run PCA.ipynb notebook under notebooks directory.
 
 <!--
 **Gaussian Noise level-5**
@@ -205,4 +227,71 @@ noise or very less gaussian noise than it is hard for the PCA to denoise the dat
 
 
 ##### locally adaptive PCA
+
+## Results comparison across approaches:
+<other approach values to be addded here>
+
+Average PSNR on CBSD68 dataset for all experiments:
+
+**Sigma** | **Experiment 1**| **Experiment 2**| **Experiment 3(Vanilla PCA)**|**Experiment 4**
+---|---|---|---|---
+10 | 28.26->**33.33**| |28.26->**26.46**  | |
+25| 20.48->**29.45** | |20.48->**22.93** | |
+50| 14.97->**25.67** | |14.97->**18.60** | |
+
+Average SSIM on CBSD68 dataset for all experiments:
+
+**Sigma** | **Experiment 1**| **Experiment 2**| **Experiment 3(Vanilla PCA)**|**Experiment 4**
+---|---|---|---|---
+10 | 0.75->**0.93** | |0.75->**0.9** | |
+25| 0.45->**0.85**. | |0.45->**0.72** | |
+50|  0.25->**0.71** | |0.25->**0.46** | |
+
+## Qualitative Results (from all approaches/experiments):
+
+| **Original** | **Nosiy Input with sigma=50** |
+|:--:| :--:|
+|<img src="assets/original_png/0064.png" width="300" height = "150"/> | <img src="assets/noisy50/0064.png" width="300" height = "150"/> |
+| *NA* | *PSNR=14.91, SSIM=0.31*|
+| **Experiment 1 denoised output** | **Ramesh output** |
+|<img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/>|
+| *PSNR = 24.25, SSIM = 0.73*  | *PSNR=??, SSIM=??* |
+| **Vanilla PCA Denoised output** | **Varun output** |
+|<img src="assets/vanilla_pca/noise50/0064_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> |
+| *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
+
+
+| **Original** | **Nosiy Input with sigma=25** |
+|:--:| :--:|
+|<img src="assets/original_png/0047.png" width="150" height = "300"/> | <img src="assets/noisy25/0047.png" width="150" height = "300"/> |
+| *NA* | *PSNR=20.19, SSIM=0.21*|
+| **Experiment 1 denoised output** | **Ramesh output** |
+|<img src="assets/dn_resnet_150/25/5.jpg" width="150" height = "300"/>| <img src="assets/dn_resnet_150/25/5.jpg" width="150" height = "300"/>|
+| *PSNR = 32.78, SSIM = 0.84*  | *PSNR=??, SSIM=??* |
+| **Vanilla PCA Denoised output** | **Varun output** |
+|<img src="assets/vanilla_pca/noise25/0047_denoised.png" width="150" height = "300"/>| <img src="assets/dn_resnet_150/25/5.jpg" width="150" height = "300"/> |
+| *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
+
+
+| **Original** | **Nosiy Input with sigma=10** |
+|:--:| :--:|
+|<img src="assets/original_png/0011.png" width="300" height = "150"/> | <img src="assets/noisy10/0011.png" width="300" height = "150"/> |
+| *NA* | *PSNR=28.12, SSIM=0.61*|
+| **DN Resnet Denoised output** | **Ramesh output** |
+|<img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/>| <img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/>|
+| *PSNR = 35.41, SSIM = 0.94*  | *PSNR=??, SSIM=??* |
+| **Vanilla PCA Denoised output** | **Varun output** |
+|<img src="assets/vanilla_pca/noise10/0011_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/> |
+| *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
+
+
+
+## References:
+
+1. Ren, H., El-Khamy, M., & Lee, J. (2019). DN-ResNet: Efficient Deep Residual Network for Image Denoising. Computer Vision – ACCV 2018 Lecture Notes in Computer Science, 215–230. doi: 10.1007/978-3-030-20873-8_14
+2. pascal-voc-2010. (n.d.). The {PASCAL} {V}Isual {O}Bject {C}Lasses {C}Hallenge 2010 {(VOC2010)} {R}Esults. Retrieved from http://www.pascal-network.org/challenges/VOC/voc2010/workshop/index.html
+3. Clausmichele. (n.d.). clausmichele/CBSD68-dataset. Retrieved from https://github.com/clausmichele/CBSD68-dataset.
+4.  pytorch/pytorch. Retrieved from https://github.com/pytorch/pytorch.
+5.  lutzroeder/netron. Retrieved from https://github.com/lutzroeder/netron
+6.  Vanderplas, Jacob T. Python Data Science Handbook: Tools and Techniques for Developers. OReilly, 2016.
 
