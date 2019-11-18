@@ -253,7 +253,7 @@ We ran the above process for the CBSD68-dataset provided by Berkeley. It contain
 |                                                                                      |                                                                                   |                                                                                      |
 | :----------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------: |
 |                                  **Original Image**                                  |                                **Noisy Image-50**                                 |                                **Denoised Image-50**                                 |
-| <img src="assets/vanilla_pca/noise50/0064_original.png" width="300" height = "150"/> | <img src="assets/vanilla_pca/noise50/0064_noisy.png" width="300" height = "150"/> | <img src="assets/vanilla_pca/noise50/0064_denoised.png" width="300" height = "150"/> |
+| <img src="assets/original_png/0064.png" width="300" height = "150"/> | <img src="assets/noisy50/0064.png" width="300" height = "150"/> | <img src="assets/vanilla_pca/noise50/0064_denoised.png" width="300" height = "150"/> |
 
 </center>
 
@@ -543,7 +543,7 @@ Average SSIM on CBSD68 dataset for all experiments:
 
 <h2 id="conclusion">Conclusion</h2>
 
-<p>In this project we conducted different experiments for superevised and unsupervised machine learning algorithms for image denoising. We began with vanilla PCA to understand how high variance pixels are retained in the image giving us the intuition for removal of noised pixels components. We saw how various techniques like DnResNet, Localised PCA gives better results with good psnr values.</p>
+<p>In this project we conducted different experiments for superevised and unsupervised machine learning algorithms for image denoising. We began with vanilla PCA to understand how high variance pixels are retained in the image giving us the intuition for removal of noised pixels components. We saw how various techniques like DnResNet, LPG PCA gives better results with good psnr values.</p>
 
 <h2 id="references">References:</h2>
 
