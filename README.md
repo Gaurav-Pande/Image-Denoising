@@ -297,7 +297,9 @@ Average SSIM on CBSD68 dataset for all experiments:
 |<img src="assets/vanilla_pca/noise10/0011_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/10/8.jpg" width="300" height = "150"/> |
 | *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
 
+## Conclusion
 
+In this project we conducted different experiments for superevised and unsupervised machine learning algorithms for image denoising. We began with vanilla PCA to understand how high variance pixels are retained in the image giving us the intuition for removal of noised pixels components. We saw how various techniques like DnResNet, Localised PCA gives better results with good psnr values.
 
 ## References:
 
