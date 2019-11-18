@@ -52,7 +52,7 @@ The PSNR (in dB) is defined as:
 
 ### SSIM
 
-The difference with respect to other techniques mentioned previously such as MSE or PSNR is that these approaches estimate absolute errors; on the other hand, SSIM is a perception-based model that considers image degradation as perceived change in structural information, while also incorporating important perceptual phenomena, including both luminance masking and contrast masking terms. Structural information is the idea that the pixels have strong inter-dependencies, especially when they are spatially close. These dependencies carry essential information about the structure of the objects in the visual scene. Luminance masking is a phenomenon whereby image distortions (in this context) tend to be less visible in bright regions, while contrast masking is a phenomenon whereby distortions become less visible where there is a significant activity or "texture" in the image.
+The difference with respect to other techniques mentioned previously such as MSE or PSNR is that these approaches estimate absolute errors; on the other hand, SSIM[9] is a perception-based model that considers image degradation as perceived change in structural information, while also incorporating important perceptual phenomena, including both luminance masking and contrast masking terms. Structural information is the idea that the pixels have strong inter-dependencies, especially when they are spatially close. These dependencies carry essential information about the structure of the objects in the visual scene. Luminance masking is a phenomenon whereby image distortions (in this context) tend to be less visible in bright regions, while contrast masking is a phenomenon whereby distortions become less visible where there is a significant activity or "texture" in the image.
 
 <center>
 
@@ -393,6 +393,8 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 
 ## Experiment4 (Local Pixel Grouping - Principle Component Analysis)
 
+The code is available [here](https://github.com/Gaurav-Pande/Image-Denoising/blob/master/notebooks/Image_denoising_LPGPCA.ipynb).
+
 ##### Approach
 
 This approach uses principal component analysis (PCA) with local pixel grouping (LPG) to do image denoising. This approach is based on the general observation that energy of a signal will concentrate on a small subset of PCA transformed dataset, while the energy of noise will evenly spread over the whole dataset. Each pixel is vectorised such that local structure information is preserved in it. Local pixel grouping, implemented by block matching method, is done over nearby pixels to select samples that are similar. PCA applied on these samples, will eliminate noise.
@@ -674,6 +676,7 @@ Following are limitations for this approach:
 <li>Zhang, L., Dong, W., Zhang, D., &amp; Shi, G. (2010). Two-stage image denoising by principal component analysis with local pixel grouping. Pattern Recognition, 43(4), 1531–1549. doi: 10.1016/j.patcog.2009.09.023</li>
 
 <li>DIV2K dataset: DIVerse 2K resolution high quality images as used for the challenges</li>
+<li> https://en.wikipedia.org/wiki/Structural_similarity </li>
 </ol>
 
 <h4 id="contributions">Contributions</h4>
