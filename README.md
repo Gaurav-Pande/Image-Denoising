@@ -226,15 +226,14 @@ figure, we can see that first 10 components can capture 80 percent of the varian
 
 </center>
 
-
 Next, we try to plot the digit data for our noisy image using the first 10 components, and we can see that
 it PCA preserves the signals and loses the noise from the data:
 
 <center>
 
 ![Denoised data](assets/vanilla_pca/mnist_denoised.png)
-</center>
 
+</center>
 
 Let's run the same experiment in a RGB image to see if there is an improvement in PSNR after PCA analysis.
 The method remains the same:
@@ -249,11 +248,27 @@ We ran the above process for the CBSD68-dataset provided by Berkeley. It contain
 
 <center>
 
-
-|                                                                                      |                                                                                   |                                                                                      |
-| :----------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------: |
-|                                  **Original Image**                                  |                                **Noisy Image-50**                                 |                                **Denoised Image-50**                                 |
-| <img src="assets/original_png/0064.png" width="300" height = "150"/> | <img src="assets/noisy50/0064.png" width="300" height = "150"/> | <img src="assets/vanilla_pca/noise50/0064_denoised.png" width="300" height = "150"/> |
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Original Image</strong></td>
+<td style="text-align: center;"><strong>Noisy Image-50</strong></td>
+<td style="text-align: center;"><strong>Denoised Image-50</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><img src="assets/original_png/0064.png" width="300" height = "150"/></td>
+<td style="text-align: center;"><img src="assets/noisy50/0064.png" width="300" height = "150"/></td>
+<td style="text-align: center;"><img src="assets/vanilla_pca/noise50/0064_denoised.png" width="300" height = "150"/></td>
+</tr>
+</tbody>
+</table>
 
 </center>
 
@@ -261,13 +276,36 @@ You can observe from above that the results are not that good but there is an im
 
 <center>
 
-|                                                                               |                                                                               |
-| :---------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
-|                          **Gaussian Noise level-50**                          |                          **Gaussian Noise level-25**                          |
-| <img src="assets/vanilla_pca/noise_50_psnr.png " width="300" height = "150"/> | <img src="assets/vanilla_pca/noise_25_psnr.png " width="300" height = "150"/> |
-|                       _PSNR comparison accross images_                        |                       _PSNR comparison accross images_                        |
-| <img src="assets/vanilla_pca/noise_50_smim.png " width="300" height = "150"/> | <img src="assets/vanilla_pca/noise_25_smim.png " width="300" height = "150"/> |
-|                       _SMIM comparison accross images_                        |                       _SMIM comparison accross images_                        |
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Gaussian Noise level-50</strong></td>
+<td style="text-align: center;"><strong>Gaussian Noise level-25</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><img src="assets/vanilla_pca/noise_50_psnr.png " width="300" height = "150"/></td>
+<td style="text-align: center;"><img src="assets/vanilla_pca/noise_25_psnr.png " width="300" height = "150"/></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>PSNR comparison accross images</em></td>
+<td style="text-align: center;"><em>PSNR comparison accross images</em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><img src="assets/vanilla_pca/noise_50_smim.png " width="300" height = "150"/></td>
+<td style="text-align: center;"><img src="assets/vanilla_pca/noise_25_smim.png " width="300" height = "150"/></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em>SMIM comparison accross images</em></td>
+<td style="text-align: center;"><em>SMIM comparison accross images</em></td>
+</tr>
+</tbody>
+</table>
 
 </center>
 
@@ -298,9 +336,7 @@ In this approach a pixel and pixels spaitially local to it make a single feature
 - One is to reduce the distance between the point and projected point
 - Second is to increase the variance in the principle component direction
 
-
 Following picture illustrates the pixel to be denoised, freature vector and training block.
-
 
 <center>
 <img src="assets/lgp_pca/doc/LPG_PCA_feature.png" width="400" height = "200"/>
@@ -313,7 +349,9 @@ Following is the 2-stage pipeline using LPG-PCA:
 </center>
 
 #### Limitations
+
 Following are limitations for this approach:
+
 - This approach expects an estimated noise level for better perforance. So, it may be required to fine tune the algorithm
   parameters for any new system.
 - This approach is compute intensive as it tries to do pixel processing for denoising each pixel.
@@ -323,7 +361,6 @@ Following are limitations for this approach:
 <other approach values to be addded here>
 
 Average PSNR on CBSD68 dataset for all experiments:
-
 
 <center>
 <table>
@@ -361,7 +398,6 @@ Average PSNR on CBSD68 dataset for all experiments:
 </tbody>
 </table>
 </center>
-
 
 Average SSIM on CBSD68 dataset for all experiments:
 
@@ -403,7 +439,6 @@ Average SSIM on CBSD68 dataset for all experiments:
 </center>
 
 ## Qualitative Results (from all approaches/experiments):
-
 
 <center>
 <table>
@@ -451,6 +486,7 @@ Average SSIM on CBSD68 dataset for all experiments:
 </center>
 
 <center>
+
 <table style="text-align:center;">
 <thead>
 <tr>
@@ -493,9 +529,11 @@ Average SSIM on CBSD68 dataset for all experiments:
 </tr>
 </tbody>
 </table>
+
 </center>
 
 <center>
+
 <table>
 <thead>
 <tr>
@@ -538,8 +576,8 @@ Average SSIM on CBSD68 dataset for all experiments:
 </tr>
 </tbody>
 </table>
-</center>
 
+</center>
 
 <h2 id="conclusion">Conclusion</h2>
 
