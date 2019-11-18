@@ -242,11 +242,19 @@ In this approach a pixel and pixels spaitially local to it make a single feature
 - One is to reduce the distance between the point and projected point
 - Second is to increase the variance in the principle component direction
 
+
+Following picture illustrates the pixel to be denoised, freature vector and training block.
 <img src="assets/lgp_pca/doc/LPG_PCA_feature.png" width="400" height = "200"/>
 
-This picture illustrates the pixel to be denoised, freature vector and training block.
 
+Followig is the 2-stage pipeline using LPG-PCA:
 <img src="assets/lgp_pca/doc/LPG_PCA_pipeline.png" width="600" height = "200"/>
+
+#### Limitations
+Following are limitations for this approach:
+- This approach expects an estimated noise level for better perforance. So, it may be required to fine tune the algorithm
+  parameters for any new system.
+- This approach is compute intensive as it tries to do pixel processing for denoising each pixel.
 
 ## Results comparison across approaches:
 
@@ -354,7 +362,7 @@ Average SSIM on CBSD68 dataset for all experiments:
 </tr>
 <tr>
 <td style="text-align: center;"><em>PSNR=19.15, SSIM=0.58</em></td>
-<td style="text-align: center;"><em>PSNR=??, SSIM=??</em></td>
+<td style="text-align: center;"><em>PSNR=27.8, SSIM=0.75</em></td>
 </tr>
 </tbody>
 </table>
@@ -397,7 +405,7 @@ Average SSIM on CBSD68 dataset for all experiments:
 </tr>
 <tr>
 <td style="text-align: center;"><em>PSNR=19.15, SSIM=0.58</em></td>
-<td style="text-align: center;"><em>PSNR=??, SSIM=??</em></td>
+<td style="text-align: center;"><em>PSNR=34.89, SSIM=0.96</em></td>
 </tr>
 </tbody>
 </table>
@@ -420,9 +428,8 @@ In this project we conducted different experiments for superevised and unsupervi
 #### Contributions
 
 All members of the project have contributed equally in discussions, project formulation, Report generation. For individual learning, each member focused on the following:
-
-- Sai Sateesh Gudapati : Deep CNNs, Report
-- Ramesh Arvind Ravi: Deep ResNets, Report
-- Varun Dagar: LPG_PCA, Report
-- Gaurav Pande: Vanilla PCA, Report
-- Sri Vivek Vanga: Vanilla PCA, LPG_PCA, Report
+* Sai Sateesh Gudapati : Literature Survey, Deep CNNs, Report
+* Ramesh Arvind Ravi: Literature Survey, Deep ResNets, Report
+* Varun Dagar: Literature Survey, LPG_PCA, Report
+* Gaurav Pande: Literature Survey, Vanilla PCA, Report
+* Sri Vivek Vanga: Literature Survey, Vanilla PCA, LPG_PCA, Report
