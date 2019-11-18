@@ -76,11 +76,11 @@ Note that as this dataset has quite less no. of samples, for supervised learning
 - Digits dataset from scikit learn.
 - RGB images from CBSD68 dataset for PCA decomposition.
 
-## Approach1(Supervised)
+## Approach 1 (Supervised)
 
 In this approach, we have used supervised learning to learn the clean image given a noisy image. The function approximator chosen is a neural network comprising of convolutional and residual blocks, as shown in figure below. Two experiments were conducted, one with pure convolutional layers and the other with mix of convolutional and residual block as detailed below.
 
-## Experiment1(Deep CNNs)
+## Experiment 1 (Deep CNNs)
 
 The code is available [here](https://colab.research.google.com/drive/1ViNx_b5FlwXjzjIqRuYkdNsgF6ZExqRk) and [here](https://colab.research.google.com/drive/1-LJ12r-DJXY3HI0hzVIom2r9RpCdL8Gd).
 
@@ -197,7 +197,7 @@ The same model is tested on the CBSD dataset, Average PSNR and SSIM score are as
 
 The above results indicate the **model is generalising well** to other datasets having similar noise as AWGN. Also, the net PSNR achieved is a bit a lower than from the paper's [1] best, as we are only using 3 layers for training.
 
-## Experiment2 (Deep ResNets)
+## Experiment 2 (Deep ResNets)
 
 In this experiment we implement the residual network connections in the convolutional denoising network. Since residual networks are memory intensive, we train the network on a different dataset [DIV2K] which is smaller and test the network on our validation set : [CBSD]. The DIV2K[8] dataset consists of 800 very high resolution images.
 
@@ -245,10 +245,10 @@ Following are limitations for supervised approaches:
 - High training computational requirements.
 - For low sigma values, aritifacts are introduced at bright spot regions of image.
 
-## Approach2 (Unsupervised)
+## Approach 2 (Unsupervised)
 In this approach we used unsupervised learning techniques to solve the problem of image denoising.There are 2 experiments here as follows:
 
-## Experiment3 (Vanilla PCA)
+## Experiment 3 (Vanilla PCA)
 
 Principal component analysis is an orthogonal transformation that seeks the direction of maximum variance in the data and commonly used in dimensionality reduction of the data. Data with maximum variance contains most of the data needed to present the whole dataset. In image denoising, one has to take care of the compromise between noisy data and preserving the high variance image data detail. We can start by looking into the PCA analysis to see how PCA inherently tries to reduce the noise in an image.
 
