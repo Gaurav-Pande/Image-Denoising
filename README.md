@@ -95,9 +95,49 @@ Results on selected images. <done>
 |<img src="assets/vanilla_pca/noise50/64_denoised.png" width="300" height = "150"/>| <img src="assets/dn_resnet_150/50/0.jpg" width="300" height = "150"/> |
 | *PSNR=19.15, SSIM=0.58* | *PSNR=??, SSIM=??* |
 
+## Approach 3
 
+In this experiment we implement the residual network connections in the convolutional denoising network. Since residual networks are memory intensive, we train the network on a different dataset [DIV2K] which is smaller and test the network on our validation set :[CBSD]. The DIV2K dataset consists of 800 very high resolution images.
+
+## Residual networks
+
+It is known that very deep neural networks have very high representational power, but comes very difficult to train compared to shallow networks. This can be attributed the vanishing gradients during backpropagation i.e very little information / learning is happening in the first few layers of the network. This is fixed by creating residual connections between layers. These residual connections allow gradients to flow directly to the earlier layers thus enabling more efficient learning. Essentially the network formed by these residual connections is comparable to a shallow network present within the deeper network. Thus we retain the generalizing power of shallow network.
+
+## Dataset
+
+We use a pytorch dataloader for setting up the data pipeline, we extract random 128x128 crops of the images as the input image.
+We randomly flip it horizontally and vertically as our data augmentation steps. 
+Then we add gaussian noise to the this image and consider that as our noisy image.
+We return this pair of original and noisy image as the training input to our network.
+We set the batch size to 8 as it is the maximum allowable size by the constraints of our GPU.
+
+### Architecture
+
+We use 8 convolutional layers with a skip connection between every convolutional layer and the output of the layer following it. These skip connections allow us to train a much deeper network. The network learns to output the noise component of the image i.e it learns to separate the noise from the ground truth image. So to obtain the denoised image, we subtract the output of our model from the noisy image.
+
+### Implementation and Hyperparameters
+
+Each convolutional layer consists of 64 filters, kernel size of 3, stride of 1 and padding of 1. This combination allows the layer to preserve the size of the input image after the forward pass, allowing us to arbitrarily stack these layers (as needed for resnet architectures). We use RELU activation function after each convolutional layer.
+We also disable the bias components of the layers, this reduced the amount of artifacts present in the output image after denoising.
+For optimization we use the ADAM optimizer with learning rate of 0.001 and train the network for 5 epochs. 
+In order to improve convergence, we also use learning rate scheduler to reduce learning rate by factor of 10 if there is no improvement for 3 epochs.
+
+### Results and Observations
+
+<p align="middle">
+  <img src="assets\deep_resnet\loss_vs_iterations_sigma_25.jpg" width="200" />
+  <img src="assets\deep_resnet\psnr_vs_iterations_sigma_25.jpg" width="200" /> 
+  <img src="assets\deep_resnet\ssim_vs_iterations_sigma_25.jpg" width="200" />
+</p>
+
+During evaluation, we apply the network on the whole image as the convolutional operations can be applied on any image size.
+
+We obtain the results as documented in the tables below. We obtain reasonable improvements to PSNR (25.6) and SSIM scores. We get PSNR results comparable to our other models. We notice that the training / validation loss are very close which implies that there is possiblility of more improvement which can be explored with more compute resources.
+
+Another novelty that we applied is passing the denoised image back into the model for further refinement, we observe that the PSNR values get a slight reduction but the SSIM score improves by about 0.1 (especially with larger noise ranges). This approach is similar to our PCA approach with iterative application.
 
 #### Unsupervised
+
 ##### Vanilla PCA
 
 [TODO]:  add link to the notebook, check if PCA can be done componentwise and add result here, and review.
