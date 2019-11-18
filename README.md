@@ -475,9 +475,12 @@ Average SSIM on CBSD68 dataset for all experiments:
 
 
 
+
+
 ## Conclusion
 
 In this project we conducted different experiments for superevised and unsupervised machine learning algorithms for image denoising. We began with vanilla PCA to understand how high variance pixels are retained in the image giving us the intuition for removal of noised pixels components. We saw how various techniques like DnResNet, Localised PCA gives better results with good psnr values.
+
 
 ## References:
 
@@ -489,6 +492,7 @@ In this project we conducted different experiments for superevised and unsupervi
 6. Vanderplas, Jacob T. Python Data Science Handbook: Tools and Techniques for Developers. OReilly, 2016.
 7. Zhang, L., Dong, W., Zhang, D., & Shi, G. (2010). Two-stage image denoising by principal component analysis with local pixel grouping. Pattern Recognition, 43(4), 1531–1549. doi: 10.1016/j.patcog.2009.09.023
 8. DIV2K dataset: DIVerse 2K resolution high quality images as used for the challenges
+
 
 #### Contributions
 
