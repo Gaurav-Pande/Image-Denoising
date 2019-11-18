@@ -54,11 +54,11 @@ Note that as this dataset has quite less no. of samples, for supervised learning
 * Digits dataset from scikit learn.
 * RGB images from CBSD68 dataset for PCA decomposition.
 
-## Approach 1 (Supervised):
+## Supervised:
 
 In this approach, we have used supervised learning to learn the clean image given a noisy image. The function approximator chosen is a neural network comprising of convolutional and residual blocks, as shown in figure below. Two experiments were conducted, one with pure convolutional layers and the other with mix of convolutional and residual block as detailed below.
 
-## Experiment 1
+### Experiment 1: DnResNet
 
 The code is available [here](https://colab.research.google.com/drive/1ViNx_b5FlwXjzjIqRuYkdNsgF6ZExqRk) and [here](https://colab.research.google.com/drive/1-LJ12r-DJXY3HI0hzVIom2r9RpCdL8Gd).
 
@@ -96,7 +96,7 @@ The average PSNR scores and SSIM scores on the test set of PASCAL, for the best 
 **Sigma** | **PSNR **| **SSIM**
 ---|---|---
 10 | 28.33->**31.92** | 0.73->**0.90** 
-20| 20.63->**28.94**| 0.44->**0.83**
+25| 20.63->**28.94**| 0.44->**0.83**
 50| 15.13->**25.66** | 0.24->**0.70**
 50(crop 33)|15.16->**26.77**|0.22->**0.69**
 
@@ -105,7 +105,7 @@ The same model is tested on the CBSD dataset, Average PSNR and SSIM score are as
 **Sigma** | **PSNR **| **SSIM**
 ---|---|---
 10 | 28.26->**33.33** | 0.75->**0.93** 
-20| 20.48->**29.45**| 0.45->**0.85**
+25| 20.48->**29.45**| 0.45->**0.85**
 50| 14.97->**25.67** | 0.25->**0.71**
 50(crop 33)|15.04->**26.68**|0.23->**0.69**
 
@@ -113,8 +113,9 @@ The above results indicate the **model is generalising well** to other datasets 
 
 
 
-#### Unsupervised
-##### Vanilla PCA
+## Unsupervised
+
+### Experiment 3: Vanilla PCA
 
 Principal component analysis is an orthogonal transformation that seeks the direction of maximum variance in the data and commonly used in dimensionality reduction of the data. Data with maximum variance contains most of the data needed to present the whole dataset. In image denoising, one has to take care of the compromise between noisy data and preserving the high variance image data detail. We can start by looking into the PCA analysis to see how PCA inherently tries to reduce the noise in an image.
 
@@ -193,7 +194,7 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 
 Average PSNR on CBSD68 dataset for all experiments:
 
-**Sigma** | **Experiment 1**| **Experiment 2**| **Experiment 3**|**Experiment 4**
+**Sigma** | **Experiment 1**| **Experiment 2**| **Experiment 3(Vanilla PCA)**|**Experiment 4**
 ---|---|---|---|---
 10 | 28.26->**33.33**| |28.26->**26.46**  | |
 25| 20.48->**29.45** | |20.48->**22.93** | |
@@ -201,7 +202,7 @@ Average PSNR on CBSD68 dataset for all experiments:
 
 Average SSIM on CBSD68 dataset for all experiments:
 
-**Sigma** | **Experiment 1**| **Experiment 2**| **Experiment 3**|**Experiment 4**
+**Sigma** | **Experiment 1**| **Experiment 2**| **Experiment 3(Vanilla PCA)**|**Experiment 4**
 ---|---|---|---|---
 10 | 0.75->**0.93** | |0.75->**0.9** | |
 25| 0.45->**0.85**. | |0.45->**0.72** | |
