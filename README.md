@@ -391,7 +391,7 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 ![Gaussian noise 35](assets/vanilla_pca/noise_35_psnr.png "Gaussian Noise level-35")
 -->
 
-## Experiment4 (Local Pixel Grouping - Principle Component Analysis)
+## Experiment 4 (Local Pixel Grouping - Principle Component Analysis)
 
 The code is available [here](https://github.com/Gaurav-Pande/Image-Denoising/blob/master/notebooks/Image_denoising_LPGPCA.ipynb).
 
@@ -402,9 +402,10 @@ It is evident with experiments that this approach can be iteratively applied wit
 
 Following picture illustrates the pixel to be denoised, feature vector and training block.
 Details of Featurisation:
-1) Given a pixel, a window of K X K is taken centered around that pixel and flattened out to generate a vector.
-2) A larger window of L X L is taken surrounding the previous window and pixels in this L X L windows are vectorised as mentioned in step 1 to generate a set of sample.
-3) From the sample generated, we apply local pixel grouping to select samples that are similar to the central K X K block from step 1.
+
+1. Given a pixel, a window of K X K is taken centered around that pixel and flattened out to generate a vector.
+2. A larger window of L X L is taken surrounding the previous window and pixels in this L X L windows are vectorised as mentioned in step 1 to generates a set of sample.
+3. From the sample generated, we apply local pixel grouping to select samples that are similar to the central K X K block from step 1.
 
 <center>
 <img src="assets/lgp_pca/doc/LPG_PCA_feature.png" width="400" height = "200"/>
