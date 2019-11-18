@@ -205,7 +205,7 @@ We ran the above process for the CBSD68-dataset provided by Berkeley. It contain
 |                                                                                      |                                                                                   |                                                                                      |
 | :----------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------: |
 |                                  **Original Image**                                  |                                **Noisy Image-50**                                 |                                **Denoised Image-50**                                 |
-| <img src="assets/vanilla_pca/noise50/0064_original.png" width="300" height = "150"/> | <img src="assets/vanilla_pca/noise50/0064_noisy.png" width="300" height = "150"/> | <img src="assets/vanilla_pca/noise50/0064_denoised.png" width="300" height = "150"/> |
+| <img src="assets/original_png/0064.png" width="300" height = "150"/> | <img src="assets/noisy50/0064.png" width="300" height = "150"/> | <img src="assets/vanilla_pca/noise50/0064_denoised.png" width="300" height = "150"/> |
 
 You can observe from above that the results are not that good but there is an improvement in the psnr and smim values, because the denoised part tries to capture the pixels with higher variance. That is why most part of the image in denoised is a bit brown as that is the prominent color in our original image as well.
 
