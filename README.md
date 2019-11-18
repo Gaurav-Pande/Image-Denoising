@@ -471,6 +471,8 @@ Average SSIM on CBSD68 dataset for all experiments:
 </tbody>
 </table>
 
+
+
 ## Conclusion
 
 In this project we conducted different experiments for superevised and unsupervised machine learning algorithms for image denoising. We began with vanilla PCA to understand how high variance pixels are retained in the image giving us the intuition for removal of noised pixels components. We saw how various techniques like DnResNet, Localised PCA gives better results with good psnr values.
@@ -478,10 +480,10 @@ In this project we conducted different experiments for superevised and unsupervi
 ## References:
 
 1. Ren, H., El-Khamy, M., & Lee, J. (2019). DN-ResNet: Efficient Deep Residual Network for Image Denoising. Computer Vision – ACCV 2018 Lecture Notes in Computer Science, 215–230. doi: 10.1007/978-3-030-20873-8_14
-2. pascal-voc-2010. (n.d.). The {PASCAL} {V}Isual {O}Bject {C}Lasses {C}Hallenge 2010 {(VOC2010)} {R}Esults. Retrieved from http://www.pascal-network.org/challenges/VOC/voc2010/workshop/index.html
-3. Clausmichele. (n.d.). clausmichele/CBSD68-dataset. Retrieved from https://github.com/clausmichele/CBSD68-dataset.
-4. pytorch/pytorch. Retrieved from https://github.com/pytorch/pytorch.
-5. lutzroeder/netron. Retrieved from https://github.com/lutzroeder/netron
+2. pascal-voc-2010. (n.d.). The {PASCAL} {V}Isual {O}Bject {C}Lasses {C}Hallenge 2010 {(VOC2010)} {R}Esults. Retrieved from [here](http://www.pascal-network.org/challenges/VOC/voc2010/workshop/index.html)
+3. Clausmichele. (n.d.). clausmichele/CBSD68-dataset. Retrieved from [here](https://github.com/clausmichele/CBSD68-dataset).
+4. pytorch/pytorch. Retrieved from [here](https://github.com/pytorch/pytorch).
+5. lutzroeder/netron. Retrieved from [here](https://github.com/lutzroeder/netron)
 6. Vanderplas, Jacob T. Python Data Science Handbook: Tools and Techniques for Developers. OReilly, 2016.
 7. Zhang, L., Dong, W., Zhang, D., & Shi, G. (2010). Two-stage image denoising by principal component analysis with local pixel grouping. Pattern Recognition, 43(4), 1531–1549. doi: 10.1016/j.patcog.2009.09.023
 8. DIV2K dataset: DIVerse 2K resolution high quality images as used for the challenges
