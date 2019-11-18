@@ -311,3 +311,11 @@ In this project we conducted different experiments for superevised and unsupervi
 7. Zhang, L., Dong, W., Zhang, D., & Shi, G. (2010). Two-stage image denoising by principal component analysis with local pixel grouping. Pattern Recognition, 43(4), 1531–1549. doi: 10.1016/j.patcog.2009.09.023
 8. DIV2K dataset: DIVerse 2K resolution high quality images as used for the challenges
 
+#### Contributions
+
+All members of the project have contributed equally in discussions, project formulation, Report generation. For individual learning, each member focused on the following:
+* Sai Sateesh Gudapati : Deep CNNs, Report
+* Ramesh Arvind Ravi: Deep ResNets, Report
+* Varun Dagar: LPG_PCA, Report
+* Gaurav Pande: Vanilla PCA, Report
+* Sri Vivek Vanga: Vanilla PCA, LPG_PCA, Report
