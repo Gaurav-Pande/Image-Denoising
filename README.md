@@ -117,6 +117,10 @@ Note, to experiment further with residual blocks, experiment 2 is performed, whi
 
 </center>
 
+## What is new in our approach?
+
+During training we add random amount of noise to the images instead of a fixed sigma. This model generalized well to all sigmas from 10-50 during evaluation. 
+
 ### Results and observations:
 
 The average PSNR scores and SSIM scores on the test set of PASCAL, for the best model was given below. Note that best model is 3 layered, as 5 layered one couldn't be trained completely due to computing constraints. Input crop size of 200 was used to show the results instead of 33. Also, left value in the column indicates average PSNR compared with noisy input, while the right bolded one indicates the average PSNR with the denoised output. Similar case with SSIM.
@@ -235,6 +239,8 @@ In order to improve convergence, we also use learning rate scheduler to reduce l
 During evaluation, we apply the network on the whole image as the convolutional operations can be applied on any image size.
 
 We obtain the results as documented in the tables below. We obtain reasonable improvements to PSNR (25.6) and SSIM scores (0.85). We get PSNR results comparable to our other models. We notice that the training / validation loss are very close which implies that there is possiblility of more improvement which can be explored with more compute resources.
+
+## What is new in our approach?
 
 Another novelty that we applied is passing the denoised image back into the model for further refinement, we observe that the PSNR values get a slight reduction but the SSIM score improves by about 0.1 (especially with larger noise ranges). This approach is similar to our PCA approach with iterative application.
 
