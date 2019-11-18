@@ -32,7 +32,7 @@ We are limiting the problem scope to tackle additive guassian white noise(AGWN) 
 
 ## Metrics
 
-##### PSNR(Peak Signal-to-Noise Ratio)
+### PSNR(Peak Signal-to-Noise Ratio)
 
 PSNR, is an engineering term for the ratio between the maximum possible power of a signal and the power of corrupting noise that affects the fidelity of its representation. PSNR is most easily defined via the mean squared error (MSE). Given a noise-free m×n monochrome image I and its noisy approximation K, MSE is defined as:
 
@@ -50,7 +50,7 @@ The PSNR (in dB) is defined as:
 
 </center>
 
-##### SSIM
+### SSIM
 
 The difference with respect to other techniques mentioned previously such as MSE or PSNR is that these approaches estimate absolute errors; on the other hand, SSIM is a perception-based model that considers image degradation as perceived change in structural information, while also incorporating important perceptual phenomena, including both luminance masking and contrast masking terms. Structural information is the idea that the pixels have strong inter-dependencies, especially when they are spatially close. These dependencies carry essential information about the structure of the objects in the visual scene. Luminance masking is a phenomenon whereby image distortions (in this context) tend to be less visible in bright regions, while contrast masking is a phenomenon whereby distortions become less visible where there is a significant activity or "texture" in the image.
 
@@ -66,12 +66,12 @@ As we have multiple approaches and experiments, we have chosen a common dataset 
 
 Note that as this dataset has quite less no. of samples, for supervised learning approach we have also used other datasets for training. We have explored other datasets for unsupervised approach as well as mentioned below.
 
-##### Supervised:
+### Supervised:
 
 - PASCAL dataset [2]
 - DIV2K dataset [8]
 
-##### Unsupervised
+### Unsupervised
 
 - Digits dataset from scikit learn.
 - RGB images from CBSD68 dataset for PCA decomposition.
@@ -84,11 +84,11 @@ In this approach, we have used supervised learning to learn the clean image give
 
 The code is available [here](https://colab.research.google.com/drive/1ViNx_b5FlwXjzjIqRuYkdNsgF6ZExqRk) and [here](https://colab.research.google.com/drive/1-LJ12r-DJXY3HI0hzVIom2r9RpCdL8Gd).
 
-##### Datasets
+### Datasets
 
 Two datasets were used in this experiment PASCAL VOC 2010 [2] and CBSD68. The PASCAl training data contains approximately 10k images. This dataset is split into training, valid and test datasets with ratios 80, 10 and 10 respectively. The CBSD68 is used for testing purpose only, in this experiment.
 
-##### Architecture
+### Architecture
 
 As shown in the figure below, the architecture takes an Input image, and then it is passed through convolutional layers having 64 filters of 9x9 kernel size, 32 filters of 5x5 kernel size, and 1 filter of 5x5 filter size respectively. Relu activations are used in all the layers. Stride used is of size 1, so the output size is reduced by 8 pixels in all directions. To accommodate this, we can either pad the image or give a larger input size. we chose to go with the latter as chosen in [1].
 
@@ -99,17 +99,17 @@ As shown in the figure below, the architecture takes an Input image, and then it
  <center> Figure 1. Network architectures used in (left) Experiment 1 and (right) Experiment 2. The graph is generated using the Netron app [5] </center>
  
  
-##### Data Augmentation/Pre-processing
+### Data Augmentation/Pre-processing
 
 The input image size used is of size 33x33 and output size is 17x17. As input images have varied dimensions in PASCAL dataset(or other datasets), during preprocessing, we have cropped the images. Note that crop can be at random part of the image. So, this acts as data augmentation technique as well. The 33x33 input image should have noise as well. The added noise is random from 10-50 sigmas. The corresponding clean mid-portion of this image is target.
 
-##### Training:
+### Training:
 
 Pytorch [4] is used to write the code, and network is trained in google colab using GPU's. Training is done batchwise using 128 batches of 33x33 noisy input images and 17x17 corresponding clean target images. MSE loss and Adam optimzer were used with learning rate of 0.001. Using the clean target image of 17x17, the MSE loss is calculated from the networks output image. Training is done for 100 epochs at this configuration. As loss got stagnated here we reduced learning rate to 0.0001 and trained another 50 epochs. After this, we added a residual block to the network and initialized its weights to random weights, with other layers weights unchanged. This network is trained for another 50 epochs with learning rate 0.01. We have stopped training at this point due to longer training periods (50 epochs approximately took 2 hours), even though it been shown in [1], that adding more residual blocks will improve the PSNR scores further. At all stages of training, validation loss is calculated and monitored as well to see if the network is generalizing to unseen data.
 
 Note, to experiment further with residual blocks, experiment 2 is performed, which will be detailed below.
 
-##### Traning and validation loss graph:
+### Traning and validation loss graph:
 
 <center>
 
@@ -117,7 +117,7 @@ Note, to experiment further with residual blocks, experiment 2 is performed, whi
 
 </center>
 
-##### Results and observations:
+### Results and observations:
 
 The average PSNR scores and SSIM scores on the test set of PASCAL, for the best model was given below. Note that best model is 3 layered, as 5 layered one couldn't be trained completely due to computing constraints. Input crop size of 200 was used to show the results instead of 33. Also, left value in the column indicates average PSNR compared with noisy input, while the right bolded one indicates the average PSNR with the denoised output. Similar case with SSIM.
 
@@ -201,11 +201,11 @@ The above results indicate the **model is generalising well** to other datasets 
 
 In this experiment we implement the residual network connections in the convolutional denoising network. Since residual networks are memory intensive, we train the network on a different dataset [DIV2K] which is smaller and test the network on our validation set : [CBSD]. The DIV2K[8] dataset consists of 800 very high resolution images.
 
-##### Residual networks
+### Residual networks
 
 It is known that very deep neural networks have very high representational power, but comes very difficult to train compared to shallow networks. This can be attributed the vanishing gradients during backpropagation i.e very little information / learning is happening in the first few layers of the network. This is fixed by creating residual connections between layers. These residual connections allow gradients to flow directly to the earlier layers thus enabling more efficient learning. Essentially the network formed by these residual connections is comparable to a shallow network present within the deeper network. Thus we retain the generalizing power of shallow network.
 
-##### Dataset
+### Dataset
 
 We use a pytorch dataloader for setting up the data pipeline, we extract random 128x128 crops of the images as the input image.
 We randomly flip it horizontally and vertically as our data augmentation steps.
@@ -213,18 +213,18 @@ Then we add gaussian noise to the this image and consider that as our noisy imag
 We return this pair of original and noisy image as the training input to our network.
 We set the batch size to 8 as it is the maximum allowable size by the constraints of our GPU.
 
-##### Architecture
+### Architecture
 
 We use 8 convolutional layers with a skip connection between every convolutional layer and the output of the layer following it. These skip connections allow us to train a much deeper network. The network learns to output the noise component of the image i.e it learns to separate the noise from the ground truth image. So to obtain the denoised image, we subtract the output of our model from the noisy image.
 
-##### Implementation and Hyperparameters
+### Implementation and Hyperparameters
 
 Each convolutional layer consists of 64 filters, kernel size of 3, stride of 1 and padding of 1. This combination allows the layer to preserve the size of the input image after the forward pass, allowing us to arbitrarily stack these layers (as needed for resnet architectures). We use RELU activation function after each convolutional layer.
 We also disable the bias components of the layers, this reduced the amount of artifacts present in the output image after denoising.
 For optimization we use the ADAM optimizer with learning rate of 0.001 and train the network for 5 epochs.
 In order to improve convergence, we also use learning rate scheduler to reduce learning rate by factor of 10 if there is no improvement for 3 epochs.
 
-##### Results and Observations
+### Results and Observations
 
 <p align="middle">
   <img src="assets\deep_resnet\loss_vs_iterations_sigma_25.jpg" width="400" />
@@ -379,12 +379,12 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 
 ## Experiment4 (Local Pixel Grouping - Principle Component Analysis)
 
-##### Approach
+### Approach
 
 This approach uses principal component analysis (PCA) with local pixel grouping (LPG) to do image denoising. It ensures that the image local features are well preserved after PCA transfromation but the noise components is removed. Each pixels and its nearest neighbours are modeled as vector variables and training samples are selected from local window using block matching based local pixel grouping.
 It is evident with experiments that this approach can be iteratively applied with appropriate adaptive noise parameter tuning to improve the denoising performance.
 
-##### Intuition
+### Intuition
 
 In this approach a pixel and pixels spaitially local to it make a single feature vector. If two pixels which are next to each other are to be considered, then it is almost right to assume that pixels will have almost same values in ideal scenario and the only variation that can be there is because of noise. So, it is right to approximate the value of the these pixels with single value which can be approximated by projecting these points into the principle components of the feature space. As we now, there are two perspective to look of PCA,
 
@@ -403,7 +403,7 @@ Following is the 2-stage pipeline using LPG-PCA:
 <img src="assets/lgp_pca/doc/LPG_PCA_pipeline.png" width="600" height = "200"/>
 </center>
 
-##### Limitations
+### Limitations
 
 Following are limitations for this approach:
 
