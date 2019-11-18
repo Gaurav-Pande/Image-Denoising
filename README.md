@@ -234,11 +234,19 @@ In this approach a pixel and pixels spaitially local to it make a single feature
 - One is to reduce the distance between the point and projected point
 - Second is to increase the variance in the principle component direction
 
+
+Following picture illustrates the pixel to be denoised, freature vector and training block.
 <img src="assets/lgp_pca/doc/LPG_PCA_feature.png" width="400" height = "200"/>
 
-This picture illustrates the pixel to be denoised, freature vector and training block.
 
+Followig is the 2-stage pipeline using LPG-PCA:
 <img src="assets/lgp_pca/doc/LPG_PCA_pipeline.png" width="600" height = "200"/>
+
+#### Limitations
+Following are limitations for this approach:
+- This approach expects an estimated noise level for better perforance. So, it may be required to fine tune the algorithm
+  parameters for any new system.
+- This approach is compute intensive as it tries to do pixel processing for denoising each pixel.
 
 ## Results comparison across approaches:
 <other approach values to be addded here>
