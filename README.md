@@ -404,7 +404,7 @@ Following picture illustrates the pixel to be denoised, feature vector and train
 Details of Featurisation:
 
 1. Given a pixel, a window of K X K is taken centered around that pixel and flattened out to generate a vector.
-2. A larger window of L X L is taken surrounding the previous window and pixels in this L X L windows are vectorised as mentioned in step 1 to generates a set of sample.
+2. A larger window of L X L is taken surrounding the previous window and pixels in this L X L windows are vectorised as mentioned in step 1 to generate a set of samples.
 3. From the sample generated, we apply local pixel grouping to select samples that are similar to the central K X K block from step 1.
 
 <center>
