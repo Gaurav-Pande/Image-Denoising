@@ -387,19 +387,16 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 
 ## Experiment4 (Local Pixel Grouping - Principle Component Analysis)
 
-### Approach
+##### Approach
 
-This approach uses principal component analysis (PCA) with local pixel grouping (LPG) to do image denoising. It ensures that the image local features are well preserved after PCA transfromation but the noise components is removed. Each pixels and its nearest neighbours are modeled as vector variables and training samples are selected from local window using block matching based local pixel grouping.
+This approach uses principal component analysis (PCA) with local pixel grouping (LPG) to do image denoising. This approach is based on the general observation that energy of a signal will concentrate on a small subset of PCA transformed dataset, while the energy of noise will evenly spread over the whole dataset. Each pixel is vectorised such that local structure information is preserved in it. Local pixel grouping, implemented by block matching method, is done over nearby pixels to select samples that are similar. PCA applied on these samples, will eliminate noise.
 It is evident with experiments that this approach can be iteratively applied with appropriate adaptive noise parameter tuning to improve the denoising performance.
 
-### Intuition
-
-In this approach a pixel and pixels spaitially local to it make a single feature vector. If two pixels which are next to each other are to be considered, then it is almost right to assume that pixels will have almost same values in ideal scenario and the only variation that can be there is because of noise. So, it is right to approximate the value of the these pixels with single value which can be approximated by projecting these points into the principle components of the feature space. As we now, there are two perspective to look of PCA,
-
-- One is to reduce the distance between the point and projected point
-- Second is to increase the variance in the principle component direction
-
-Following picture illustrates the pixel to be denoised, freature vector and training block.
+Following picture illustrates the pixel to be denoised, feature vector and training block.
+Details of Featurisation:
+1) Given a pixel, a window of K X K is taken centered around that pixel and flattened out to generate a vector.
+2) A larger window of L X L is taken surrounding the previous window and pixels in this L X L windows are vectorised as mentioned in step 1 to generate a set of sample.
+3) From the sample generated, we apply local pixel grouping to select samples that are similar to the central K X K block from step 1.
 
 <center>
 <img src="assets/lgp_pca/doc/LPG_PCA_feature.png" width="400" height = "200"/>
@@ -411,13 +408,13 @@ Following is the 2-stage pipeline using LPG-PCA:
 <img src="assets/lgp_pca/doc/LPG_PCA_pipeline.png" width="600" height = "200"/>
 </center>
 
-### Limitations
+##### Limitations
 
 Following are limitations for this approach:
 
-- This approach expects an estimated noise level for better perforance. So, it may be required to fine tune the algorithm
-  parameters for any new system.
+- This approach expects an estimated noise level as input for the algorithm. 
 - This approach is compute intensive as it tries to do pixel processing for denoising each pixel.
+
 
 ## Results comparison across approaches:
 
