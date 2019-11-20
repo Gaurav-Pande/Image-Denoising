@@ -1,4 +1,7 @@
 # Image-Denoising
+<center>
+<img src="assets/project_teser.png"/>
+</center>
 
 ## Background
 
