@@ -418,7 +418,8 @@ Following picture illustrates the pixel to be denoised, feature vector and train
 
 For this experiment K = 3, L = 7, and 250 blocks of K X K are chosen from L X L windows. 
 
-Following picture illustrates the variance across principle components for a single pixel for different noise levels:
+We explored how the variance was distributed across principle components for individual pixels for different noise levels.
+The below are the results for a typical pixel:
 
 <p align="middle">
   <img src="assets/lgp_pca/doc/bar_variance_pca_orig.jpg" width="400" />
@@ -427,7 +428,7 @@ Following picture illustrates the variance across principle components for a sin
   <img src="assets/lgp_pca/doc/bar_variance_pca_sigma_50.jpg" width="400" />
 </p>
 
-From the above plots it can be observed that energy of a signal will concentrate on a small subset of principle components, while the energy of noise will evenly spread over the whole dataset. So, based on the estimated value of sigma least significant components can be droped and image can still be reconstructed with good quality. Most of the dropped components will contain noise, so the reconstructed image will be a denoised image. But as the sigma value increase energy gets too much distributed among all the components, which makes it difficult to estimate the number of principle components to be retained for image reconstruction. 
+From the above plots it can be observed that variance of a signal will concentrate on a small subset of principle components, while the variance of noise will evenly spread over the whole dataset. So, based on the estimated value of sigma least significant components can be droped and image can still be reconstructed with good quality. Most of the dropped components will contain noise, so the reconstructed image will be a denoised image. But as the sigma value increase energy gets too much distributed among all the components, which makes it difficult to estimate the number of principle components to be retained for image reconstruction. 
 
 Following is the 2-stage pipeline using LPG-PCA:
 
@@ -435,9 +436,11 @@ Following is the 2-stage pipeline using LPG-PCA:
 <img src="assets/lgp_pca/doc/LPG_PCA_pipeline.png" width="600" height = "200"/>
 </center>
 
+This approach takes noisy image and estimated value of sigma as input.
+
 ### Results and Observations
 This approach seems to work good to do image denoising while retaining stuctural symmetry for decent amount of noise(sigma < 30). But for images with too much noise(sigma > 30), the quality of denoised output image is not good.
-It is observed that PSNR and SSIM improves around 1 and 0.1 respectively from first iteration to second iteration with this approach. 
+It is observed that PSNR and SSIM improves around 1~2 and 0.1~0.2 respectively from first iteration to second iteration with this approach. 
 
 ### Limitations
 
