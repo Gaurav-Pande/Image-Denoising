@@ -1,6 +1,6 @@
 # Image-Denoising
 <center>
-<img src="assets/project_teser.png"/>
+<img src="assets/project_teaser.png"/>
 </center>
 
 ## Background
