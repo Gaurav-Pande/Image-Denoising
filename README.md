@@ -712,7 +712,7 @@ Following are limitations for this approach:
 <li> https://en.wikipedia.org/wiki/Structural_similarity </li>
 </ol>
 
-<h3 id="contributions">Contributions</h3>
+<h2 id="contributions">Contributions</h2>
 
 <p>All members of the project have contributed equally in discussions, project formulation, Report generation. For individual learning, each member focused on the following:</p>
 
