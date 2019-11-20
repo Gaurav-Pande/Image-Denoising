@@ -483,6 +483,11 @@ Following are limitations for this approach:
 </table>
 </center>
 
+<center>
+<img src="assets/psnr_sigma.jpg"/>
+</center>
+
+
 ### Average SSIM on CBSD68 dataset for all experiments:
 
 <center>
@@ -521,6 +526,11 @@ Following are limitations for this approach:
 </tbody>
 </table>
 </center>
+
+<center>
+<img src="assets/ssim_sigma.jpg"/>
+</center>
+
 
 ## Qualitative Results (from all approaches/experiments):
 
