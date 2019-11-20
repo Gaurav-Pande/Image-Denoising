@@ -120,7 +120,7 @@ Note, to experiment further with residual blocks, experiment 2 is performed, whi
 
 </center>
 
-## What is new in our approach?
+### What is new in our approach?
 
 During training we add random amount of noise to the images instead of a fixed sigma. This model generalized well to all sigmas from 10-50 during evaluation. 
 
@@ -243,7 +243,7 @@ During evaluation, we apply the network on the whole image as the convolutional 
 
 We obtain the results as documented in the tables below. We obtain reasonable improvements to PSNR (25.6) and SSIM scores (0.85). We get PSNR results comparable to our other models. We notice that the training / validation loss are very close which implies that there is possiblility of more improvement which can be explored with more compute resources.
 
-## What is new in our approach?
+### What is new in our approach?
 
 Another novelty that we applied is passing the denoised image back into the model for further refinement, we observe that the PSNR values get a slight reduction but the SSIM score improves by about 0.1 (especially with larger noise ranges). This approach is similar to our PCA approach with iterative application.
 
@@ -416,6 +416,8 @@ Following picture illustrates the pixel to be denoised, feature vector and train
 <img src="assets/lgp_pca/doc/LPG_PCA_feature.png" width="400" height = "200"/>
 </center>
 
+For this experiment K = 3, L = 7, and 250 blocks of K X K are chosen from L X L windows. 
+
 Following picture illustrates the variance across principle components for a single pixel for different noise levels:
 
 <p align="middle">
@@ -538,7 +540,7 @@ Following are limitations for this approach:
 ## Qualitative Results (from all approaches/experiments):
 
 
-## Results with sigma = 50
+### Results with sigma = 50
 
 <center>
 
@@ -587,7 +589,7 @@ Following are limitations for this approach:
 
 </center>
 
-## Results with sigma = 25
+### Results with sigma = 25
 
 <center>
 
@@ -636,7 +638,7 @@ Following are limitations for this approach:
 
 </center>
 
-## Results with sigma = 10
+### Results with sigma = 10
 
 <center>
 
@@ -710,7 +712,7 @@ Following are limitations for this approach:
 <li> https://en.wikipedia.org/wiki/Structural_similarity </li>
 </ol>
 
-<h4 id="contributions">Contributions</h4>
+<h3 id="contributions">Contributions</h4>
 
 <p>All members of the project have contributed equally in discussions, project formulation, Report generation. For individual learning, each member focused on the following:</p>
 
