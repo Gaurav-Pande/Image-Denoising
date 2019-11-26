@@ -1,4 +1,7 @@
 # Image-Denoising
+<center>
+<img src="assets/project_teaser.png"/>
+</center>
 
 ## Background
 
@@ -117,7 +120,7 @@ Note, to experiment further with residual blocks, experiment 2 is performed, whi
 
 </center>
 
-## What is new in our approach?
+### What is new in our approach?
 
 During training we add random amount of noise to the images instead of a fixed sigma. This model generalized well to all sigmas from 10-50 during evaluation. 
 
@@ -240,7 +243,7 @@ During evaluation, we apply the network on the whole image as the convolutional 
 
 We obtain the results as documented in the tables below. We obtain reasonable improvements to PSNR (25.6) and SSIM scores (0.85). We get PSNR results comparable to our other models. We notice that the training / validation loss are very close which implies that there is possiblility of more improvement which can be explored with more compute resources.
 
-## What is new in our approach?
+### What is new in our approach?
 
 Another novelty that we applied is passing the denoised image back into the model for further refinement, we observe that the PSNR values get a slight reduction but the SSIM score improves by about 0.1 (especially with larger noise ranges). This approach is similar to our PCA approach with iterative application.
 
@@ -312,7 +315,7 @@ The method remains the same:
 - Do inverse PCA transform to retrieve the same image using the component derived in the above step.
 - Calculate the PSNR value for original, noisy image and original, denoised image and see if there is an improvement.
 
-##### Limitation
+### Limitation
 We ran the above process for the CBSD68-dataset provided by Berkeley. It contains both noisy and original image with different gaussian noise level.In the below figures there is comparison which is been made to see how the psnr value and how smim values improves after doing PCA decomposition in a noisy image, but the **limitation** of vanilla PCA is that it is not necessary that it will reduce the noise always, but it always captures the data with higher variance. To make the point consider the result on a original and noisy and its denoised part below:
 
 <center>
@@ -395,21 +398,37 @@ To rerun the experiment, please clone this repository and run PCA.ipynb notebook
 
 The code is available [here](https://github.com/Gaurav-Pande/Image-Denoising/blob/master/notebooks/Image_denoising_LPGPCA.ipynb).
 
-##### Approach
+### Approach
 
 This approach uses principal component analysis (PCA) with local pixel grouping (LPG) to do image denoising. This approach is based on the general observation that energy of a signal will concentrate on a small subset of PCA transformed dataset, while the energy of noise will evenly spread over the whole dataset. Each pixel is vectorised such that local structure information is preserved in it. Local pixel grouping, implemented by block matching method, is done over nearby pixels to select samples that are similar. PCA applied on these samples, will eliminate noise.
 It is evident with experiments that this approach can be iteratively applied with appropriate adaptive noise parameter tuning to improve the denoising performance.
 
-Following picture illustrates the pixel to be denoised, feature vector and training block.
-Details of Featurisation:
+
+Details of Featurisation based on [7]:
 
 1. Given a pixel, a window of K X K is taken centered around that pixel and flattened out to generate a vector.
 2. A larger window of L X L is taken surrounding the previous window and pixels in this L X L windows are vectorised as mentioned in step 1 to generate a set of samples.
 3. From the sample generated, we apply local pixel grouping to select samples that are similar to the central K X K block from step 1.
 
+Following picture illustrates the pixel to be denoised, feature vector and training block.
+
 <center>
 <img src="assets/lgp_pca/doc/LPG_PCA_feature.png" width="400" height = "200"/>
 </center>
+
+For this experiment K = 3, L = 7, and 250 blocks of K X K are chosen from L X L windows. 
+
+We explored how the variance was distributed across principle components for individual pixels for different noise levels.
+The below are the results for a typical pixel:
+
+<p align="middle">
+  <img src="assets/lgp_pca/doc/bar_variance_pca_orig.jpg" width="400" />
+  <img src="assets/lgp_pca/doc/bar_variance_pca_sigma_10.jpg" width="400" />
+  <img src="assets/lgp_pca/doc/bar_variance_pca_sigma_25.jpg" width="400" /> 
+  <img src="assets/lgp_pca/doc/bar_variance_pca_sigma_50.jpg" width="400" />
+</p>
+
+From the above plots it can be observed that variance of a signal will concentrate on a small subset of principle components, while the variance of noise will evenly spread over the whole dataset. So, based on the estimated value of sigma least significant components can be droped and image can still be reconstructed with good quality. Most of the dropped components will contain noise, so the reconstructed image will be a denoised image. But as the sigma value increase energy gets too much distributed among all the components, which makes it difficult to estimate the number of principle components to be retained for image reconstruction. 
 
 Following is the 2-stage pipeline using LPG-PCA:
 
@@ -417,7 +436,13 @@ Following is the 2-stage pipeline using LPG-PCA:
 <img src="assets/lgp_pca/doc/LPG_PCA_pipeline.png" width="600" height = "200"/>
 </center>
 
-##### Limitations
+This approach takes noisy image and estimated value of sigma as input.
+
+### Results and Observations
+This approach seems to work good to do image denoising while retaining stuctural symmetry for decent amount of noise(sigma < 30). But for images with too much noise(sigma > 30), the quality of denoised output image is not good.
+It is observed that PSNR and SSIM improves around 1~2 and 0.1~0.2 respectively from first iteration to second iteration with this approach. 
+
+### Limitations
 
 Following are limitations for this approach:
 
@@ -466,6 +491,11 @@ Following are limitations for this approach:
 </table>
 </center>
 
+<center>
+<img src="assets/psnr_sigma.jpg"/>
+</center>
+
+
 ### Average SSIM on CBSD68 dataset for all experiments:
 
 <center>
@@ -505,10 +535,15 @@ Following are limitations for this approach:
 </table>
 </center>
 
+<center>
+<img src="assets/ssim_sigma.jpg"/>
+</center>
+
+
 ## Qualitative Results (from all approaches/experiments):
 
 
-## Results with sigma = 50
+### Results with sigma = 50
 
 <center>
 
@@ -542,7 +577,7 @@ Following are limitations for this approach:
 </tr>
 <tr>
 <td style="text-align: center;"><strong>Vanilla PCA Denoised output</strong></td>
-<td style="text-align: center;"><strong>LPG_PCA</strong></td>
+<td style="text-align: center;"><strong>LPG-PCA Denoised output</strong></td>
 </tr>
 <tr>
 <td style="text-align: center;"><img src="assets/vanilla_pca/noise50/0064_denoised.png" width="300" height = "150"/></td>
@@ -557,7 +592,7 @@ Following are limitations for this approach:
 
 </center>
 
-## Results with sigma = 25
+### Results with sigma = 25
 
 <center>
 
@@ -590,8 +625,8 @@ Following are limitations for this approach:
 <td style="text-align: center;"><em>PSNR=29.07, SSIM=0.86</em></td>
 </tr>
 <tr>
-<td style="text-align: center;"><strong>Vanilla PCA output</strong></td>
-<td style="text-align: center;"><strong>LPG_PCA</strong></td>
+<td style="text-align: center;"><strong>Vanilla PCA Denoised output</strong></td>
+<td style="text-align: center;"><strong>LPG-PCA Denoised output</strong></td>
 </tr>
 <tr>
 <td style="text-align: center;"><img src="assets/vanilla_pca/noise25/0047_denoised.png" width="150" height = "300"/></td>
@@ -606,7 +641,7 @@ Following are limitations for this approach:
 
 </center>
 
-## Results with sigma = 10
+### Results with sigma = 10
 
 <center>
 
@@ -640,7 +675,7 @@ Following are limitations for this approach:
 </tr>
 <tr>
 <td style="text-align: center;"><strong>Vanilla PCA Denoised output</strong></td>
-<td style="text-align: center;"><strong>LPG_PCA</strong></td>
+<td style="text-align: center;"><strong>LPG-PCA Denoised output</strong></td>
 </tr>
 <tr>
 <td style="text-align: center;"><img src="assets/vanilla_pca/noise10/0011_denoised.png" width="300" height = "150"/></td>
@@ -657,7 +692,7 @@ Following are limitations for this approach:
 
 <h2 id="conclusion">Conclusion</h2>
 
-<p>In this project we conducted different experiments for superevised and unsupervised machine learning algorithms for image denoising. We began with vanilla PCA to understand how high variance pixels are retained in the image giving us the intuition for removal of noised pixels components. We saw how various techniques like DnResNet, LPG PCA gives better results with good psnr values. we also observed that high PSNR or SSIM values need not necssarily mean image looks good aessthetically. </p>
+<p>In this project we conducted different experiments for supervised and unsupervised machine learning algorithms for image denoising. We began with vanilla PCA to understand how high variance pixels are retained in the image giving us the intuition for removal of noised pixels components. We saw how various techniques like DnResNet, LPG-PCA gives better results with good PSNR values. We also observed that high PSNR or SSIM values need not necessarily mean image looks good aesthetically. </p>
 
 <h2 id="references">References:</h2>
 
@@ -680,7 +715,7 @@ Following are limitations for this approach:
 <li> https://en.wikipedia.org/wiki/Structural_similarity </li>
 </ol>
 
-<h4 id="contributions">Contributions</h4>
+<h2 id="contributions">Contributions</h2>
 
 <p>All members of the project have contributed equally in discussions, project formulation, Report generation. For individual learning, each member focused on the following:</p>
 
