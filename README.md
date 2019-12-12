@@ -714,19 +714,4 @@ Following are limitations for this approach:
 <li>DIV2K dataset: DIVerse 2K resolution high quality images as used for the challenges</li>
 <li> https://en.wikipedia.org/wiki/Structural_similarity </li>
 </ol>
-
-<h2 id="contributions">Contributions</h2>
-
-<p>All members of the project have contributed equally in discussions, project formulation, Report generation. For individual learning, each member focused on the following:</p>
-
-<ul>
-<li>Sai Sateesh Gudapati : Literature Survey, Deep CNNs, Report</li>
-
-<li>Ramesh Arvind Ravi: Literature Survey, Deep ResNets, Report</li>
-
-<li>Varun Dagar: Literature Survey, LPG_PCA, Report</li>
-
-<li>Gaurav Pande: Literature Survey, Vanilla PCA, Report</li>
-
-<li>Sri Vivek Vanga: Literature Survey, Vanilla PCA, LPG_PCA, Report</li>
 </ul>
